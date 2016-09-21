@@ -7,7 +7,7 @@
 #define IMU_SPI_READ 1
 #define IMU_SPI_WRITE 0
 
-#define IMU_INT_PIN 55
+#define IMU_INT_SET 55
 #define IMU_INT_EN  56
     #define IMU_RAW_RDY_EN 0
 #define IMU_INT_STATUS 58
@@ -31,6 +31,6 @@
 #define IMU_GYRO_ZOUT_L 72
 
 void IMU_init();
-void IMU_get_reading();
+void IMU_get_reading(void* ctx, uint8_t* save_data);
 
 #endif

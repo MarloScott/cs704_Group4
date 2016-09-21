@@ -26,6 +26,8 @@
 #include "mpu9250/mpu9250.h"
 #include "at86rf212/at86rf212.h"
 
+#include "imu.h"
+
 #define GROUP_N       4
 
 // Network configuration
@@ -128,8 +130,10 @@ int main(void)
 #endif
 
     // Initialise radio SPI
-    struct spi_ctx_s radio_spi_ctx = RADIO_SPI_DEFAULT;
+    struct spi_ctx_s radio_spi_ctx = RADIO_SPI_DEFAULT,
+                     imu_spi_ctx   = IMU_SPI_DEFAULT;
     SPI_init(&radio_spi_ctx, 0, 0);
+    SPI_init(&imu_spi_ctx, 0, 0);
 
     delay_ms(10);
 
@@ -152,14 +156,18 @@ int main(void)
     }
 #endif
 
-    uint8_t usb_text = 70;
+    uint8_t recv[6];
+    char txt_buffer[32];
+    delay_ms(2500);
     while(1) {
-        USB_print("Hi there!\n");
+        IMU_get_reading(&imu_spi_ctx, recv);
+        sprintf(txt_buffer, "%d %d %d %d %d %d\n", recv[0], recv[1], recv[2], recv[3], recv[4], recv[5]);
+        USB_print(txt_buffer);
         // Pin flashing test
         LED0_PORT->ODR ^= LED0_PIN;
-        delay_ms(10);
+        delay_ms(100);
         LED0_PORT->ODR ^= LED0_PIN;
-        delay_ms(200);
+        delay_ms(1000);
     }
 
 }
