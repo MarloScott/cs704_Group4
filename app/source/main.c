@@ -34,7 +34,7 @@
 #define CHANNEL       (2+GROUP_N)       //!< Channel for beacon use
 
 //#define BEACON_MODE
-//#define USB_SERIAL
+#define USB_SERIAL
 
 // ISR globals
 __IO uint32_t systick_count = 0;
@@ -53,6 +53,14 @@ int _write_r(struct _reent *r, int fd, const void *data, unsigned int count)
     CDC_Send_DATA((uint8_t *)data, count);
 #endif
     return 0;
+}
+
+void USB_print(char* string){
+#ifdef USB_SERIAL
+    #include "string.h"
+    uint8_t length = strlen(string);
+    CDC_Send_DATA((uint8_t *)string, length);
+#endif
 }
 
 // Systick ISR, useful for timing
@@ -144,10 +152,12 @@ int main(void)
     }
 #endif
 
+    uint8_t usb_text = 70;
     while(1) {
+        USB_print("Hi there!\n");
         // Pin flashing test
         LED0_PORT->ODR ^= LED0_PIN;
-        delay_ms(1000);
+        delay_ms(10);
         LED0_PORT->ODR ^= LED0_PIN;
         delay_ms(200);
     }
