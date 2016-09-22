@@ -57,6 +57,7 @@ int _write_r(struct _reent *r, int fd, const void *data, unsigned int count)
     return 0;
 }
 
+// Elliots USB print function, use this one
 void USB_print(char* string){
 #ifdef USB_SERIAL
     #include "string.h"
@@ -156,12 +157,20 @@ int main(void)
     }
 #endif
 
-    uint8_t recv[6];
+    // Initialising MPU9250
+    struct mpu9250_s mpu9250;
+    struct mpu9250_driver_s mpu9250_driver;
+    mpu9250_driver.spi_transfer = &imu_spi_transfer;
+    mpu9250_init(&mpu9250, &mpu9250_driver, &imu_spi_ctx);
+
+    uint16_t x,y,z;
+    int recieved_mpu_value;
     char txt_buffer[32];
     delay_ms(4000);
+
     while(1) {
-        recv[1] = IMU_init(&imu_spi_ctx);
-        sprintf(txt_buffer, "%d\n", recv[1]);
+        recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
+        sprintf(txt_buffer, "X: %d Y: %d Z: %d \n", x,y,z);
         USB_print(txt_buffer);
         // Pin flashing test
         LED0_PORT->ODR ^= LED0_PIN;
