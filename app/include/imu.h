@@ -30,7 +30,7 @@
 #define IMU_GYRO_ZOUT_H 71
 #define IMU_GYRO_ZOUT_L 72
 
-void IMU_init();
-void IMU_get_reading(void* ctx, uint8_t* save_data);
+int8_t IMU_init(void* ctx);
+void IMU_get_readings(void* ctx, uint8_t* save_data);
 
 #endif

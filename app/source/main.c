@@ -158,10 +158,10 @@ int main(void)
 
     uint8_t recv[6];
     char txt_buffer[32];
-    delay_ms(2500);
+    delay_ms(4000);
     while(1) {
-        IMU_get_reading(&imu_spi_ctx, recv);
-        sprintf(txt_buffer, "%d %d %d %d %d %d\n", recv[0], recv[1], recv[2], recv[3], recv[4], recv[5]);
+        recv[1] = IMU_init(&imu_spi_ctx);
+        sprintf(txt_buffer, "%d\n", recv[1]);
         USB_print(txt_buffer);
         // Pin flashing test
         LED0_PORT->ODR ^= LED0_PIN;
