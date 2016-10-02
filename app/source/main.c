@@ -36,7 +36,12 @@
 #define CHANNEL       (2+GROUP_N)       //!< Channel for beacon use
 
 //#define BEACON_MODE
+
 #define USB_SERIAL
+
+// IMU functs
+#define IMU_INIT_ON
+//#define IMU_TEST_ON
 
 // ISR globals
 __IO uint32_t systick_count = 0;
@@ -134,7 +139,7 @@ int main(void)
     struct spi_ctx_s radio_spi_ctx = RADIO_SPI_DEFAULT,
                      imu_spi_ctx   = IMU_SPI_DEFAULT;
     SPI_init(&radio_spi_ctx, 0, 0);
-    SPI_init(&imu_spi_ctx, 0, 0);
+    SPI_init(&imu_spi_ctx, 1, 1);
 
     delay_ms(10);
 
@@ -157,23 +162,37 @@ int main(void)
     }
 #endif
 
+#ifdef IMU_INIT_ON
     // Initialising MPU9250
     struct mpu9250_s mpu9250;
     struct mpu9250_driver_s mpu9250_driver;
     mpu9250_driver.spi_transfer = &imu_spi_transfer;
     mpu9250_init(&mpu9250, &mpu9250_driver, &imu_spi_ctx);
 
+    #ifdef IMU_TEST_ON
     uint16_t x,y,z;
     int recieved_mpu_value;
     char txt_buffer[32];
+
+    delay_ms(4000);
+    while(1) {
+        recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
+        sprintf(txt_buffer, "Test: X: %d Y: %d Z: %d \n", x,y,z);
+        USB_print(txt_buffer);
+
+        // Pin flashing test
+        LED0_PORT->ODR ^= LED0_PIN;
+        delay_ms(100);
+        LED0_PORT->ODR ^= LED0_PIN;
+        delay_ms(100);
+    }
+    #endif
+
+#endif
+
     delay_ms(4000);
 
     while(1) {
-      // nice
-        recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
-        sprintf(txt_buffer, "X: %d Y: %d Z: %d \n", x,y,z);
-        USB_print(txt_buffer);
-        // Pin flashing test
         LED0_PORT->ODR ^= LED0_PIN;
         delay_ms(100);
         LED0_PORT->ODR ^= LED0_PIN;

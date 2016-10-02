@@ -4317,6 +4317,7 @@ IMU_GYRO_YOUT_L	app/include/imu.h	29;"	d
 IMU_GYRO_ZOUT_H	app/include/imu.h	30;"	d
 IMU_GYRO_ZOUT_L	app/include/imu.h	31;"	d
 IMU_H	app/include/imu.h	2;"	d
+IMU_INIT_ON	app/source/main.c	43;"	d	file:
 IMU_INT_EN	app/include/imu.h	11;"	d
 IMU_INT_PIN	app/include/board.h	80;"	d
 IMU_INT_PORT	app/include/board.h	81;"	d
@@ -11167,7 +11168,7 @@ USB_Istr	stm32l1/source/usb/usb_istr.c	/^void USB_Istr(void)$/;"	f
 USB_LP_IRQHandler	app/source/stm32l1xx_it.c	/^void USB_LP_IRQHandler(void)$/;"	f
 USB_LP_IRQn	stm32l1/include/stm32l1xx.h	/^  USB_LP_IRQn                 = 20,     \/*!< USB Low Priority Interrupt                              *\/$/;"	e	enum:IRQn
 USB_NOT_READY	stm32l1/include/usb/usb_core.h	/^  USB_NOT_READY       \/* The process has not been finished, endpoint will be$/;"	e	enum:_RESULT
-USB_SERIAL	app/source/main.c	39;"	d	file:
+USB_SERIAL	app/source/main.c	40;"	d	file:
 USB_SIL_Init	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Init(void)$/;"	f
 USB_SIL_Read	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Read(uint8_t bEpAddr, uint8_t* pBufferPointer)$/;"	f
 USB_SIL_Write	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Write(uint8_t bEpAddr, uint8_t* pBufferPointer, uint32_t wBufferSize)$/;"	f
