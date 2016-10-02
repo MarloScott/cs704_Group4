@@ -169,6 +169,7 @@ int main(void)
     delay_ms(4000);
 
     while(1) {
+      // nice
         recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
         sprintf(txt_buffer, "X: %d Y: %d Z: %d \n", x,y,z);
         USB_print(txt_buffer);
