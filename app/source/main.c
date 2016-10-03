@@ -33,7 +33,7 @@
 // Network configuration
 #define PAN_ID        (0x0010|GROUP_N)  //!< PAN ID for beacon network
 #define ADDRESS       0x0001            //!< Master address is 0x0001, other beacons must increment this
-#define CHANNEL       (2+GROUP_N)       //!< Channel for beacon use
+#define CHANNEL       (10+GROUP_N)      //!< Channel for beacon use
 
 //#define BEACON_MODE
 
@@ -41,7 +41,7 @@
 
 // IMU functs
 #define IMU_INIT_ON
-//#define IMU_TEST_ON
+#define IMU_TEST_ON
 
 // ISR globals
 __IO uint32_t systick_count = 0;
@@ -170,13 +170,13 @@ int main(void)
     mpu9250_init(&mpu9250, &mpu9250_driver, &imu_spi_ctx);
 
     #ifdef IMU_TEST_ON
-    uint16_t x,y,z;
+    int16_t x,y,z;
     int recieved_mpu_value;
     char txt_buffer[32];
 
     delay_ms(4000);
     while(1) {
-        recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
+        recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x,&y,&z);
         sprintf(txt_buffer, "Test: X: %d Y: %d Z: %d \n", x,y,z);
         USB_print(txt_buffer);
 

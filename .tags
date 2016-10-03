@@ -4339,6 +4339,7 @@ IMU_SPI_RW_BIT	app/include/imu.h	6;"	d
 IMU_SPI_WRITE	app/include/imu.h	8;"	d
 IMU_SYNC_PIN	app/include/board.h	78;"	d
 IMU_SYNC_PORT	app/include/board.h	79;"	d
+IMU_TEST_ON	app/source/main.c	44;"	d	file:
 IMU_get_readings	app/source/imu.c	/^void IMU_get_readings(void* ctx, uint8_t* save_data){$/;"	f
 IMU_init	app/source/imu.c	/^int8_t IMU_init(void* ctx){$/;"	f
 INDEX_MASK	stm32l1/include/CMSIS/arm_math.h	299;"	d
