@@ -63,6 +63,7 @@ void USB_print(char* string){
     #include "string.h"
     uint8_t length = strlen(string);
     CDC_Send_DATA((uint8_t *)string, length);
+    delay_ms(1);
 #endif
 }
 
@@ -167,10 +168,37 @@ int main(void)
     int recieved_mpu_value;
     char txt_buffer[32];
     delay_ms(4000);
+    // ------
+
+    // Initializing RF
+    struct at86rf212_s RF_device;
+    struct at86rf212_driver_s RF_driver;
+    RF_driver.spi_transfer = &radio_spi_transfer;
+    res = at86rf212_init(&RF_device, &RF_driver, &radio_spi_ctx);
+    //at86rf212_set_channel(&RF_device, 1);
+    if (res < 0) {
+        error_flash(1, -res);
+    }
+    //at86rf212_set_state(&RF_device, 6);
+    uint8_t length;
+    uint8_t data[16];
+    at86rf212_start_rx(&RF_device);
 
     while(1) {
-        recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
-        sprintf(txt_buffer, "X: %d Y: %d Z: %d \n", x,y,z);
+        //recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
+        sprintf(txt_buffer, "start\n");
+        USB_print(txt_buffer);
+        while(at86rf212_check_rx(&RF_device)<1){
+          delay_ms(1);
+        }
+        at86rf212_get_rx(&RF_device, &length, data);
+        sprintf(txt_buffer, "length: %d \n", length);
+        USB_print(txt_buffer);
+        for(int i = 0;i<length;i++){
+          sprintf(txt_buffer, "%.2x ", data[i]);
+          USB_print(txt_buffer);
+        }
+        sprintf(txt_buffer, "\n");
         USB_print(txt_buffer);
         // Pin flashing test
         LED0_PORT->ODR ^= LED0_PIN;
