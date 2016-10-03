@@ -181,17 +181,26 @@ int main(void)
     }
     //at86rf212_set_state(&RF_device, 6);
     uint8_t length;
-    uint8_t data[16];
-    at86rf212_start_rx(&RF_device);
+    uint8_t data[18];
+    uint8_t strength[5];
+    res = at86rf212_start_rx(&RF_device);
+    if (res < 0) {
+        error_flash(1, -res);
+    }
 
     while(1) {
         //recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
         sprintf(txt_buffer, "start\n");
         USB_print(txt_buffer);
         while(at86rf212_check_rx(&RF_device)<1){
+          sprintf(txt_buffer, "start\n");
+          USB_print(txt_buffer);
           delay_ms(1);
         }
         at86rf212_get_rx(&RF_device, &length, data);
+        strength[data[7]-1] = data[16];
+        sprintf(txt_buffer, "Node1: %d,Node2: %d,Node3: %d,Node4: %d,  \n", strength[0],  strength[1], strength[2], strength[3] );
+        USB_print(txt_buffer);
         sprintf(txt_buffer, "length: %d \n", length);
         USB_print(txt_buffer);
         for(int i = 0;i<length;i++){
