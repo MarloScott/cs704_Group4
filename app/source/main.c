@@ -63,7 +63,7 @@ void USB_print(char* string){
     #include "string.h"
     uint8_t length = strlen(string);
     CDC_Send_DATA((uint8_t *)string, length);
-    delay_ms(1);
+    delay_ms(10);
 #endif
 }
 
@@ -147,7 +147,7 @@ int main(void)
         error_flash(1, -res);
     }
 
-    at86rf212_set_channel(&radio, CHANNEL);
+    //at86rf212_set_channel(&radio, CHANNEL);
 
 #ifdef BEACON_MODE
     // Master / Slave Beacon Logic
@@ -166,54 +166,49 @@ int main(void)
 
     uint16_t x,y,z;
     int recieved_mpu_value;
-    char txt_buffer[32];
+    char txt_buffer[64];
     delay_ms(4000);
-    // ------
+    sprintf(txt_buffer, "Prog START NOW\n");
+    USB_print(txt_buffer);
 
-    // Initializing RF
-    struct at86rf212_s RF_device;
-    struct at86rf212_driver_s RF_driver;
-    RF_driver.spi_transfer = &radio_spi_transfer;
-    res = at86rf212_init(&RF_device, &RF_driver, &radio_spi_ctx);
-    //at86rf212_set_channel(&RF_device, 1);
-    if (res < 0) {
-        error_flash(1, -res);
-    }
-    //at86rf212_set_state(&RF_device, 6);
     uint8_t length;
     uint8_t data[18];
-    uint8_t strength[5];
-    res = at86rf212_start_rx(&RF_device);
+    uint8_t strength[4]={0};
+    res = at86rf212_start_rx(&radio);
     if (res < 0) {
         error_flash(1, -res);
     }
 
     while(1) {
         //recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
-        sprintf(txt_buffer, "start\n");
-        USB_print(txt_buffer);
-        while(at86rf212_check_rx(&RF_device)<1){
-          sprintf(txt_buffer, "start\n");
-          USB_print(txt_buffer);
-          delay_ms(1);
+        while(at86rf212_check_rx(&radio)<1){
+            // sprintf(txt_buffer, "waiting\n");
+            // USB_print(txt_buffer);
+            delay_ms(100);
         }
-        at86rf212_get_rx(&RF_device, &length, data);
-        strength[data[7]-1] = data[16];
-        sprintf(txt_buffer, "Node1: %d,Node2: %d,Node3: %d,Node4: %d,  \n", strength[0],  strength[1], strength[2], strength[3] );
-        USB_print(txt_buffer);
-        sprintf(txt_buffer, "length: %d \n", length);
-        USB_print(txt_buffer);
-        for(int i = 0;i<length;i++){
-          sprintf(txt_buffer, "%.2x ", data[i]);
-          USB_print(txt_buffer);
+        // sprintf(txt_buffer, "proceeding\n");
+        // USB_print(txt_buffer);
+        at86rf212_get_rx(&radio, &length, data);
+        if(data[7]>0&&data[7]<5){
+            strength[data[7]-1] = data[16];
+        }else{
+            sprintf(txt_buffer, "ERROR1");
+            USB_print(txt_buffer);
         }
-        sprintf(txt_buffer, "\n");
+        sprintf(txt_buffer, "Node1: %.2d,Node2: %.2d,Node3: %.2d,Node4: %.2d\n", strength[0],  strength[1], strength[2], strength[3] );
+        USB_print(txt_buffer);
+        // sprintf(txt_buffer, "length: %d \n", length);
+        // USB_print(txt_buffer);
+        // for(int i = 0;i<length;i++){
+        //   sprintf(txt_buffer, "%.2x ", data[i]);
+        //   USB_print(txt_buffer);
+        // }
         USB_print(txt_buffer);
         // Pin flashing test
-        LED0_PORT->ODR ^= LED0_PIN;
-        delay_ms(100);
-        LED0_PORT->ODR ^= LED0_PIN;
-        delay_ms(1000);
+        // LED0_PORT->ODR ^= LED0_PIN;
+        // delay_ms(100);
+        // LED0_PORT->ODR ^= LED0_PIN;
+        // delay_ms(1000);
     }
 
 }
