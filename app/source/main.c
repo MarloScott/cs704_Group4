@@ -38,6 +38,12 @@
 //#define BEACON_MODE
 #define USB_SERIAL
 
+//MODES OF OPERATION
+//#define BECON_STRENGTHS
+//#define ACCEL_RAW
+//#define SEND_MSG
+#define RECV_MSG
+
 // ISR globals
 __IO uint32_t systick_count = 0;
 
@@ -112,6 +118,28 @@ void error_flash(int error_id, int error_code)
     }
 }
 
+void send_message(struct at86rf212_s *radio, uint8_t data)
+{
+  int res;
+  struct fifteen_four_header_s header_out = FIFTEEN_FOUR_DEFAULT_HEADER(1, 1, 1, 1);
+  data;
+
+  // Build packet
+  uint8_t packet[sizeof(struct fifteen_four_header_s) + sizeof(data)];
+  memcpy(packet, &header_out, sizeof(struct fifteen_four_header_s));
+  memcpy(packet + sizeof(struct fifteen_four_header_s), data, sizeof(data));
+
+  // Start send
+  res = at86rf212_start_tx(radio, sizeof(packet), packet);
+  if (res < 0) {
+      error_flash(9, -res);
+  }
+
+  // Await completion
+  while ((res = at86rf212_check_tx(radio)) == 0) {
+      delay_ms(1);
+  }
+}
 
 int main(void)
 {
@@ -124,19 +152,27 @@ int main(void)
     GPIO_init();
 
     // Initialise USB CDC
-#ifdef USB_SERIAL
-    Set_System();
-    Set_USBClock();
-    USB_Interrupts_Config();
-    USB_Init();
-#endif
+
+    #ifdef USB_SERIAL
+        Set_System();
+        Set_USBClock();
+        USB_Interrupts_Config();
+        USB_Init();
+    #endif
+
+    #ifdef BEACON_MODE
+        // Master / Slave Beacon Logic
+        if (ADDRESS == 0x0001) {
+            run_master(&radio, PAN_ID, ADDRESS);
+        } else {
+            run_slave(&radio, PAN_ID, ADDRESS);
+        }
+    #endif
 
     // Initialise radio SPI
-    struct spi_ctx_s radio_spi_ctx = RADIO_SPI_DEFAULT,
-                     imu_spi_ctx   = IMU_SPI_DEFAULT;
+    struct spi_ctx_s radio_spi_ctx = RADIO_SPI_DEFAULT, imu_spi_ctx   = IMU_SPI_DEFAULT;
     SPI_init(&radio_spi_ctx, 0, 0);
     SPI_init(&imu_spi_ctx, 0, 0);
-
     delay_ms(10);
 
     // Initialise radio
@@ -149,14 +185,7 @@ int main(void)
 
     //at86rf212_set_channel(&radio, CHANNEL);
 
-#ifdef BEACON_MODE
-    // Master / Slave Beacon Logic
-    if (ADDRESS == 0x0001) {
-        run_master(&radio, PAN_ID, ADDRESS);
-    } else {
-        run_slave(&radio, PAN_ID, ADDRESS);
-    }
-#endif
+
 
     // Initialising MPU9250
     struct mpu9250_s mpu9250;
@@ -180,14 +209,11 @@ int main(void)
     }
 
     while(1) {
-        //recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
+
+      #ifdef BECON_STRENGTHS
         while(at86rf212_check_rx(&radio)<1){
-            // sprintf(txt_buffer, "waiting\n");
-            // USB_print(txt_buffer);
-            delay_ms(100);
+            delay_ms(10);
         }
-        // sprintf(txt_buffer, "proceeding\n");
-        // USB_print(txt_buffer);
         at86rf212_get_rx(&radio, &length, data);
         if(data[7]>0&&data[7]<5){
             strength[data[7]-1] = data[16];
@@ -195,20 +221,33 @@ int main(void)
             sprintf(txt_buffer, "ERROR1");
             USB_print(txt_buffer);
         }
-        sprintf(txt_buffer, "Node1: %.2d,Node2: %.2d,Node3: %.2d,Node4: %.2d\n", strength[0],  strength[1], strength[2], strength[3] );
+        sprintf(txt_buffer, "Node1: [%.2d] ,Node2: [%.2d],Node3: [%.2d],Node4: [%.2d]\n", strength[0],  strength[1], strength[2], strength[3] );
         USB_print(txt_buffer);
-        // sprintf(txt_buffer, "length: %d \n", length);
-        // USB_print(txt_buffer);
-        // for(int i = 0;i<length;i++){
-        //   sprintf(txt_buffer, "%.2x ", data[i]);
-        //   USB_print(txt_buffer);
-        // }
+      #endif
+
+      #ifdef ACCEL_RAW
+        recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x,&y,&z);
+        sprintf(txt_buffer, "X: %d Y: %d Z: %d \n", x,y,z);
         USB_print(txt_buffer);
-        // Pin flashing test
-        // LED0_PORT->ODR ^= LED0_PIN;
-        // delay_ms(100);
-        // LED0_PORT->ODR ^= LED0_PIN;
-        // delay_ms(1000);
+      #endif
+
+      #ifdef SEND_MSG
+        at86rf212_set_channel(&radio, CHANNEL);
+        uint8_t test_data[] = {0xdd, 0xcc, 0xbb, 0xaa};
+        send_message(&radio,test_data);
+      #endif
+
+      #ifdef RECV_MSG
+        at86rf212_set_channel(&radio, CHANNEL);
+        while(at86rf212_check_rx(&radio)<1){
+            delay_ms(10);
+        }
+        at86rf212_get_rx(&radio, &length, data);
+        for(int i;i<length;i++){
+          sprintf(txt_buffer, "%.2x",data[i]);
+          USB_print(txt_buffer);
+        }
+      #endif
     }
 
 }
