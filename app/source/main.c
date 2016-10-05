@@ -41,8 +41,8 @@
 //MODES OF OPERATION
 //#define BECON_STRENGTHS
 //#define ACCEL_RAW
-//#define SEND_MSG
-#define RECV_MSG
+#define SEND_MSG
+//#define RECV_MSG
 
 // ISR globals
 __IO uint32_t systick_count = 0;
