@@ -12564,7 +12564,7 @@ running	modules/libmpu9250/util/source/main.cpp	/^static volatile int running = 
 sck_pin	app/include/spi.h	/^    uint32_t sck_pin;$/;"	m	struct:spi_ctx_s
 sck_port	app/include/spi.h	/^    GPIO_TypeDef* sck_port;$/;"	m	struct:spi_ctx_s
 send_beacon	app/source/beacon.c	/^void send_beacon(struct at86rf212_s *radio, uint16_t pan, uint16_t from, uint16_t to, uint8_t seq)$/;"	f
-send_message	app/source/main.c	/^void send_message(struct at86rf212_s *radio, uint8_t data)$/;"	f
+send_message	app/source/main.c	/^void send_message(struct at86rf212_s *radio, uint8_t *data)$/;"	f
 seq	app/include/fifteenfour.h	/^    uint8_t seq;            \/\/!< Sequence number$/;"	m	struct:fifteen_four_header_s
 set_accel_scale	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    int set_accel_scale(mpu9250_accel_scale_e scale) {$/;"	f	class:MPU9250::Mpu9250
 set_channel	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int set_channel(uint8_t channel)$/;"	f	class:AT86RF212::At86rf212

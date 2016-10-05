@@ -118,7 +118,7 @@ void error_flash(int error_id, int error_code)
     }
 }
 
-void send_message(struct at86rf212_s *radio, uint8_t data)
+void send_message(struct at86rf212_s *radio, uint8_t *data)
 {
   int res;
   struct fifteen_four_header_s header_out = FIFTEEN_FOUR_DEFAULT_HEADER(1, 1, 1, 1);
@@ -140,6 +140,8 @@ void send_message(struct at86rf212_s *radio, uint8_t data)
       delay_ms(1);
   }
 }
+
+
 
 int main(void)
 {
@@ -200,6 +202,8 @@ int main(void)
     sprintf(txt_buffer, "Prog START NOW\n");
     USB_print(txt_buffer);
 
+    int i;
+
     uint8_t length;
     uint8_t data[18];
     uint8_t strength[4]={0};
@@ -243,10 +247,13 @@ int main(void)
             delay_ms(10);
         }
         at86rf212_get_rx(&radio, &length, data);
-        for(int i;i<length;i++){
-          sprintf(txt_buffer, "%.2x",data[i]);
+        i = 0;
+        for(i;i<length;i++){
+          sprintf(txt_buffer, " %.2x ",data[i]);
           USB_print(txt_buffer);
         }
+        sprintf(txt_buffer, "\n",data[i]);
+        USB_print(txt_buffer);
       #endif
     }
 
