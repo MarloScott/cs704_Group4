@@ -41,8 +41,8 @@
 //MODES OF OPERATION
 //#define BECON_STRENGTHS
 //#define ACCEL_RAW
-//#define SEND_MSG
-#define RECV_MSG
+#define SEND_MSG
+//#define RECV_MSG
 
 // ISR globals
 __IO uint32_t systick_count = 0;
@@ -118,7 +118,7 @@ void error_flash(int error_id, int error_code)
     }
 }
 
-void send_message(struct at86rf212_s *radio, uint8_t data)
+void send_message(struct at86rf212_s *radio, uint8_t *data)
 {
   int res;
   struct fifteen_four_header_s header_out = FIFTEEN_FOUR_DEFAULT_HEADER(1, 1, 1, 1);
