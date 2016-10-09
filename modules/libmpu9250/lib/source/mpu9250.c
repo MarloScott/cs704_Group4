@@ -269,7 +269,31 @@ int8_t mpu9250_init(struct mpu9250_s *device, struct mpu9250_driver_s *driver, v
     }
 
     // TODO: Set default sampling rates & filters
-
+    //
+    mpu9250_update_reg(device,
+                              MPU9250_REG_CONFIG,
+                              MPU9250_ACCEL_DPLF_CFG_10Hz_DELAY_35_70MS << MPU9250_CONFIG_DLPFCFG_SHIFT,
+                              MPU9250_CONFIG_DLPFCFG_MASK);
+    // Enable Gyro Filter
+    mpu9250_update_reg(device,
+                              MPU9250_REG_GYRO_CONFIG,
+                              0x00 << MPU9250_GYRO_CONFIG_FCHOICE_B_SHIFT,
+                              MPU9250_GYRO_CONFIG_FCHOICE_B_MASK);
+    // Enable Accel Filter
+    mpu9250_update_reg(device,
+                              MPU9250_REG_ACCEL_CONFIG_2,
+                              0x00 << MPU9250_ACCEL_CONFIG_2_FCHOICE_B_SHIFT,
+                              MPU9250_ACCEL_CONFIG_2_FCHOICE_B_MASK);
+    // Config Accel Filter
+    mpu9250_update_reg(device,
+                              MPU9250_REG_ACCEL_CONFIG_2,
+                              MPU9250_ACCEL_DPLF_CFG_10Hz_DELAY_35_70MS << MPU9250_ACCEL_CONFIG_2_DLPFCFG_SHIFT,
+                              MPU9250_ACCEL_CONFIG_2_DLPFCFG_MASK);
+    // Sets Sample Rate to 100Hz
+    mpu9250_update_reg(device,
+                              MPU9250_REG_SMPLRT_DIV,
+                              0xFF,
+                              0xFF);
 
     // Enable compass
 
@@ -474,5 +498,3 @@ int mpu9250_read_compass_raw(struct mpu9250_s *device, int16_t *temp, int16_t *x
     }
     return res;
 }
-
-

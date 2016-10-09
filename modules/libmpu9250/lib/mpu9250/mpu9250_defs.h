@@ -19,6 +19,9 @@ extern "C" {
 #define MPU9250_GYRO_CONFIG_SCALE_MASK          0x18
 #define MPU9250_GYRO_CONFIG_SCALE_SHIFT         3
 
+#define MPU9250_GYRO_CONFIG_FCHOICE_B_MASK   0x03
+#define MPU9250_GYRO_CONFIG_FCHOICE_B_SHIFT  0
+
 /**
  * Gyro full scale setting
  * Configures the maximum operating range of the gyroscope
@@ -40,6 +43,15 @@ typedef enum {
 
 #define MPU9250_ACCEL_CONFIG_1_SCALE_MASK          0x18
 #define MPU9250_ACCEL_CONFIG_1_SCALE_SHIFT         3
+
+#define MPU9250_ACCEL_CONFIG_2_FCHOICE_B_MASK   0x08
+#define MPU9250_ACCEL_CONFIG_2_FCHOICE_B_SHIFT  4
+
+#define MPU9250_ACCEL_CONFIG_2_DLPFCFG_MASK     0x03
+#define MPU9250_ACCEL_CONFIG_2_DLPFCFG_SHIFT    0
+
+#define MPU9250_CONFIG_DLPFCFG_MASK     0x03
+#define MPU9250_CONFIG_DLPFCFG_SHIFT    0
 
 /**
  * Accelerometer full scale setting
@@ -117,10 +129,10 @@ typedef enum {
 #define MPU9250_PWR_MGMT_1_HRESET   (1 << 7)    //!< Power management reset flag
 
 // I2C Slave control
-#define MPU9250_I2C_SLV_CTRL_EN         (1 << 7)    //!< Enable an I2C slave 
+#define MPU9250_I2C_SLV_CTRL_EN         (1 << 7)    //!< Enable an I2C slave
 #define MPU9250_I2C_SLV_CTRL_BYTE_SW    (1 << 6)    //!< Enable byte swapping on read
 #define MPU9250_I2C_SLV_CTRL_REG_DIS    (1 << 5)    //!< Disable register setting (read/write data only)
-#define MPU9250_I2C_SLV_CTRL_GRP        (1 << 4)    //!< Data grouping. 0 for 0 & 1, 1 for 1 & 2 
+#define MPU9250_I2C_SLV_CTRL_GRP        (1 << 4)    //!< Data grouping. 0 for 0 & 1, 1 for 1 & 2
 
 #define MPU9250_I2C_SLV_CTRL_LENG_SHIFT  0       //!< Shift for slave transfer length setting
 #define MPU9250_I2C_SLV_CTRL_LENG_MASK   0x07    //!< Mask for slave transfer length setting

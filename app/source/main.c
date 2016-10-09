@@ -40,8 +40,8 @@
 
 //MODES OF OPERATION
 //#define BECON_STRENGTHS
-//#define ACCEL_RAW
-#define SEND_MSG
+#define ACCEL_RAW
+//#define SEND_MSG
 //#define RECV_MSG
 
 // ISR globals
@@ -195,9 +195,11 @@ int main(void)
     mpu9250_driver.spi_transfer = &imu_spi_transfer;
     mpu9250_init(&mpu9250, &mpu9250_driver, &imu_spi_ctx);
 
-    uint16_t x,y,z;
+    int16_t x,y,z;
+    float x1, y1, z1;
+    float testf = 10.2;
     int recieved_mpu_value;
-    char txt_buffer[64];
+    char txt_buffer[256];
     delay_ms(4000);
     sprintf(txt_buffer, "Prog START NOW\n");
     USB_print(txt_buffer);
@@ -211,6 +213,7 @@ int main(void)
     if (res < 0) {
         error_flash(1, -res);
     }
+
 
     while(1) {
 
@@ -231,7 +234,7 @@ int main(void)
 
       #ifdef ACCEL_RAW
         recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x,&y,&z);
-        sprintf(txt_buffer, "X: %d Y: %d Z: %d \n", x,y,z);
+        sprintf(txt_buffer, "RAW : X: %d Y: %d Z: %d \n", x,y,z);
         USB_print(txt_buffer);
       #endif
 
