@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+#include "../../modules/libmpu9250/lib/mpu9250/mpu9250.h"
+#include "imu_adaptor.h"
+
 #define IMU_SPI_RW_BIT 7
 #define IMU_SPI_READ 1
 #define IMU_SPI_WRITE 0

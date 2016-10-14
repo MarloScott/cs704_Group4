@@ -1,11 +1,6 @@
 
 #include "imu.h"
 
-#include <stdint.h>
-
-#include "../../modules/libmpu9250/lib/mpu9250/mpu9250.h"
-#include "imu_adaptor.h"
-
 int8_t IMU_init(void* ctx){
     struct mpu9250_s mpu9250;
 

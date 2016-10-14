@@ -39,8 +39,8 @@
 #define USB_SERIAL
 
 //MODES OF OPERATION
-//#define BECON_STRENGTHS
-#define ACCEL_RAW
+#define BECON_STRENGTHS
+//#define ACCEL_RAW
 //#define SEND_MSG
 //#define RECV_MSG
 
@@ -69,7 +69,7 @@ void USB_print(char* string){
     #include "string.h"
     uint8_t length = strlen(string);
     CDC_Send_DATA((uint8_t *)string, length);
-    delay_ms(10);
+    delay_ms(1);
 #endif
 }
 
@@ -200,7 +200,7 @@ int main(void)
     float testf = 10.2;
     int recieved_mpu_value;
     char txt_buffer[256];
-    delay_ms(4000);
+    delay_ms(2000);
     sprintf(txt_buffer, "Prog START NOW\n");
     USB_print(txt_buffer);
 
@@ -225,10 +225,10 @@ int main(void)
         if(data[7]>0&&data[7]<5){
             strength[data[7]-1] = data[16];
         }else{
-            sprintf(txt_buffer, "ERROR1");
+            sprintf(txt_buffer, "ERROR1\n");
             USB_print(txt_buffer);
         }
-        sprintf(txt_buffer, "Node1: [%.2d] ,Node2: [%.2d],Node3: [%.2d],Node4: [%.2d]\n", strength[0],  strength[1], strength[2], strength[3] );
+        sprintf(txt_buffer, "\rNode1: [%.2d], Node2: [%.2d], Node3: [%.2d], Node4: [%.2d]      ", strength[0],  strength[1], strength[2], strength[3] );
         USB_print(txt_buffer);
       #endif
 
