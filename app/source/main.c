@@ -24,6 +24,7 @@
 #include "beacon.h"
 
 #include "mpu9250/mpu9250.h"
+#include "mpu9250/mpu9250_regs.h"
 #include "at86rf212/at86rf212.h"
 
 #include "imu.h"
@@ -141,7 +142,7 @@ void send_message(struct at86rf212_s *radio, uint8_t *data)
   }
 }
 
-
+uint8_t status_data;
 
 int main(void)
 {
@@ -196,7 +197,7 @@ int main(void)
     mpu9250_init(&mpu9250, &mpu9250_driver, &imu_spi_ctx);
 
     int16_t x,y,z;
-    float x1, y1, z1;
+    int16_t x1, y1, z1;
     float testf = 10.2;
     int recieved_mpu_value;
     char txt_buffer[256];
@@ -233,8 +234,10 @@ int main(void)
       #endif
 
       #ifdef ACCEL_RAW
-        recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x,&y,&z);
-        sprintf(txt_buffer, "RAW : X: %d Y: %d Z: %d \n", x,y,z);
+        IMU_POLL_DATA_RDY(&mpu9250);
+        recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
+        recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x1,&y1,&z1);
+        sprintf(txt_buffer, "GYRO : X: %d Y: %d Z: %d ACCEl : X: %d Y: %d Z: %d \n", x,y,z,x1, y1, z1);
         USB_print(txt_buffer);
       #endif
 

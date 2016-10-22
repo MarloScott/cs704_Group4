@@ -6,23 +6,40 @@
 #include "../../modules/libmpu9250/lib/mpu9250/mpu9250.h"
 #include "imu_adaptor.h"
 
-int8_t IMU_init(void* ctx){
-    struct mpu9250_s mpu9250;
+void IMU_POLL_DATA_RDY(struct mpu9250_s *device)
+{
 
-    struct mpu9250_driver_s mpu9250_driver;
-    mpu9250_driver.spi_transfer = &imu_spi_transfer;
+  int IMU_FLAG = 0;
+  uint8_t status_data;
+  int res;
 
-    return mpu9250_init(&mpu9250, &mpu9250_driver, ctx);
+  while(IMU_FLAG==0){
+    res = mpu9250_read_reg(device, MPU9250_REG_INT_STATUS,&status_data);
+    if (res < 0) {
+        error_flash(1, -res);
+    }
+    if(status_data == 1){
+      IMU_FLAG = 1;
+      return;
+    }
+  }
 }
 
-void IMU_get_readings(void* ctx, uint8_t* save_data){
+// Read a single register from the device
+static int mpu9250_read_reg(struct mpu9250_s *device, uint8_t reg, uint8_t* val)
+{
+    uint8_t data_out[2] = {0xFF, 0xFF};
+    uint8_t data_in[2] = {0xFF, 0xFF};
+    int res;
 
-    uint8_t send_data, i;
+    data_out[0] = reg | MPU9250_REG_READ_FLAG;
+    data_out[1] = 0x00;
 
-    // Read Accel X
-    for (i=0;i<1;i++){
-        send_data = (IMU_SPI_READ << IMU_SPI_RW_BIT) | (IMU_ACCEL_XOUT_H + i);
-        imu_spi_transfer(ctx, 2, &send_data, &save_data[i]);
+    res = device->driver->spi_transfer(device->driver_ctx, 2, data_out, data_in);
+
+    if (res >= 0) {
+        *val = data_in[1];
     }
 
+    return res;
 }

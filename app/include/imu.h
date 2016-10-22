@@ -1,6 +1,9 @@
 #ifndef IMU_H
 #define IMU_H
 
+#include "mpu9250/mpu9250.h"
+#include "mpu9250/mpu9250_regs.h"
+
 #include <stdint.h>
 
 #define IMU_SPI_RW_BIT 7
@@ -9,9 +12,9 @@
 
 #define IMU_INT_SET 55
 #define IMU_INT_EN  56
-    #define IMU_RAW_RDY_EN 0
+#define IMU_RAW_RDY_EN 0
 #define IMU_INT_STATUS 58
-    #define IMU_RAW_DATA_RDY_INT 0
+#define IMU_RAW_DATA_RDY_INT 0
 
 
 // Accelerometer Registers
@@ -30,7 +33,16 @@
 #define IMU_GYRO_ZOUT_H 71
 #define IMU_GYRO_ZOUT_L 72
 
-int8_t IMU_init(void* ctx);
-void IMU_get_readings(void* ctx, uint8_t* save_data);
+// TODO: write IMU gyro calibrating function
+//int IMU_GYRO_CALIBRATE(struct mpu9250_s *device);
+
+// Blocking function to pause untill next IMU data is avaliable.
+// TODO: Should be replaced with interrupt.
+void IMU_POLL_DATA_RDY(struct mpu9250_s *device);
+
+// Returns both gyro and accel data
+//void IMU_GET_SENSOR_RAW_DATA(struct mpu9250_s *device, );
+
+
 
 #endif

@@ -14,7 +14,7 @@ A1	stm32l1/include/CMSIS/arm_math.h	/^    q31_t A1;           \/**< The derived 
 A2	stm32l1/include/CMSIS/arm_math.h	/^    float32_t A2;          \/**< The derived gain, A2 = Kd . *\/$/;"	m	struct:__anon41
 A2	stm32l1/include/CMSIS/arm_math.h	/^    q15_t A2;$/;"	m	struct:__anon39
 A2	stm32l1/include/CMSIS/arm_math.h	/^    q31_t A2;            \/**< The derived gain, A2 = Kd . *\/$/;"	m	struct:__anon40
-ACCEL_RAW	app/source/main.c	43;"	d	file:
+ACCEL_RAW	app/source/main.c	44;"	d	file:
 ACCEL_RESOLUTION_BITS	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	67;"	d
 ACCEL_SCALE_BASE	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	68;"	d
 ACPR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t ACPR;                    \/*!< Offset: 0x010 (R\/W)  Asynchronous Clock Prescaler Register *\/$/;"	m	struct:__anon112
@@ -623,7 +623,7 @@ ADC_SoftwareStartInjectedConv	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_
 ADC_StructInit	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_StructInit(ADC_InitTypeDef* ADC_InitStruct)                            $/;"	f
 ADC_TempSensorVrefintCmd	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_TempSensorVrefintCmd(FunctionalState NewState)                $/;"	f
 ADC_TypeDef	stm32l1/include/stm32l1xx.h	/^} ADC_TypeDef;$/;"	t	typeref:struct:__anon193
-ADDRESS	app/source/main.c	35;"	d	file:
+ADDRESS	app/source/main.c	36;"	d	file:
 ADDRESSED	stm32l1/include/usb/usb_pwr.h	/^  ADDRESSED,$/;"	e	enum:_DEVICE_STATE
 ADR	stm32l1/include/CMSIS/core_cm3.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon106
 ADR	stm32l1/include/CMSIS/core_cm4.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon124
@@ -1191,7 +1191,7 @@ CFR_W_MASK	stm32l1/source/drivers/stm32l1xx_wwdg.c	113;"	d	file:
 CFSR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon106
 CFSR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon124
 CFSR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon143
-CHANNEL	app/source/main.c	36;"	d	file:
+CHANNEL	app/source/main.c	37;"	d	file:
 CICR1	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR1;     \/*!< RI Channel identification for capture register 1,    Address offset: 0x28 *\/$/;"	m	struct:__anon215
 CICR2	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR2;     \/*!< RI Channel identification for capture register 2,    Address offset: 0x34 *\/$/;"	m	struct:__anon215
 CICR3	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR3;     \/*!< RI Channel identification for capture register3 ,    Address offset: 0x40 *\/$/;"	m	struct:__anon215
@@ -3951,7 +3951,7 @@ GPIO_read	app/source/gpio.c	/^int GPIO_read(GPIO_TypeDef *port, uint32_t pin)$/;
 GPIO_set_input	app/source/gpio.c	/^void GPIO_set_input(GPIO_TypeDef *port, uint32_t pin)$/;"	f
 GPIO_set_output	app/source/gpio.c	/^void GPIO_set_output(GPIO_TypeDef *port, uint32_t pin)$/;"	f
 GPIO_write	app/source/gpio.c	/^void GPIO_write(GPIO_TypeDef *port, uint32_t pin, uint8_t val)$/;"	f
-GROUP_N	app/source/main.c	31;"	d	file:
+GROUP_N	app/source/main.c	32;"	d	file:
 GTPR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t GTPR;       \/*!< USART Guard time and prescaler register, Address offset: 0x18 *\/$/;"	m	struct:__anon220
 GYRO_RESOLUTION_BITS	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	36;"	d
 GYRO_SCALE_BASE	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	37;"	d
@@ -4298,12 +4298,12 @@ IMCR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t IMCR;                   
 IMCR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t IMCR;                    \/*!< Offset: 0xF00 (R\/W)  ITM Integration Mode Control Register     *\/$/;"	m	struct:__anon146
 IMR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t IMR;          \/*!< EXTI interrupt mask register,                 Address offset: 0x00 *\/$/;"	m	struct:__anon202
 IMR_MSK	stm32l1/include/usb/usb_conf.h	72;"	d
-IMU_ACCEL_XOUT_H	app/include/imu.h	18;"	d
-IMU_ACCEL_XOUT_L	app/include/imu.h	19;"	d
-IMU_ACCEL_YOUT_H	app/include/imu.h	20;"	d
-IMU_ACCEL_YOUT_L	app/include/imu.h	21;"	d
-IMU_ACCEL_ZOUT_H	app/include/imu.h	22;"	d
-IMU_ACCEL_ZOUT_L	app/include/imu.h	23;"	d
+IMU_ACCEL_XOUT_H	app/include/imu.h	21;"	d
+IMU_ACCEL_XOUT_L	app/include/imu.h	22;"	d
+IMU_ACCEL_YOUT_H	app/include/imu.h	23;"	d
+IMU_ACCEL_YOUT_L	app/include/imu.h	24;"	d
+IMU_ACCEL_ZOUT_H	app/include/imu.h	25;"	d
+IMU_ACCEL_ZOUT_L	app/include/imu.h	26;"	d
 IMU_ADAPTOR_DEFAULT	app/include/imu_adaptor.h	7;"	d
 IMU_ADAPTOR_H	app/include/imu_adaptor.h	3;"	d
 IMU_CLK_PIN	app/include/board.h	68;"	d
@@ -4311,36 +4311,35 @@ IMU_CLK_PINSRC	app/include/board.h	70;"	d
 IMU_CLK_PORT	app/include/board.h	69;"	d
 IMU_CS_PIN	app/include/board.h	66;"	d
 IMU_CS_PORT	app/include/board.h	67;"	d
-IMU_GYRO_XOUT_H	app/include/imu.h	26;"	d
-IMU_GYRO_XOUT_L	app/include/imu.h	27;"	d
-IMU_GYRO_YOUT_H	app/include/imu.h	28;"	d
-IMU_GYRO_YOUT_L	app/include/imu.h	29;"	d
-IMU_GYRO_ZOUT_H	app/include/imu.h	30;"	d
-IMU_GYRO_ZOUT_L	app/include/imu.h	31;"	d
+IMU_GYRO_XOUT_H	app/include/imu.h	29;"	d
+IMU_GYRO_XOUT_L	app/include/imu.h	30;"	d
+IMU_GYRO_YOUT_H	app/include/imu.h	31;"	d
+IMU_GYRO_YOUT_L	app/include/imu.h	32;"	d
+IMU_GYRO_ZOUT_H	app/include/imu.h	33;"	d
+IMU_GYRO_ZOUT_L	app/include/imu.h	34;"	d
 IMU_H	app/include/imu.h	2;"	d
-IMU_INT_EN	app/include/imu.h	11;"	d
+IMU_INT_EN	app/include/imu.h	14;"	d
 IMU_INT_PIN	app/include/board.h	80;"	d
 IMU_INT_PORT	app/include/board.h	81;"	d
-IMU_INT_SET	app/include/imu.h	10;"	d
-IMU_INT_STATUS	app/include/imu.h	13;"	d
+IMU_INT_SET	app/include/imu.h	13;"	d
+IMU_INT_STATUS	app/include/imu.h	16;"	d
 IMU_MISO_PIN	app/include/board.h	71;"	d
 IMU_MISO_PINSRC	app/include/board.h	73;"	d
 IMU_MISO_PORT	app/include/board.h	72;"	d
 IMU_MOSI_PIN	app/include/board.h	74;"	d
 IMU_MOSI_PINSRC	app/include/board.h	76;"	d
 IMU_MOSI_PORT	app/include/board.h	75;"	d
-IMU_RAW_DATA_RDY_INT	app/include/imu.h	14;"	d
-IMU_RAW_RDY_EN	app/include/imu.h	12;"	d
+IMU_POLL_DATA_RDY	app/source/imu.c	/^void IMU_POLL_DATA_RDY(struct mpu9250_s *device)$/;"	f
+IMU_RAW_DATA_RDY_INT	app/include/imu.h	17;"	d
+IMU_RAW_RDY_EN	app/include/imu.h	15;"	d
 IMU_SPI	app/include/board.h	84;"	d
 IMU_SPI_CLK	app/include/board.h	83;"	d
 IMU_SPI_DEFAULT	app/include/board.h	86;"	d
-IMU_SPI_READ	app/include/imu.h	7;"	d
-IMU_SPI_RW_BIT	app/include/imu.h	6;"	d
-IMU_SPI_WRITE	app/include/imu.h	8;"	d
+IMU_SPI_READ	app/include/imu.h	10;"	d
+IMU_SPI_RW_BIT	app/include/imu.h	9;"	d
+IMU_SPI_WRITE	app/include/imu.h	11;"	d
 IMU_SYNC_PIN	app/include/board.h	78;"	d
 IMU_SYNC_PORT	app/include/board.h	79;"	d
-IMU_get_readings	app/source/imu.c	/^void IMU_get_readings(void* ctx, uint8_t* save_data){$/;"	f
-IMU_init	app/source/imu.c	/^int8_t IMU_init(void* ctx){$/;"	f
 INDEX_MASK	stm32l1/include/CMSIS/arm_math.h	299;"	d
 INITMODE_TIMEOUT	stm32l1/source/drivers/stm32l1xx_rtc.c	252;"	d	file:
 INPUT_SPACING	stm32l1/include/CMSIS/arm_math.h	317;"	d
@@ -6221,7 +6220,7 @@ OTYPER	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t OTYPER;       \/*!< GPIO po
 OUT_DATA	stm32l1/include/usb/usb_core.h	/^  OUT_DATA,         \/* 3 *\/$/;"	e	enum:_CONTROL_STATE
 OneDescriptor	stm32l1/include/usb/usb_core.h	/^typedef struct OneDescriptor$/;"	s
 Out0_Process	stm32l1/source/usb/usb_core.c	/^uint8_t Out0_Process(void)$/;"	f
-PAN_ID	app/source/main.c	34;"	d	file:
+PAN_ID	app/source/main.c	35;"	d	file:
 PAUSE	stm32l1/include/usb/usb_core.h	/^  PAUSE             \/* 10 *\/$/;"	e	enum:_CONTROL_STATE
 PCLK1_Frequency	stm32l1/include/drivers/stm32l1xx_rcc.h	/^  uint32_t PCLK1_Frequency;$/;"	m	struct:__anon160
 PCLK2_Frequency	stm32l1/include/drivers/stm32l1xx_rcc.h	/^  uint32_t PCLK2_Frequency;$/;"	m	struct:__anon160
@@ -11176,7 +11175,7 @@ USB_Istr	stm32l1/source/usb/usb_istr.c	/^void USB_Istr(void)$/;"	f
 USB_LP_IRQHandler	app/source/stm32l1xx_it.c	/^void USB_LP_IRQHandler(void)$/;"	f
 USB_LP_IRQn	stm32l1/include/stm32l1xx.h	/^  USB_LP_IRQn                 = 20,     \/*!< USB Low Priority Interrupt                              *\/$/;"	e	enum:IRQn
 USB_NOT_READY	stm32l1/include/usb/usb_core.h	/^  USB_NOT_READY       \/* The process has not been finished, endpoint will be$/;"	e	enum:_RESULT
-USB_SERIAL	app/source/main.c	39;"	d	file:
+USB_SERIAL	app/source/main.c	40;"	d	file:
 USB_SIL_Init	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Init(void)$/;"	f
 USB_SIL_Read	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Read(uint8_t bEpAddr, uint8_t* pBufferPointer)$/;"	f
 USB_SIL_Write	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Write(uint8_t bEpAddr, uint8_t* pBufferPointer, uint32_t wBufferSize)$/;"	f
@@ -12304,6 +12303,7 @@ mpu9250_read_compass_reg	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_r
 mpu9250_read_compass_regs	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_read_compass_regs(struct mpu9250_s *device, uint8_t reg, uint8_t len, uint8_t *vals)$/;"	f
 mpu9250_read_gyro	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_read_gyro(struct mpu9250_s *device, float *x, float *y, float *z)$/;"	f
 mpu9250_read_gyro_raw	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_read_gyro_raw(struct mpu9250_s *device, int16_t *x, int16_t *y, int16_t *z)$/;"	f
+mpu9250_read_reg	app/source/imu.c	/^static int mpu9250_read_reg(struct mpu9250_s *device, uint8_t reg, uint8_t* val)$/;"	f	file:
 mpu9250_read_reg	modules/libmpu9250/lib/source/mpu9250.c	/^static int mpu9250_read_reg(struct mpu9250_s *device, uint8_t reg, uint8_t* val)$/;"	f	file:
 mpu9250_read_regs	modules/libmpu9250/lib/source/mpu9250.c	/^static int mpu9250_read_regs(struct mpu9250_s *device, uint8_t start, uint8_t length, uint8_t* data)$/;"	f	file:
 mpu9250_read_temp	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_read_temp(struct mpu9250_s *device, float* temp)$/;"	f
@@ -12603,6 +12603,7 @@ stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon82
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon83
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon84
+status_data	app/source/main.c	/^uint8_t status_data;$/;"	v
 systick_count	app/source/main.c	/^__IO uint32_t systick_count = 0;$/;"	v
 twidCoefModifier	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t twidCoefModifier;         \/**< twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table. *\/$/;"	m	struct:__anon51
 twidCoefModifier	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t twidCoefModifier;         \/**< twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table. *\/$/;"	m	struct:__anon52
