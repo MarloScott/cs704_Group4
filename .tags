@@ -12287,6 +12287,7 @@ main	modules/libat86rf212/test/source/main.cpp	/^int main(int argc, char **argv)
 main	modules/libat86rf212/util/source/main.cpp	/^int main(int argc, char** argv)$/;"	f
 main	modules/libmpu9250/test/source/main.cpp	/^int main(int argc, char **argv) {$/;"	f
 main	modules/libmpu9250/util/source/main.cpp	/^int main(int argc, char** argv)$/;"	f
+main	testbench/trilaterate_test.c	/^int main(void){$/;"	f
 major	modules/libat86rf212/version.py	/^major = regex.group(1);$/;"	v
 major	modules/libmpu9250/version.py	/^major = regex.group(1);$/;"	v
 major	version.py	/^major = regex.group(1);$/;"	v

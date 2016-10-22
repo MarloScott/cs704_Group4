@@ -29,6 +29,7 @@ typedef struct {
 #define X_S 0
 #define Y_S 0
 #define N_BEACONS 4
+
 static Point beacon_locations[N_BEACONS] =
 {
     {X_S+10600, Y_S+1400      },
@@ -43,6 +44,7 @@ static Point beacon_locations[N_BEACONS] =
 int32_t calculate_beacon_distance(uint8_t ED);
 int32_t euclidean_distance(Point *p1, Point *p2);
 void point_partway(Point *p1, Point *p2, float p, Point *midp);
+void calculate_intersects(Point* beacon_locations[2], int32_t beacon_distances[2], Intersects *out_intersects);
 void trilaterate(uint8_t EDs[]);
 
 #endif // TRILATERATE_H
