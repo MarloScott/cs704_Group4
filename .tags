@@ -1436,6 +1436,11 @@ CR_PLS_MASK	stm32l1/source/drivers/stm32l1xx_pwr.c	85;"	d	file:
 CR_PVDE_BB	stm32l1/source/drivers/stm32l1xx_pwr.c	64;"	d	file:
 CR_ULP_BB	stm32l1/source/drivers/stm32l1xx_pwr.c	68;"	d	file:
 CR_VOS_MASK	stm32l1/source/drivers/stm32l1xx_pwr.c	86;"	d	file:
+CS704_VERSION_H	build/cs704_version.h	2;"	d
+CS704_VERSION_MAJOR	build/cs704_version.h	4;"	d
+CS704_VERSION_MINOR	build/cs704_version.h	5;"	d
+CS704_VERSION_PATCH	build/cs704_version.h	6;"	d
+CS704_VERSION_STRING	build/cs704_version.h	3;"	d
 CSPSR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t CSPSR;                   \/*!< Offset: 0x004 (R\/W)  Current Parallel Port Size Register *\/$/;"	m	struct:__anon144
 CSPSR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t CSPSR;                   \/*!< Offset: 0x004 (R\/W)  Current Parallel Port Size Register *\/$/;"	m	struct:__anon125
 CSPSR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t CSPSR;                   \/*!< Offset: 0x004 (R\/W)  Current Parallel Port Size Register *\/$/;"	m	struct:__anon96
@@ -5695,9 +5700,7 @@ N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        
 N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon163::__anon164
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon81::__anon82
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon85::__anon86
-NEXT_BEACON_DIST	app/source/trilaterate.c	44;"	d	file:
-NEXT_BEACON_LOC	app/source/trilaterate.c	42;"	d	file:
-NEXT_INDEX	app/source/trilaterate.c	39;"	d	file:
+NEXT_INDEX	app/source/trilaterate.c	90;"	d	file:
 NIEN_BitNumber	stm32l1/source/drivers/stm32l1xx_sdio.c	167;"	d	file:
 NM	Makefile	/^NM  = ${TOOLCHAIN}-nm$/;"	m
 NMI_Handler	app/source/stm32l1xx_it.c	/^void NMI_Handler(void)$/;"	f
@@ -9847,10 +9850,7 @@ TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test
 TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test, SetState)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, FakeTest)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, SetGyroRate)$/;"	f
-THIS_BEACON_DIST	app/source/trilaterate.c	43;"	d	file:
-THIS_BEACON_INT	app/source/trilaterate.c	45;"	d	file:
-THIS_BEACON_LOC	app/source/trilaterate.c	41;"	d	file:
-THIS_INDEX	app/source/trilaterate.c	38;"	d	file:
+THIS_INDEX	app/source/trilaterate.c	89;"	d	file:
 TI1_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI2_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI3_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
@@ -12185,6 +12185,7 @@ bool	stm32l1/include/usb/usb_type.h	/^bool;$/;"	t	typeref:enum:__anon8
 build_header	modules/libat86rf212/util/source/main.cpp	/^int build_header(uint8_t seq, uint16_t pan, uint16_t dest_addr, uint16_t src_addr, uint8_t* packet)$/;"	f
 bw	stm32l1/include/usb/usb_core.h	/^  bw;$/;"	m	union:__anon9	typeref:struct:__anon9::BW
 calculate_beacon_distance	app/source/trilaterate.c	/^int32_t calculate_beacon_distance(uint8_t ED){$/;"	f
+calculate_intersects	app/source/trilaterate.c	/^void calculate_intersects(Point* beacon_locations[2], uint32_t beacon_distances[2], Intersects *out_intersects){$/;"	f
 channel	modules/libat86rf212/util/source/main.cpp	/^    int channel;$/;"	m	struct:config_s	file:
 check_rx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int check_rx()$/;"	f	class:AT86RF212::At86rf212
 check_tx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int check_tx()$/;"	f	class:AT86RF212::At86rf212
