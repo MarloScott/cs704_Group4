@@ -1120,8 +1120,8 @@ BME_SCL_PORT	app/include/board.h	128;"	d
 BME_SDA_PIN	app/include/board.h	125;"	d
 BME_SDA_PORT	app/include/board.h	126;"	d
 BOARD_H	app/include/board.h	4;"	d
-BPSK300	app/include/trilaterate.h	8;"	d
-BPSK600	app/include/trilaterate.h	9;"	d
+BPSK300	app/include/trilaterate.h	10;"	d
+BPSK600	app/include/trilaterate.h	11;"	d
 BRR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t BRR;          \/*!< GPIO bit reset register,                     Address offset: 0x28      *\/$/;"	m	struct:__anon67
 BRR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t BRR;        \/*!< USART Baud rate register,                Address offset: 0x08 *\/$/;"	m	struct:__anon79
 BSRRH	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t BSRRH;        \/*!< GPIO port bit set\/reset high registerBSRR,   Address offset: 0x1A      *\/$/;"	m	struct:__anon67
@@ -5700,7 +5700,7 @@ N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        
 N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon163::__anon164
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon81::__anon82
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon85::__anon86
-NEXT_INDEX	app/source/trilaterate.c	101;"	d	file:
+NEXT_INDEX	app/source/trilaterate.c	114;"	d	file:
 NIEN_BitNumber	stm32l1/source/drivers/stm32l1xx_sdio.c	167;"	d	file:
 NM	Makefile	/^NM  = ${TOOLCHAIN}-nm$/;"	m
 NMI_Handler	app/source/stm32l1xx_it.c	/^void NMI_Handler(void)$/;"	f
@@ -6009,7 +6009,7 @@ NVIC_Type	stm32l1/include/CMSIS/core_sc000.h	/^}  NVIC_Type;$/;"	t	typeref:struc
 NVIC_Type	stm32l1/include/CMSIS/core_sc300.h	/^}  NVIC_Type;$/;"	t	typeref:struct:__anon89
 NVIC_VectTab_FLASH	stm32l1/include/drivers/misc.h	111;"	d
 NVIC_VectTab_RAM	stm32l1/include/drivers/misc.h	110;"	d
-N_BEACONS	app/include/trilaterate.h	29;"	d
+N_BEACONS	app/include/trilaterate.h	31;"	d
 Nby2	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t Nby2;                      \/**< half of the length of the DCT4. *\/$/;"	m	struct:__anon202
 Nby2	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t Nby2;                      \/**< half of the length of the DCT4. *\/$/;"	m	struct:__anon203
 Nby2	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t Nby2;                      \/**< half of the length of the DCT4. *\/$/;"	m	struct:__anon204
@@ -6220,9 +6220,9 @@ OPAMP_Trimming_Factory	stm32l1/include/drivers/stm32l1xx_opamp.h	107;"	d
 OPAMP_Trimming_User	stm32l1/include/drivers/stm32l1xx_opamp.h	108;"	d
 OPAMP_TypeDef	stm32l1/include/stm32l1xx.h	/^} OPAMP_TypeDef;$/;"	t	typeref:struct:__anon64
 OPTKEYR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t OPTKEYR;      \/*!< Option byte key register,                    Address offset: 0x14 *\/$/;"	m	struct:__anon62
-OQPSK1000Cos	app/include/trilaterate.h	12;"	d
-OQPSK1000Sin	app/include/trilaterate.h	11;"	d
-OQPSK400	app/include/trilaterate.h	10;"	d
+OQPSK1000Cos	app/include/trilaterate.h	14;"	d
+OQPSK1000Sin	app/include/trilaterate.h	13;"	d
+OQPSK400	app/include/trilaterate.h	12;"	d
 OR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t OR;           \/*!< TIM option register,                 Address offset: 0x50 *\/$/;"	m	struct:__anon78
 OSPEEDR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t OSPEEDR;      \/*!< GPIO port output speed register,             Address offset: 0x08      *\/$/;"	m	struct:__anon67
 OTHER_RECIPIENT	stm32l1/include/usb/usb_def.h	/^  OTHER_RECIPIENT$/;"	e	enum:_RECIPIENT_TYPE
@@ -7670,7 +7670,7 @@ RSERVED1	stm32l1/include/CMSIS/core_cm3.h	/^       uint32_t RSERVED1[24];$/;"	m	
 RSERVED1	stm32l1/include/CMSIS/core_cm4.h	/^       uint32_t RSERVED1[24];$/;"	m	struct:__anon118
 RSERVED1	stm32l1/include/CMSIS/core_sc000.h	/^       uint32_t RSERVED1[31];$/;"	m	struct:__anon167
 RSERVED1	stm32l1/include/CMSIS/core_sc300.h	/^       uint32_t RSERVED1[24];$/;"	m	struct:__anon89
-RSSI_BASE_VAL	app/include/trilaterate.h	14;"	d
+RSSI_BASE_VAL	app/include/trilaterate.h	16;"	d
 RTC	stm32l1/include/stm32l1xx.h	1011;"	d
 RTCEN_BitNumber	stm32l1/source/drivers/stm32l1xx_rcc.c	107;"	d	file:
 RTCRST_BitNumber	stm32l1/source/drivers/stm32l1xx_rcc.c	111;"	d	file:
@@ -9400,6 +9400,7 @@ SQR4	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t SQR4;         \/*!< ADC regul
 SQR4_SQ_SET	stm32l1/source/drivers/stm32l1xx_adc.c	126;"	d	file:
 SQR5	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t SQR5;         \/*!< ADC regular sequence register 5,             Address offset: 0x40 *\/$/;"	m	struct:__anon52
 SQR5_SQ_SET	stm32l1/source/drivers/stm32l1xx_adc.c	125;"	d	file:
+SQUARE	app/include/trilaterate.h	7;"	d
 SR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t SR;           \/*!< TIM status register,                 Address offset: 0x10 *\/$/;"	m	struct:__anon78
 SR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t SR;         \/*!< SPI status register,                                Address offset: 0x08 *\/$/;"	m	struct:__anon77
 SR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t SR;         \/*!< USART Status register,                   Address offset: 0x00 *\/$/;"	m	struct:__anon79
@@ -9850,7 +9851,7 @@ TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test
 TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test, SetState)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, FakeTest)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, SetGyroRate)$/;"	f
-THIS_INDEX	app/source/trilaterate.c	100;"	d	file:
+THIS_INDEX	app/source/trilaterate.c	113;"	d	file:
 TI1_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI2_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI3_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
@@ -11356,8 +11357,8 @@ WWDG_SetPrescaler	stm32l1/source/drivers/stm32l1xx_wwdg.c	/^void WWDG_SetPrescal
 WWDG_SetWindowValue	stm32l1/source/drivers/stm32l1xx_wwdg.c	/^void WWDG_SetWindowValue(uint8_t WindowValue)$/;"	f
 WWDG_TypeDef	stm32l1/include/stm32l1xx.h	/^} WWDG_TypeDef;$/;"	t	typeref:struct:__anon80
 WaitForLastOperation	stm32l1/source/drivers/stm32l1xx_flash_ramfunc.c	/^static __RAM_FUNC  WaitForLastOperation(uint32_t Timeout)$/;"	f	file:
-X_S	app/include/trilaterate.h	27;"	d
-Y_S	app/include/trilaterate.h	28;"	d
+X_S	app/include/trilaterate.h	29;"	d
+Y_S	app/include/trilaterate.h	30;"	d
 Z	stm32l1/include/CMSIS/core_cm0.h	/^    uint32_t Z:1;                        \/*!< bit:     30  Zero condition code flag           *\/$/;"	m	struct:__anon103::__anon104
 Z	stm32l1/include/CMSIS/core_cm0.h	/^    uint32_t Z:1;                        \/*!< bit:     30  Zero condition code flag           *\/$/;"	m	struct:__anon99::__anon100
 Z	stm32l1/include/CMSIS/core_cm0plus.h	/^    uint32_t Z:1;                        \/*!< bit:     30  Zero condition code flag           *\/$/;"	m	struct:__anon147::__anon148
@@ -12185,7 +12186,7 @@ bool	stm32l1/include/usb/usb_type.h	/^bool;$/;"	t	typeref:enum:__anon8
 build_header	modules/libat86rf212/util/source/main.cpp	/^int build_header(uint8_t seq, uint16_t pan, uint16_t dest_addr, uint16_t src_addr, uint8_t* packet)$/;"	f
 bw	stm32l1/include/usb/usb_core.h	/^  bw;$/;"	m	union:__anon9	typeref:struct:__anon9::BW
 calculate_beacon_distance	app/source/trilaterate.c	/^int32_t calculate_beacon_distance(uint8_t ED){$/;"	f
-calculate_intersects	app/source/trilaterate.c	/^void calculate_intersects(Point* beacon_locations[2], uint32_t beacon_distances[2], Intersects *out_intersects){$/;"	f
+calculate_intersects	app/source/trilaterate.c	/^void calculate_intersects(Point* beacon_locations[2], int32_t beacon_distances[2], Intersects *out_intersects){$/;"	f
 channel	modules/libat86rf212/util/source/main.cpp	/^    int channel;$/;"	m	struct:config_s	file:
 check_rx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int check_rx()$/;"	f	class:AT86RF212::At86rf212
 check_tx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int check_tx()$/;"	f	class:AT86RF212::At86rf212
@@ -12615,7 +12616,6 @@ spi_transfer	modules/libmpu9250/util/source/main.cpp	/^int spi_transfer(void* co
 spi_transfer_f	modules/libat86rf212/lib/at86rf212/at86rf212.h	/^typedef int (*spi_transfer_f)(void* context, int len, uint8_t *data_out, uint8_t* data_in);$/;"	t
 spi_transfer_f	modules/libmpu9250/lib/mpu9250/mpu9250.h	/^typedef int (*spi_transfer_f)(void* context, int len, uint8_t *data_out, uint8_t* data_in);$/;"	t
 src	app/include/fifteenfour.h	/^    uint16_t src;           \/\/!< Source address$/;"	m	struct:fifteen_four_header_s
-start_location	app/include/trilaterate.h	/^static Point start_location = {0,0};$/;"	v
 start_rx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int start_rx()$/;"	f	class:AT86RF212::At86rf212
 start_tx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int start_tx(uint8_t length, uint8_t* data)$/;"	f	class:AT86RF212::At86rf212
 state	stm32l1/include/CMSIS/arm_math.h	/^    float32_t state[3];    \/**< The state array of length 3. *\/$/;"	m	struct:__anon185

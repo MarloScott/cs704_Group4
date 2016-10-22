@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include "math.h"
 
+#define SQUARE(x) (x*x)
+
 //PHY Modes
 #define BPSK300 -100
 #define BPSK600 -100
@@ -35,7 +37,7 @@ static Point beacon_locations[N_BEACONS] =
     {X_S+10600, Y_S+11400     }
 };
 
-static Point start_location = {0,0};
+//static Point start_location = {0,0};
 
 // Function Prototypes
 int32_t calculate_beacon_distance(uint8_t ED);
