@@ -33,6 +33,7 @@
 #define IMU_GYRO_ZOUT_H 71
 #define IMU_GYRO_ZOUT_L 72
 
+
 struct VECTOR{
   float X;
   float Y;

@@ -2,6 +2,8 @@
 #include "imu.h"
 
 #include <stdint.h>
+#include <math.h>
+#include <errno.h>
 
 #include "../../modules/libmpu9250/lib/mpu9250/mpu9250.h"
 #include "imu_adaptor.h"
@@ -45,7 +47,28 @@ void IMU_DEVICE_INIT(struct IMU_DEVICE_POSE *devicePose, struct mpu9250_s device
 
 void IMU_RESET(struct IMU_DEVICE_POSE *devicePose)
 {
+  devicePose->velocity.X = 0;
+  devicePose->velocity.Y = 0;
+  devicePose->velocity.Z = 0;
 
+  // devicePose->rotation.row1.X =1;
+  // devicePose->rotation.row1.Y =0;
+  // devicePose->rotation.row1.Z =0;
+  //
+  // devicePose->rotation.row2.X =0;
+  // devicePose->rotation.row2.Y =1;
+  // devicePose->rotation.row2.Z =0;
+  //
+  // devicePose->rotation.row3.X =0;
+  // devicePose->rotation.row3.Y =0;
+  // devicePose->rotation.row3.Z =1;
+  //
+  // struct VECTOR offSet, sample;
+  // IMU_READ(&sample, devicePose->device);
+  // VECTOR_MULTIPLY(&(devicePose->rotation), &sample, &offSet);
+  //devicePose->accelOffset.X = devicePose->acceleration.X + devicePose->accelOffset.X;
+  //devicePose->accelOffset.Y = devicePose->acceleration.Y + devicePose->accelOffset.Y;
+  //devicePose->accelOffset.Z = devicePose->acceleration.Z + devicePose->accelOffset.Z;
 }
 
 void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)
@@ -54,6 +77,9 @@ void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)
   struct MATRIX skew, new, errorCorrect, norm;
   struct VECTOR correctedAccel;
   IMU_READ(&sample, devicePose->device);
+
+  //TODO: implement accel angle correction to remove drift
+  //double accRx = atan(devicePose->acceleration.X/sqrt((double)(pow(devicePose->acceleration.Y,2) + pow(devicePose->acceleration.Y,2))))*(180/3.14);
 
   sample.gyro.X = (sample.gyro.X - devicePose->gyroOffset.X)*0.01;
   sample.gyro.Y = (sample.gyro.Y - devicePose->gyroOffset.Y)*0.01;

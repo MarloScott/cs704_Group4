@@ -236,18 +236,22 @@ int main(void)
       #ifdef ACCEL_RAW
       struct IMU_DEVICE_POSE test;
       IMU_DEVICE_INIT(&test, mpu9250);
-      int val = 2;
+      int val = 0;
 
       struct VECTOR sample,skew;
       SKEW_VECTOR(&skew, &sample);
       while(1)
       {
+        val = (val+1)%100;
+        if(val==0){
+          IMU_RESET(&test);
+        }
         IMU_UPDATE(&test);
-        //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.distance.X)*100),(int)((test.distance.Y)*100),(int)((test.distance.Z)*100));
+        sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.distance.X)*100),(int)((test.distance.Y)*100),(int)((test.distance.Z)*100));
 
         //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.acceleration.X)*100),(int)((test.acceleration.Y)*100),(int)((test.acceleration.Z)*100));
 
-        sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.velocity.X)*100),(int)((test.velocity.Y)*100),(int)((test.velocity.Z)*100));
+        //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.velocity.X)*100),(int)((test.velocity.Y)*100),(int)((test.velocity.Z)*100));
 
         // sprintf(txt_buffer, "X: %d Y: %d Z: %dX: %d Y: %d Z: %dX: %d Y: %d Z: %d\n",(int)((test.rotation.row1.X)*100),(int)((test.rotation.row1.Y)*100),(int)((test.rotation.row1.Z)*100),
         // (int)((test.rotation.row2.X)*100),(int)((test.rotation.row2.Y)*100),(int)((test.rotation.row2.Z)*100),
