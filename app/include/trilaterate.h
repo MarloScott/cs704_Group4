@@ -30,8 +30,6 @@ typedef struct {
 #define Y_S 0
 #define N_BEACONS 4
 
-//static Point start_location = {0,0};
-
 // Function Prototypes
 int32_t calculate_beacon_distance(uint8_t ED);
 int32_t euclidean_distance(Point *p1, Point *p2);

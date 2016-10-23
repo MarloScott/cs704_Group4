@@ -238,7 +238,7 @@ int main(void)
     uint8_t EDs[4] = { 79,67,92,71};
     do {
         trilaterate(EDs, &P_est, &P_out);
-        sprintf(txt_buffer, "%ld %ld\n",P_out.x,P_out.y);
+        sprintf(txt_buffer, "(%ld,%ld)\n",P_out.x,P_out.y);
         USB_print(txt_buffer);
         delay_ms(1000);
     } while(1);

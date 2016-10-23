@@ -1,6 +1,5 @@
 #include "trilaterate.h"
 
-
 static Point beacon_locations[N_BEACONS] =
 {
     {X_S+10600,  Y_S+1400      },
@@ -65,11 +64,6 @@ void point_partway(Point *p1, Point *p2, float p, Point *midp){
     midp->y = p1->y + (int32_t)(diff.y * p);
 }
 
-/*  Function to calculate the intersects of two circles
- *  Based on algorithm described at:
- *  http://paulbourke.net/geometry/circlesphere/
- *  Section: Intersection of two circles
- */
 void calculate_intersects(Point* two_beacon_locations[2], int32_t two_beacon_distances[2], Intersects *out_intersects){
     // Temp variables
     Point P;
@@ -78,6 +72,10 @@ void calculate_intersects(Point* two_beacon_locations[2], int32_t two_beacon_dis
     int32_t beacon_to_beacon_distance =
         euclidean_distance(two_beacon_locations[0], two_beacon_locations[1]);
     int32_t measured_distance_sum = two_beacon_distances[0] + two_beacon_distances[1];
+
+    /*  Find the intersects of the beacon radii, or a suitable substitute if
+     *  no intersects exist.
+     */
 
     /*  First two cases for when the radius of one beacon is contained within
      *  the radius of another.
@@ -99,7 +97,11 @@ void calculate_intersects(Point* two_beacon_locations[2], int32_t two_beacon_dis
         out_intersects->I2 = out_intersects->I1;
 
     } else if(beacon_to_beacon_distance < measured_distance_sum){
-        // Double intersect
+        /*  Code to calculate the intersects of two circles
+         *  Based on algorithm described at:
+         *  http://paulbourke.net/geometry/circlesphere/
+         *  Section: Intersection of two circles
+         */
 
         /*  - a is the distance from the first to the second beacon that meets
          *  the axis that both of the intersects sit on.
@@ -153,7 +155,6 @@ void trilaterate(uint8_t EDs[], Point *position_estimate, Point *position_out){
     Intersects beacon_intersects[N_BEACONS];
     Point closest_points[N_BEACONS];
 
-
     // Convert each ED value to a distance estimate
     for(i=0;i<N_BEACONS;i++){
         two_beacon_distances[i] = calculate_beacon_distance(EDs[i]);
@@ -180,8 +181,10 @@ void trilaterate(uint8_t EDs[], Point *position_estimate, Point *position_out){
     }
 #endif
 
-    /*  Find where points are grouped based on which is closest to the
-     *  position estimate.
+    /*  Choose between the two intersects based on which are closest to the
+     *  position estimate. This is much lower complexity than something like a
+     *  nearest neighbors algorithm or similar, but requires an estimate of
+     *  the position as priori
      */
     for(i=0;i<N_BEACONS;i++){
         if((beacon_intersects[i].I1.x == beacon_intersects[i].I2.x &&
@@ -195,5 +198,8 @@ void trilaterate(uint8_t EDs[], Point *position_estimate, Point *position_out){
         }
     }
 
+    /*  Estimate the position based on a simple average of the interscetion
+     *  points
+     */
     position_average(N_BEACONS, closest_points, position_out);
 }
