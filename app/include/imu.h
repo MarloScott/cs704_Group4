@@ -48,6 +48,9 @@ struct MATRIX{
 struct IMU_DEVICE_POSE{
   struct MATRIX rotation;
   struct VECTOR angle;
+  struct VECTOR acceleration;
+  struct VECTOR velocity;
+  struct VECTOR distance;
   struct VECTOR accelOffset;
   struct VECTOR gyroOffset;
   struct mpu9250_s device;

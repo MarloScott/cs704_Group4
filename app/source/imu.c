@@ -29,13 +29,32 @@ void IMU_DEVICE_INIT(struct IMU_DEVICE_POSE *devicePose, struct mpu9250_s device
   devicePose->rotation.row3.Y =0;
   devicePose->rotation.row3.Z =1;
 
+  devicePose->velocity.X = 0;
+  devicePose->velocity.Y = 0;
+  devicePose->velocity.Z = 0;
+
+  devicePose->distance.X = 0;
+  devicePose->distance.Y = 0;
+  devicePose->distance.Z = 0;
+
+  devicePose->acceleration.X = 0;
+  devicePose->acceleration.Y = 0;
+  devicePose->acceleration.Z = 0;
+
+}
+
+void IMU_RESET(struct IMU_DEVICE_POSE *devicePose)
+{
+
 }
 
 void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)
 {
   struct IMU_SAMPLE sample;
   struct MATRIX skew, new, errorCorrect, norm;
+  struct VECTOR correctedAccel;
   IMU_READ(&sample, devicePose->device);
+
   sample.gyro.X = (sample.gyro.X - devicePose->gyroOffset.X)*0.01;
   sample.gyro.Y = (sample.gyro.Y - devicePose->gyroOffset.Y)*0.01;
   sample.gyro.Z = (sample.gyro.Z - devicePose->gyroOffset.Z)*0.01;
@@ -44,6 +63,11 @@ void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)
   devicePose->angle.Y += sample.gyro.Y;
   devicePose->angle.Z += sample.gyro.Z;
 
+  devicePose->acceleration.X = sample.accel.X;
+  devicePose->acceleration.Y = sample.accel.Y;
+  devicePose->acceleration.Z = sample.accel.Z;
+
+
   SKEW_VECTOR(&skew, &(sample.gyro));
   ERROR_CORRECT(&skew, &errorCorrect);
   NORMALIZE_MATRIX(&errorCorrect, &norm);
@@ -51,6 +75,22 @@ void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)
   ERROR_CORRECT(&new, &errorCorrect);
   NORMALIZE_MATRIX(&errorCorrect, &norm);
   devicePose->rotation = norm;
+
+  VECTOR_MULTIPLY(&norm, &(devicePose->acceleration), &correctedAccel);
+
+
+  devicePose->acceleration.X = correctedAccel.X - devicePose->accelOffset.X;
+  devicePose->acceleration.Y = correctedAccel.Y - devicePose->accelOffset.Y;
+  devicePose->acceleration.Z = correctedAccel.Z - devicePose->accelOffset.Z;
+
+  devicePose->velocity.X += devicePose->acceleration.X*0.01;
+  devicePose->velocity.Y += devicePose->acceleration.Y*0.01;
+  devicePose->velocity.Z += devicePose->acceleration.Z*0.01;
+
+  devicePose->distance.X += devicePose->velocity.X*0.01;
+  devicePose->distance.Y += devicePose->velocity.Y*0.01;
+  devicePose->distance.Z += devicePose->velocity.Z*0.01;
+
 }
 
 
@@ -99,6 +139,8 @@ void ERROR_CORRECT(struct MATRIX *mA, struct MATRIX *mOutput)
   mOutput->row1.Z = temp.X;
   mOutput->row2.Z = temp.Y;
   mOutput->row3.Z = temp.Z;
+
+
 }
 
 void NORMALIZE_MATRIX(struct MATRIX *mA, struct MATRIX *mOutput)
@@ -169,9 +211,9 @@ void MATRIX_MULTIPLY(struct MATRIX *mA, struct MATRIX *mB, struct MATRIX *mOutpu
 
 void VECTOR_MULTIPLY(struct MATRIX *mA, struct VECTOR *mB, struct VECTOR *mOutput)
 {
-  mOutput->X = ((mA->row1.X*mB->X)+(mA->row1.Y*mB->Y)+(mA->row1.Y*mB->Y));
-  mOutput->Y = ((mA->row2.X*mB->X)+(mA->row2.Y*mB->Y)+(mA->row2.Y*mB->Y));
-  mOutput->Z = ((mA->row3.X*mB->X)+(mA->row3.Y*mB->Y)+(mA->row3.Y*mB->Y));
+  mOutput->X = ((mA->row1.X*mB->X)+(mA->row1.Y*mB->Y)+(mA->row1.Z*mB->Z));
+  mOutput->Y = ((mA->row2.X*mB->X)+(mA->row2.Y*mB->Y)+(mA->row2.Z*mB->Z));
+  mOutput->Z = ((mA->row3.X*mB->X)+(mA->row3.Y*mB->Y)+(mA->row3.Z*mB->Z));
 }
 
 void IMU_CALIBRATE(struct IMU_DEVICE_POSE *devicePose)

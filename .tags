@@ -4341,6 +4341,7 @@ IMU_POLL_DATA_RDY	app/source/imu.c	/^void IMU_POLL_DATA_RDY(struct mpu9250_s *de
 IMU_RAW_DATA_RDY_INT	app/include/imu.h	17;"	d
 IMU_RAW_RDY_EN	app/include/imu.h	15;"	d
 IMU_READ	app/source/imu.c	/^void IMU_READ(struct IMU_SAMPLE *sample, struct mpu9250_s device)$/;"	f
+IMU_RESET	app/source/imu.c	/^void IMU_RESET(struct IMU_DEVICE_POSE *devicePose)$/;"	f
 IMU_SAMPLE	app/include/imu.h	/^struct IMU_SAMPLE{$/;"	s
 IMU_SPI	app/include/board.h	84;"	d
 IMU_SPI_CLK	app/include/board.h	83;"	d
@@ -11996,6 +11997,7 @@ _write_r	app/source/main.c	/^int _write_r(struct _reent *r, int fd, const void *
 accel	app/include/imu.h	/^  struct VECTOR accel;$/;"	m	struct:IMU_SAMPLE	typeref:struct:IMU_SAMPLE::VECTOR
 accelOffset	app/include/imu.h	/^  struct VECTOR accelOffset;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 accel_scale	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	/^    float accel_scale;$/;"	m	struct:mpu9250_s
+acceleration	app/include/imu.h	/^  struct VECTOR acceleration;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 add_data	modules/libat86rf212/util/source/main.cpp	/^int add_data(int len, uint8_t* data_in, uint8_t* packet)$/;"	f
 address	modules/libat86rf212/util/source/main.cpp	/^    uint16_t address;$/;"	m	struct:config_s	file:
 angle	app/include/imu.h	/^  struct VECTOR angle;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
@@ -12208,6 +12210,7 @@ dest	app/include/fifteenfour.h	/^    uint16_t dest;          \/\/!< Destination 
 device	app/include/imu.h	/^  struct mpu9250_s device;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::mpu9250_s
 device	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    struct at86rf212_s device;$/;"	m	class:AT86RF212::At86rf212	typeref:struct:AT86RF212::At86rf212::at86rf212_s
 device	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    struct mpu9250_s device;$/;"	m	class:MPU9250::Mpu9250	typeref:struct:MPU9250::Mpu9250::mpu9250_s
+distance	app/include/imu.h	/^  struct VECTOR distance;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 driver	modules/libat86rf212/lib/at86rf212/at86rf212_defs.h	/^    struct at86rf212_driver_s* driver;  \/\/!< Driver function object$/;"	m	struct:at86rf212_s	typeref:struct:at86rf212_s::at86rf212_driver_s
 driver	modules/libat86rf212/lib/at86rf212/at86rf212_if.hpp	/^    static struct at86rf212_driver_s driver;$/;"	m	class:AT86RF212::DriverWrapper	typeref:struct:AT86RF212::DriverWrapper::at86rf212_driver_s
 driver	modules/libat86rf212/lib/at86rf212/at86rf212_if.hpp	/^struct at86rf212_driver_s DriverWrapper::driver = {$/;"	m	class:AT86RF212::DriverWrapper	typeref:struct:AT86RF212::DriverWrapper::
@@ -12658,6 +12661,7 @@ uint16_t_uint8_t	stm32l1/include/usb/usb_core.h	/^} uint16_t_uint8_t;$/;"	t	type
 usbthing	modules/libat86rf212/test/source/at86rf212test.cpp	/^  usbthing_t usbthing;$/;"	m	class:At86rf212Test	file:
 vSetEPRxStatus	stm32l1/source/usb/usb_core.c	40;"	d	file:
 vSetEPTxStatus	stm32l1/source/usb/usb_core.c	41;"	d	file:
+velocity	app/include/imu.h	/^  struct VECTOR velocity;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 version	modules/libat86rf212/version.py	/^version = p.communicate()[0]$/;"	v
 version	modules/libmpu9250/version.py	/^version = p.communicate()[0]$/;"	v
 version	version.py	/^version = p.communicate()[0]$/;"	v
