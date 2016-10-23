@@ -5700,7 +5700,7 @@ N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        
 N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon163::__anon164
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon81::__anon82
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon85::__anon86
-NEXT_INDEX	app/source/trilaterate.c	165;"	d	file:
+NEXT_INDEX	app/source/trilaterate.c	157;"	d	file:
 NIEN_BitNumber	stm32l1/source/drivers/stm32l1xx_sdio.c	167;"	d	file:
 NM	Makefile	/^NM  = ${TOOLCHAIN}-nm$/;"	m
 NMI_Handler	app/source/stm32l1xx_it.c	/^void NMI_Handler(void)$/;"	f
@@ -9852,7 +9852,7 @@ TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test
 TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test, SetState)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, FakeTest)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, SetGyroRate)$/;"	f
-THIS_INDEX	app/source/trilaterate.c	164;"	d	file:
+THIS_INDEX	app/source/trilaterate.c	156;"	d	file:
 TI1_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI2_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI3_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
@@ -10571,7 +10571,6 @@ TRIGGER	stm32l1/include/CMSIS/core_cm4.h	/^  __I  uint32_t TRIGGER;             
 TRIGGER	stm32l1/include/CMSIS/core_sc300.h	/^  __I  uint32_t TRIGGER;                 \/*!< Offset: 0xEE8 (R\/ )  TRIGGER *\/$/;"	m	struct:__anon96
 TRILATERATE_H	app/include/trilaterate.h	2;"	d
 TRISE	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t TRISE;        \/*!< I2C TRISE register,                          Address offset: 0x20 *\/$/;"	m	struct:__anon69
-TRI_TEST	app/source/main.c	40;"	d	file:
 TRUE	stm32l1/include/usb/usb_type.h	/^  FALSE = 0, TRUE  = !FALSE$/;"	e	enum:__anon8
 TSDR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t TSDR;       \/*!< RTC time stamp date register,                              Address offset: 0x34 *\/$/;"	m	struct:__anon75
 TSSSR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t TSSSR;      \/*!< RTC time-stamp sub second register,                        Address offset: 0x38 *\/$/;"	m	struct:__anon75
@@ -12166,7 +12165,7 @@ bESOFcnt	stm32l1/source/usb/usb_pwr.c	/^  __IO uint8_t bESOFcnt;$/;"	m	struct:__
 bIntPackSOF	stm32l1/source/usb/usb_istr.c	/^__IO uint8_t bIntPackSOF = 0;  \/* SOFs received between 2 consecutive packets *\/$/;"	v
 bb0	stm32l1/include/usb/usb_core.h	/^    uint8_t bb0;$/;"	m	struct:__anon9::BW
 bb1	stm32l1/include/usb/usb_core.h	/^    uint8_t bb1;$/;"	m	struct:__anon9::BW
-beacon_locations	app/source/trilaterate.c	/^static Point beacon_locations[N_BEACONS] =$/;"	v	file:
+beacon_locations	app/include/trilaterate.h	/^static Point beacon_locations[N_BEACONS] =$/;"	v
 bitRevFactor	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t bitRevFactor;             \/**< bit reversal modifier that supports different size FFTs with the same bit reversal table. *\/$/;"	m	struct:__anon195
 bitRevFactor	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t bitRevFactor;             \/**< bit reversal modifier that supports different size FFTs with the same bit reversal table. *\/$/;"	m	struct:__anon196
 bitRevFactor	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t bitRevFactor;           \/**< bit reversal modifier that supports different size FFTs with the same bit reversal table. *\/$/;"	m	struct:__anon191

@@ -37,7 +37,7 @@
 #define CHANNEL       (2+GROUP_N)       //!< Channel for beacon use
 
 //#define INTER_TEST
-#define TRI_TEST
+//#define TRI_TEST
 
 //#define BEACON_MODE
 #define USB_SERIAL
@@ -243,10 +243,11 @@ int main(void)
         delay_ms(1000);
     } while(1);
 #endif
-
+    Point P_out = {5300,7500};
     while(1) {
 
       #ifdef BECON_STRENGTHS
+
         while(at86rf212_check_rx(&radio)<1){
             delay_ms(10);
         }
@@ -257,8 +258,12 @@ int main(void)
             sprintf(txt_buffer, "ERROR1\n");
             USB_print(txt_buffer);
         }
-        sprintf(txt_buffer, "\rNode1: [%.2d], Node2: [%.2d], Node3: [%.2d], Node4: [%.2d]      ", strength[0],  strength[1], strength[2], strength[3] );
+
+        trilaterate(strength, &P_out, &P_out);
+
+        sprintf(txt_buffer, "\rB1:[%.2d], B2:[%.2d], B3:[%.2d], B4:[%.2d] => (%ld,%ld)    ", strength[0],  strength[1], strength[2], strength[3],P_out.x,P_out.y );
         USB_print(txt_buffer);
+
       #endif
 
       #ifdef ACCEL_RAW

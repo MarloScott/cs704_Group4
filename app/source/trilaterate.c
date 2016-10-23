@@ -1,13 +1,5 @@
 #include "trilaterate.h"
 
-static Point beacon_locations[N_BEACONS] =
-{
-    {X_S+10600,  Y_S+1400      },
-    {X_S+0,      Y_S+2500      },
-    {X_S+0,      Y_S+2500+12300},
-    {X_S+10600,  Y_S+11400     }
-};
-
 /*  Integer Square root Function taken from from:
  *  http://stackoverflow.com/a/1101217
  *  Based on this algorithm:
@@ -40,7 +32,7 @@ int32_t calculate_beacon_distance(uint8_t ED){
     // P(RF)[dBm] = RSSI_BASE_VAL + 1.03 ⋅ED_LEVEL
     //uint32_t P_RF = RSSI_BASE_VAL + 1.03*ED;
 
-    return (int32_t)ED*100;
+    return (int32_t)(100-ED)*100;
 }
 
 int32_t euclidean_distance(Point *p1, Point *p2){
