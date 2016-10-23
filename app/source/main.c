@@ -235,11 +235,19 @@ int main(void)
 
       #ifdef ACCEL_RAW
       struct IMU_DEVICE_POSE test;
-      //IMU_DEVICE_INIT(&test, mpu9250);
+      IMU_DEVICE_INIT(&test, mpu9250);
+      int val = 2;
+
+      struct VECTOR sample,skew;
+      SKEW_VECTOR(&skew, &sample);
       while(1)
       {
-        //IMU_UPDATE(&test);
-        sprintf(txt_buffer, "test: \n");
+        IMU_UPDATE(&test);
+        //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.angle.X)*100),(int)((test.angle.Y)*100),(int)((test.angle.Z)*100));
+        sprintf(txt_buffer, "X: %d Y: %d Z: %dX: %d Y: %d Z: %dX: %d Y: %d Z: %d\n",(int)((test.rotation.row1.X)*100),(int)((test.rotation.row1.Y)*100),(int)((test.rotation.row1.Z)*100),
+        (int)((test.rotation.row2.X)*100),(int)((test.rotation.row2.Y)*100),(int)((test.rotation.row2.Z)*100),
+        (int)((test.rotation.row3.X)*100),(int)((test.rotation.row3.Y)*100),(int)((test.rotation.row3.Z)*100));
+        USB_print(txt_buffer);
       }
         //IMU_POLL_DATA_RDY(&mpu9250);
         //recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);

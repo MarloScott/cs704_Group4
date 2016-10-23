@@ -34,16 +34,23 @@ void IMU_DEVICE_INIT(struct IMU_DEVICE_POSE *devicePose, struct mpu9250_s device
 void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)
 {
   struct IMU_SAMPLE sample;
-  struct MATRIX skew, new;
+  struct MATRIX skew, new, errorCorrect, norm;
   IMU_READ(&sample, devicePose->device);
-  sample.gyro.X = sample.gyro.X*0.01;
-  sample.gyro.Y = sample.gyro.Y*0.01;
-  sample.gyro.Z = sample.gyro.Z*0.01;
+  sample.gyro.X = (sample.gyro.X - devicePose->gyroOffset.X)*0.01;
+  sample.gyro.Y = (sample.gyro.Y - devicePose->gyroOffset.Y)*0.01;
+  sample.gyro.Z = (sample.gyro.Z - devicePose->gyroOffset.Z)*0.01;
 
-  SKEW_VECTOR(&skew, &sample);
-  MATRIX_MULTIPLY(&(devicePose->rotation),&skew,&new);
+  devicePose->angle.X += sample.gyro.X;
+  devicePose->angle.Y += sample.gyro.Y;
+  devicePose->angle.Z += sample.gyro.Z;
 
-  devicePose->rotation = new;
+  SKEW_VECTOR(&skew, &(sample.gyro));
+  ERROR_CORRECT(&skew, &errorCorrect);
+  NORMALIZE_MATRIX(&errorCorrect, &norm);
+  MATRIX_MULTIPLY(&(devicePose->rotation),&norm,&new);
+  ERROR_CORRECT(&new, &errorCorrect);
+  NORMALIZE_MATRIX(&errorCorrect, &norm);
+  devicePose->rotation = norm;
 }
 
 
@@ -72,6 +79,7 @@ void ERROR_CORRECT(struct MATRIX *mA, struct MATRIX *mOutput)
   float error;
   struct VECTOR col1 = GET_COLOMN(mA,1);
   struct VECTOR col2 = GET_COLOMN(mA,2);
+  struct VECTOR col3 = GET_COLOMN(mA,3);
   struct VECTOR temp;
   DOT_PRODUCT(col1,col2,&error);
 
@@ -83,8 +91,9 @@ void ERROR_CORRECT(struct MATRIX *mA, struct MATRIX *mOutput)
   mOutput->row2.Y = col2.Y - ((error/2)*col1.Y);
   mOutput->row3.Y = col2.Z - ((error/2)*col1.Z);
 
-  col1 = GET_COLOMN(&mOutput,1);
-  col2 = GET_COLOMN(&mOutput,2);
+
+  col1 = GET_COLOMN(mOutput,1);
+  col2 = GET_COLOMN(mOutput,2);
   CROSS_PRODUCT(&col1, &col2, &temp);
 
   mOutput->row1.Z = temp.X;
@@ -120,11 +129,11 @@ void NORMALIZE_MATRIX(struct MATRIX *mA, struct MATRIX *mOutput)
 struct VECTOR GET_COLOMN(struct MATRIX *mA, int i)
 {
   struct VECTOR col;
-  if(i = 1){
+  if(i == 1){
     col.X = mA->row1.X;
     col.Y = mA->row2.X;
     col.Z = mA->row3.X;
-  }else if(i = 2){
+  }else if(i == 2){
     col.X = mA->row1.Y;
     col.Y = mA->row2.Y;
     col.Z = mA->row3.Y;
