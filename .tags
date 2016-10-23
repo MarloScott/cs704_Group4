@@ -622,7 +622,7 @@ ADC_SoftwareStartInjectedConv	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_
 ADC_StructInit	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_StructInit(ADC_InitTypeDef* ADC_InitStruct)                            $/;"	f
 ADC_TempSensorVrefintCmd	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_TempSensorVrefintCmd(FunctionalState NewState)                $/;"	f
 ADC_TypeDef	stm32l1/include/stm32l1xx.h	/^} ADC_TypeDef;$/;"	t	typeref:struct:__anon52
-ADDRESS	app/source/main.c	35;"	d	file:
+ADDRESS	app/source/main.c	36;"	d	file:
 ADDRESSED	stm32l1/include/usb/usb_pwr.h	/^  ADDRESSED,$/;"	e	enum:_DEVICE_STATE
 ADR	stm32l1/include/CMSIS/core_cm3.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon138
 ADR	stm32l1/include/CMSIS/core_cm4.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon119
@@ -1077,7 +1077,7 @@ BAT_V_ADC_PIN	app/include/board.h	19;"	d
 BAT_V_ADC_PORT	app/include/board.h	20;"	d
 BEACON_H	app/include/beacon.h	3;"	d
 BEACON_TIME_MS	app/source/beacon.c	15;"	d	file:
-BECON_STRENGTHS	app/source/main.c	42;"	d	file:
+BECON_STRENGTHS	app/source/main.c	45;"	d	file:
 BFAR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon138
 BFAR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon119
 BFAR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon90
@@ -1193,7 +1193,7 @@ CFR_W_MASK	stm32l1/source/drivers/stm32l1xx_wwdg.c	113;"	d	file:
 CFSR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon138
 CFSR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon119
 CFSR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon90
-CHANNEL	app/source/main.c	36;"	d	file:
+CHANNEL	app/source/main.c	37;"	d	file:
 CICR1	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR1;     \/*!< RI Channel identification for capture register 1,    Address offset: 0x28 *\/$/;"	m	struct:__anon74
 CICR2	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR2;     \/*!< RI Channel identification for capture register 2,    Address offset: 0x34 *\/$/;"	m	struct:__anon74
 CICR3	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR3;     \/*!< RI Channel identification for capture register3 ,    Address offset: 0x40 *\/$/;"	m	struct:__anon74
@@ -3953,7 +3953,7 @@ GPIO_read	app/source/gpio.c	/^int GPIO_read(GPIO_TypeDef *port, uint32_t pin)$/;
 GPIO_set_input	app/source/gpio.c	/^void GPIO_set_input(GPIO_TypeDef *port, uint32_t pin)$/;"	f
 GPIO_set_output	app/source/gpio.c	/^void GPIO_set_output(GPIO_TypeDef *port, uint32_t pin)$/;"	f
 GPIO_write	app/source/gpio.c	/^void GPIO_write(GPIO_TypeDef *port, uint32_t pin, uint8_t val)$/;"	f
-GROUP_N	app/source/main.c	31;"	d	file:
+GROUP_N	app/source/main.c	32;"	d	file:
 GTPR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t GTPR;       \/*!< USART Guard time and prescaler register, Address offset: 0x18 *\/$/;"	m	struct:__anon79
 GYRO_RESOLUTION_BITS	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	36;"	d
 GYRO_SCALE_BASE	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	37;"	d
@@ -5700,7 +5700,7 @@ N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        
 N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon163::__anon164
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon81::__anon82
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon85::__anon86
-NEXT_INDEX	app/source/trilaterate.c	114;"	d	file:
+NEXT_INDEX	app/source/trilaterate.c	149;"	d	file:
 NIEN_BitNumber	stm32l1/source/drivers/stm32l1xx_sdio.c	167;"	d	file:
 NM	Makefile	/^NM  = ${TOOLCHAIN}-nm$/;"	m
 NMI_Handler	app/source/stm32l1xx_it.c	/^void NMI_Handler(void)$/;"	f
@@ -6231,7 +6231,7 @@ OTYPER	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t OTYPER;       \/*!< GPIO po
 OUT_DATA	stm32l1/include/usb/usb_core.h	/^  OUT_DATA,         \/* 3 *\/$/;"	e	enum:_CONTROL_STATE
 OneDescriptor	stm32l1/include/usb/usb_core.h	/^typedef struct OneDescriptor$/;"	s
 Out0_Process	stm32l1/source/usb/usb_core.c	/^uint8_t Out0_Process(void)$/;"	f
-PAN_ID	app/source/main.c	34;"	d	file:
+PAN_ID	app/source/main.c	35;"	d	file:
 PAUSE	stm32l1/include/usb/usb_core.h	/^  PAUSE             \/* 10 *\/$/;"	e	enum:_CONTROL_STATE
 PCLK1_Frequency	stm32l1/include/drivers/stm32l1xx_rcc.h	/^  uint32_t PCLK1_Frequency;$/;"	m	struct:__anon13
 PCLK2_Frequency	stm32l1/include/drivers/stm32l1xx_rcc.h	/^  uint32_t PCLK2_Frequency;$/;"	m	struct:__anon13
@@ -9658,6 +9658,7 @@ Setup0_Process	stm32l1/source/usb/usb_core.c	/^uint8_t Setup0_Process(void)$/;"	
 Sint	stm32l1/include/CMSIS/arm_math.h	/^    arm_cfft_instance_f32 Sint;      \/**< Internal CFFT structure. *\/$/;"	m	struct:__anon201
 SpiDriverInterface	modules/libmpu9250/lib/mpu9250/mpu9250_if.hpp	/^class SpiDriverInterface {$/;"	c	namespace:MPU9250
 SpiDriverWrapper	modules/libmpu9250/lib/mpu9250/mpu9250_if.hpp	/^class SpiDriverWrapper {$/;"	c	namespace:MPU9250
+SquareRoot	app/source/trilaterate.c	/^uint32_t SquareRoot(uint32_t a_nInput)$/;"	f
 Standard_ClearFeature	stm32l1/source/usb/usb_core.c	/^RESULT Standard_ClearFeature(void)$/;"	f
 Standard_GetConfiguration	stm32l1/source/usb/usb_core.c	/^uint8_t *Standard_GetConfiguration(uint16_t Length)$/;"	f
 Standard_GetDescriptorData	stm32l1/source/usb/usb_core.c	/^uint8_t *Standard_GetDescriptorData(uint16_t Length, ONE_DESCRIPTOR *pDesc)$/;"	f
@@ -9851,7 +9852,7 @@ TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test
 TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test, SetState)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, FakeTest)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, SetGyroRate)$/;"	f
-THIS_INDEX	app/source/trilaterate.c	113;"	d	file:
+THIS_INDEX	app/source/trilaterate.c	148;"	d	file:
 TI1_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI2_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI3_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
@@ -10570,6 +10571,7 @@ TRIGGER	stm32l1/include/CMSIS/core_cm4.h	/^  __I  uint32_t TRIGGER;             
 TRIGGER	stm32l1/include/CMSIS/core_sc300.h	/^  __I  uint32_t TRIGGER;                 \/*!< Offset: 0xEE8 (R\/ )  TRIGGER *\/$/;"	m	struct:__anon96
 TRILATERATE_H	app/include/trilaterate.h	2;"	d
 TRISE	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t TRISE;        \/*!< I2C TRISE register,                          Address offset: 0x20 *\/$/;"	m	struct:__anon69
+TRI_TEST	app/source/main.c	39;"	d	file:
 TRUE	stm32l1/include/usb/usb_type.h	/^  FALSE = 0, TRUE  = !FALSE$/;"	e	enum:__anon8
 TSDR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t TSDR;       \/*!< RTC time stamp date register,                              Address offset: 0x34 *\/$/;"	m	struct:__anon75
 TSSSR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t TSSSR;      \/*!< RTC time-stamp sub second register,                        Address offset: 0x38 *\/$/;"	m	struct:__anon75
@@ -11191,7 +11193,7 @@ USB_Istr	stm32l1/source/usb/usb_istr.c	/^void USB_Istr(void)$/;"	f
 USB_LP_IRQHandler	app/source/stm32l1xx_it.c	/^void USB_LP_IRQHandler(void)$/;"	f
 USB_LP_IRQn	stm32l1/include/stm32l1xx.h	/^  USB_LP_IRQn                 = 20,     \/*!< USB Low Priority Interrupt                              *\/$/;"	e	enum:IRQn
 USB_NOT_READY	stm32l1/include/usb/usb_core.h	/^  USB_NOT_READY       \/* The process has not been finished, endpoint will be$/;"	e	enum:_RESULT
-USB_SERIAL	app/source/main.c	39;"	d	file:
+USB_SERIAL	app/source/main.c	42;"	d	file:
 USB_SIL_Init	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Init(void)$/;"	f
 USB_SIL_Read	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Read(uint8_t bEpAddr, uint8_t* pBufferPointer)$/;"	f
 USB_SIL_Write	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Write(uint8_t bEpAddr, uint8_t* pBufferPointer, uint32_t wBufferSize)$/;"	f
@@ -12186,7 +12188,7 @@ bool	stm32l1/include/usb/usb_type.h	/^bool;$/;"	t	typeref:enum:__anon8
 build_header	modules/libat86rf212/util/source/main.cpp	/^int build_header(uint8_t seq, uint16_t pan, uint16_t dest_addr, uint16_t src_addr, uint8_t* packet)$/;"	f
 bw	stm32l1/include/usb/usb_core.h	/^  bw;$/;"	m	union:__anon9	typeref:struct:__anon9::BW
 calculate_beacon_distance	app/source/trilaterate.c	/^int32_t calculate_beacon_distance(uint8_t ED){$/;"	f
-calculate_intersects	app/source/trilaterate.c	/^void calculate_intersects(Point* beacon_locations[2], int32_t beacon_distances[2], Intersects *out_intersects){$/;"	f
+calculate_intersects	app/source/trilaterate.c	/^void calculate_intersects(Point* two_beacon_locations[2], int32_t beacon_distances[2], Intersects *out_intersects){$/;"	f
 channel	modules/libat86rf212/util/source/main.cpp	/^    int channel;$/;"	m	struct:config_s	file:
 check_rx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int check_rx()$/;"	f	class:AT86RF212::At86rf212
 check_tx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int check_tx()$/;"	f	class:AT86RF212::At86rf212
@@ -12551,6 +12553,7 @@ pkCoeffs	stm32l1/include/CMSIS/arm_math.h	/^    float32_t *pkCoeffs;            
 pkCoeffs	stm32l1/include/CMSIS/arm_math.h	/^    q15_t *pkCoeffs;                            \/**< points to the reflection coefficient array. The array is of length numStages. *\/$/;"	m	struct:__anon216
 pkCoeffs	stm32l1/include/CMSIS/arm_math.h	/^    q31_t *pkCoeffs;                            \/**< points to the reflection coefficient array. The array is of length numStages. *\/$/;"	m	struct:__anon217
 point_partway	app/source/trilaterate.c	/^void point_partway(Point *p1, Point *p2, float p, Point *midp){$/;"	f
+position_average	app/source/trilaterate.c	/^void position_average(uint8_t n_points, Point in_points[], Point *point_average){$/;"	f
 postShift	stm32l1/include/CMSIS/arm_math.h	/^    int8_t postShift;         \/**< Additional shift, in bits, applied to each output sample. *\/$/;"	m	struct:__anon177
 postShift	stm32l1/include/CMSIS/arm_math.h	/^    uint32_t postShift;  \/**< bit shift applied to coefficients. *\/$/;"	m	struct:__anon220
 postShift	stm32l1/include/CMSIS/arm_math.h	/^    uint32_t postShift;  \/**< bit shift applied to coefficients. *\/$/;"	m	struct:__anon221
@@ -12627,7 +12630,7 @@ stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon227
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon228
 systick_count	app/source/main.c	/^__IO uint32_t systick_count = 0;$/;"	v
-trilaterate	app/source/trilaterate.c	/^void trilaterate(uint8_t EDs[]){$/;"	f
+trilaterate	app/source/trilaterate.c	/^void trilaterate(uint8_t EDs[], Point *position_out){$/;"	f
 twidCoefModifier	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t twidCoefModifier;         \/**< twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table. *\/$/;"	m	struct:__anon195
 twidCoefModifier	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t twidCoefModifier;         \/**< twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table. *\/$/;"	m	struct:__anon196
 twidCoefModifier	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t twidCoefModifier;       \/**< twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table. *\/$/;"	m	struct:__anon191

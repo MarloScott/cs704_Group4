@@ -45,6 +45,7 @@ int32_t calculate_beacon_distance(uint8_t ED);
 int32_t euclidean_distance(Point *p1, Point *p2);
 void point_partway(Point *p1, Point *p2, float p, Point *midp);
 void calculate_intersects(Point* beacon_locations[2], int32_t beacon_distances[2], Intersects *out_intersects);
-void trilaterate(uint8_t EDs[]);
+void position_average(uint8_t n_points, Point in_points[], Point *point_average);
+void trilaterate(uint8_t EDs[], Point *position_out);
 
 #endif // TRILATERATE_H

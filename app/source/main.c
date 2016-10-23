@@ -27,6 +27,7 @@
 #include "at86rf212/at86rf212.h"
 
 #include "imu.h"
+#include "trilaterate.h"
 
 #define GROUP_N       4
 
@@ -34,6 +35,8 @@
 #define PAN_ID        (0x0010|GROUP_N)  //!< PAN ID for beacon network
 #define ADDRESS       0x0001            //!< Master address is 0x0001, other beacons must increment this
 #define CHANNEL       (2+GROUP_N)       //!< Channel for beacon use
+
+#define TRI_TEST
 
 //#define BEACON_MODE
 #define USB_SERIAL
@@ -214,6 +217,15 @@ int main(void)
         error_flash(1, -res);
     }
 
+#ifdef TRI_TEST
+    Point P;
+    uint8_t EDs[4] = { 8000,6500,9000,7000};
+    while(1) {
+        trilaterate(EDs, &P);
+        sprintf(txt_buffer, "%d %d\n",P.x,P.y);
+        USB_print(txt_buffer);
+    }
+#endif
 
     while(1) {
 
