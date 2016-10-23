@@ -6,6 +6,13 @@
 #include "../../modules/libmpu9250/lib/mpu9250/mpu9250.h"
 #include "imu_adaptor.h"
 
+
+
+void IMU_Handler()
+{
+  
+}
+
 void IMU_POLL_DATA_RDY(struct mpu9250_s *device)
 {
 

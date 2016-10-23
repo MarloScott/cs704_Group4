@@ -38,7 +38,7 @@
 
 //#define BEACON_MODE
 #define USB_SERIAL
-
+#define BaseSerial
 //MODES OF OPERATION
 //#define BECON_STRENGTHS
 #define ACCEL_RAW
@@ -261,6 +261,25 @@ int main(void)
         sprintf(txt_buffer, "\n",data[i]);
         USB_print(txt_buffer);
       #endif
+
+      #ifdef BaseSerial
+      int message[4];
+        message[0]=1;
+        message[1]=2;
+        message[2]=3;
+        int i=0;
+        while(1){
+          sprintf(txt_buffer, "%d \n ",message[i]);
+          USB_print(txt_buffer);
+          i++;
+          if(i==4){
+            i=0;
+          }
+      }
+
+      #endif
+
+
     }
 
 }

@@ -1131,6 +1131,7 @@ BUILD_DIR	Makefile	/^BUILD_DIR = build$/;"	m
 BULK_MAX_PACKET_SIZE	stm32l1/include/usb/hw_config.h	44;"	d
 BW	stm32l1/include/usb/usb_core.h	/^  struct BW$/;"	s	union:__anon3
 BWTR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t BWTR[7];      \/*!< NOR\/PSRAM write timing registers, Address offset: 0x104-0x11C *\/$/;"	m	struct:__anon207
+BaseSerial	app/source/main.c	41;"	d	file:
 BitAction	stm32l1/include/drivers/stm32l1xx_gpio.h	/^}BitAction;$/;"	t	typeref:enum:__anon167
 Bit_RESET	stm32l1/include/drivers/stm32l1xx_gpio.h	/^{ Bit_RESET = 0,$/;"	e	enum:__anon167
 Bit_SET	stm32l1/include/drivers/stm32l1xx_gpio.h	/^  Bit_SET$/;"	e	enum:__anon167
@@ -4318,6 +4319,7 @@ IMU_GYRO_YOUT_L	app/include/imu.h	32;"	d
 IMU_GYRO_ZOUT_H	app/include/imu.h	33;"	d
 IMU_GYRO_ZOUT_L	app/include/imu.h	34;"	d
 IMU_H	app/include/imu.h	2;"	d
+IMU_Handler	app/source/imu.c	/^void IMU_Handler()$/;"	f
 IMU_INT_EN	app/include/imu.h	14;"	d
 IMU_INT_PIN	app/include/board.h	80;"	d
 IMU_INT_PORT	app/include/board.h	81;"	d
