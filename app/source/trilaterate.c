@@ -1,7 +1,18 @@
 #include "trilaterate.h"
 
-/*  Integer Square root Function taken from from :
+
+static Point beacon_locations[N_BEACONS] =
+{
+    {X_S+10600,  Y_S+1400      },
+    {X_S+0,      Y_S+2500      },
+    {X_S+0,      Y_S+2500+12300},
+    {X_S+10600,  Y_S+11400     }
+};
+
+/*  Integer Square root Function taken from from:
  *  http://stackoverflow.com/a/1101217
+ *  Based on this algorithm:
+ *  https://web.archive.org/web/20120306040058/http://medialab.freaknet.org/martin/src/sqrt/sqrt.c
  */
 uint32_t SquareRoot(uint32_t a_nInput)
 {
@@ -30,7 +41,7 @@ int32_t calculate_beacon_distance(uint8_t ED){
     // P(RF)[dBm] = RSSI_BASE_VAL + 1.03 ⋅ED_LEVEL
     //uint32_t P_RF = RSSI_BASE_VAL + 1.03*ED;
 
-    return ED;
+    return (int32_t)ED*100;
 }
 
 int32_t euclidean_distance(Point *p1, Point *p2){
@@ -54,30 +65,35 @@ void point_partway(Point *p1, Point *p2, float p, Point *midp){
     midp->y = p1->y + (int32_t)(diff.y * p);
 }
 
-void calculate_intersects(Point* two_beacon_locations[2], int32_t beacon_distances[2], Intersects *out_intersects){
+/*  Function to calculate the intersects of two circles
+ *  Based on algorithm described at:
+ *  http://paulbourke.net/geometry/circlesphere/
+ *  Section: Intersection of two circles
+ */
+void calculate_intersects(Point* two_beacon_locations[2], int32_t two_beacon_distances[2], Intersects *out_intersects){
     // Temp variables
     Point P;
     float p;
 
     int32_t beacon_to_beacon_distance =
         euclidean_distance(two_beacon_locations[0], two_beacon_locations[1]);
-    int32_t measured_distance_sum = beacon_distances[0] + beacon_distances[1];
+    int32_t measured_distance_sum = two_beacon_distances[0] + two_beacon_distances[1];
 
     /*  First two cases for when the radius of one beacon is contained within
      *  the radius of another.
      */
-    if(beacon_distances[0] > beacon_to_beacon_distance + beacon_distances[1]){
+    if(two_beacon_distances[0] > beacon_to_beacon_distance + two_beacon_distances[1]){
         // Second beacon's radius contained within radius of first one
 
-        p = 1 + (float)(beacon_distances[0]+beacon_distances[1]) /
+        p = 1 + (float)(two_beacon_distances[0]+two_beacon_distances[1]) /
                 (float)(2 * beacon_to_beacon_distance);
         point_partway(two_beacon_locations[0], two_beacon_locations[1], p, &out_intersects->I1);
         out_intersects->I2 = out_intersects->I1;
 
-    } else if(beacon_distances[1] > beacon_to_beacon_distance + beacon_distances[0]){
+    } else if(two_beacon_distances[1] > beacon_to_beacon_distance + two_beacon_distances[0]){
         // First beacon's radius contained within radius of second one
 
-        p = 1 + (float)(beacon_distances[0]+beacon_distances[1]) /
+        p = 1 + (float)(two_beacon_distances[0]+two_beacon_distances[1]) /
                 (float)(2 * beacon_to_beacon_distance);
         point_partway(two_beacon_locations[1], two_beacon_locations[0], p, &out_intersects->I1);
         out_intersects->I2 = out_intersects->I1;
@@ -94,19 +110,19 @@ void calculate_intersects(Point* two_beacon_locations[2], int32_t beacon_distanc
          *  circles.
          */
 
-        int32_t a = ( beacon_distances[0]*beacon_distances[0]
-                    - beacon_distances[1]*beacon_distances[1]
+        int32_t a = ( two_beacon_distances[0]*two_beacon_distances[0]
+                    - two_beacon_distances[1]*two_beacon_distances[1]
                     + beacon_to_beacon_distance*beacon_to_beacon_distance )
                     / (2 * beacon_to_beacon_distance);
         p = (float)a/(float)beacon_to_beacon_distance;
         point_partway(two_beacon_locations[0], two_beacon_locations[1], p, &P);
-        int32_t h = SquareRoot( beacon_distances[0]*beacon_distances[0] - a * a );
+        int32_t h = SquareRoot( two_beacon_distances[0]*two_beacon_distances[0] - a * a );
 
         // Kill me
         out_intersects->I1.x = P.x + h*(two_beacon_locations[1]->y-two_beacon_locations[0]->y)/beacon_to_beacon_distance;
         out_intersects->I2.x = P.x - h*(two_beacon_locations[1]->y-two_beacon_locations[0]->y)/beacon_to_beacon_distance;
-        out_intersects->I1.y = P.y + h*(two_beacon_locations[1]->x-two_beacon_locations[0]->x)/beacon_to_beacon_distance;
-        out_intersects->I2.y = P.y - h*(two_beacon_locations[1]->x-two_beacon_locations[0]->x)/beacon_to_beacon_distance;
+        out_intersects->I1.y = P.y - h*(two_beacon_locations[1]->x-two_beacon_locations[0]->x)/beacon_to_beacon_distance;
+        out_intersects->I2.y = P.y + h*(two_beacon_locations[1]->x-two_beacon_locations[0]->x)/beacon_to_beacon_distance;
 
     } else {
         // Single / no intersect, so make one up!
@@ -114,11 +130,10 @@ void calculate_intersects(Point* two_beacon_locations[2], int32_t beacon_distanc
          *  beacon that the imaginary intersect should be placed at
          */
 
-        p = (float)(beacon_distances[0]) /
-            (float)(beacon_distances[0]+beacon_distances[1]);
+        p = (float)(two_beacon_distances[0]) /
+            (float)(two_beacon_distances[0]+two_beacon_distances[1]);
         point_partway(two_beacon_locations[0], two_beacon_locations[1], p, &out_intersects->I1);
         out_intersects->I2 = out_intersects->I1;
-
     }
 }
 
@@ -134,14 +149,14 @@ void position_average(uint8_t n_points, Point in_points[], Point *point_average)
 
 void trilaterate(uint8_t EDs[], Point *position_out){
     int i;
-    int32_t beacon_distances[N_BEACONS];
+    int32_t two_beacon_distances[N_BEACONS];
     Intersects beacon_intersects[N_BEACONS];
     Point closest_points[N_BEACONS];
 
 
     // Convert each ED value to a distance estimate
     for(i=0;i<N_BEACONS;i++){
-        beacon_distances[i] = calculate_beacon_distance(EDs[i]);
+        two_beacon_distances[i] = calculate_beacon_distance(EDs[i]);
     }
 
     for(i=0;i<N_BEACONS;i++){
@@ -149,16 +164,27 @@ void trilaterate(uint8_t EDs[], Point *position_out){
         #define NEXT_INDEX ((i+1)%N_BEACONS)
 
         Point* two_beacon_locations[2] = {&beacon_locations[THIS_INDEX], &beacon_locations[NEXT_INDEX]};
-        int32_t two_beacon_distances[2] = {beacon_distances[THIS_INDEX], beacon_distances[NEXT_INDEX]};
+        int32_t two_two_beacon_distances[2] = {two_beacon_distances[THIS_INDEX], two_beacon_distances[NEXT_INDEX]};
 
-        calculate_intersects(two_beacon_locations, two_beacon_distances, &beacon_intersects[THIS_INDEX]);
+        calculate_intersects(two_beacon_locations, two_two_beacon_distances, &beacon_intersects[THIS_INDEX]);
     }
+
+#define TRI_DEBUG_PRINT
+#ifdef TRI_DEBUG_PRINT
+    char txt_buffer[256];
+    for(i=0;i<N_BEACONS;i++) {
+        sprintf(txt_buffer, "%d: (%ld,%ld) (%ld,%ld)\n",i,
+            beacon_intersects[i].I1.x,beacon_intersects[i].I1.y,beacon_intersects[i].I2.x,beacon_intersects[i].I2.y);
+        USB_print(txt_buffer);
+        delay_ms(100);
+    }
+#endif
 
     /*  Find where points are grouped based on which is closest to the
      *  position estimate.
      */
     for(i=0;i<N_BEACONS;i++){
-        Point position_estimate = {5000,7500};
+        Point position_estimate = {5000,7000};
         if((beacon_intersects[i].I1.x == beacon_intersects[i].I2.x &&
             beacon_intersects[i].I1.y == beacon_intersects[i].I2.y) ||
             euclidean_distance(&beacon_intersects[i].I1, &position_estimate) <
@@ -166,7 +192,7 @@ void trilaterate(uint8_t EDs[], Point *position_out){
         {
             closest_points[i] = beacon_intersects[i].I1;
         } else {
-            closest_points[i] = beacon_intersects[i].I1;
+            closest_points[i] = beacon_intersects[i].I2;
         }
     }
 

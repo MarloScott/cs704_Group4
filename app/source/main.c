@@ -36,6 +36,7 @@
 #define ADDRESS       0x0001            //!< Master address is 0x0001, other beacons must increment this
 #define CHANNEL       (2+GROUP_N)       //!< Channel for beacon use
 
+//#define INTER_TEST
 #define TRI_TEST
 
 //#define BEACON_MODE
@@ -217,14 +218,30 @@ int main(void)
         error_flash(1, -res);
     }
 
+#ifdef INTER_TEST
+    Point B[2] = {
+        {100, 0},
+        {0, 100},};
+    Point *Bp[2] = {&B[0],&B[1]};
+    int32_t D[2] = {80,80};
+    Intersects I;
+    while(1) {
+        calculate_intersects(Bp, D, &I);
+        sprintf(txt_buffer, "(%ld,%ld) (%ld,%ld)\n",I.I1.x,I.I1.y,I.I2.x,I.I2.y);
+        USB_print(txt_buffer);
+        delay_ms(1000);
+    }
+#endif
+
 #ifdef TRI_TEST
     Point P;
-    uint8_t EDs[4] = { 8000,6500,9000,7000};
-    while(1) {
+    uint8_t EDs[4] = { 79,67,92,71};
+    do {
         trilaterate(EDs, &P);
-        sprintf(txt_buffer, "%d %d\n",P.x,P.y);
+        sprintf(txt_buffer, "%ld %ld\n",P.x,P.y);
         USB_print(txt_buffer);
-    }
+        delay_ms(1000);
+    } while(1);
 #endif
 
     while(1) {

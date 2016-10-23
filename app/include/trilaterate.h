@@ -30,14 +30,6 @@ typedef struct {
 #define Y_S 0
 #define N_BEACONS 4
 
-static Point beacon_locations[N_BEACONS] =
-{
-    {X_S+10600, Y_S+1400      },
-    {X_S+0,     Y_S+2500      },
-    {X_S+0,     Y_S+2500+12300},
-    {X_S+10600, Y_S+11400     }
-};
-
 //static Point start_location = {0,0};
 
 // Function Prototypes
