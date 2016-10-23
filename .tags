@@ -10571,7 +10571,6 @@ TRIGGER	stm32l1/include/CMSIS/core_cm4.h	/^  __I  uint32_t TRIGGER;             
 TRIGGER	stm32l1/include/CMSIS/core_sc300.h	/^  __I  uint32_t TRIGGER;                 \/*!< Offset: 0xEE8 (R\/ )  TRIGGER *\/$/;"	m	struct:__anon96
 TRILATERATE_H	app/include/trilaterate.h	2;"	d
 TRISE	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t TRISE;        \/*!< I2C TRISE register,                          Address offset: 0x20 *\/$/;"	m	struct:__anon69
-TRI_DEBUG_PRINT	app/source/trilaterate.c	172;"	d	file:
 TRI_TEST	app/source/main.c	40;"	d	file:
 TRUE	stm32l1/include/usb/usb_type.h	/^  FALSE = 0, TRUE  = !FALSE$/;"	e	enum:__anon8
 TSDR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t TSDR;       \/*!< RTC time stamp date register,                              Address offset: 0x34 *\/$/;"	m	struct:__anon75
@@ -12631,7 +12630,7 @@ stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon227
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon228
 systick_count	app/source/main.c	/^__IO uint32_t systick_count = 0;$/;"	v
-trilaterate	app/source/trilaterate.c	/^void trilaterate(uint8_t EDs[], Point *position_out){$/;"	f
+trilaterate	app/source/trilaterate.c	/^void trilaterate(uint8_t EDs[], Point *position_estimate, Point *position_out){$/;"	f
 twidCoefModifier	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t twidCoefModifier;         \/**< twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table. *\/$/;"	m	struct:__anon195
 twidCoefModifier	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t twidCoefModifier;         \/**< twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table. *\/$/;"	m	struct:__anon196
 twidCoefModifier	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t twidCoefModifier;       \/**< twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table. *\/$/;"	m	struct:__anon191

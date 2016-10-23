@@ -234,11 +234,11 @@ int main(void)
 #endif
 
 #ifdef TRI_TEST
-    Point P;
+    Point P_est = {5000,7000}, P_out;
     uint8_t EDs[4] = { 79,67,92,71};
     do {
-        trilaterate(EDs, &P);
-        sprintf(txt_buffer, "%ld %ld\n",P.x,P.y);
+        trilaterate(EDs, &P_est, &P_out);
+        sprintf(txt_buffer, "%ld %ld\n",P_out.x,P_out.y);
         USB_print(txt_buffer);
         delay_ms(1000);
     } while(1);

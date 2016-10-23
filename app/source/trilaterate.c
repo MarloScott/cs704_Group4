@@ -147,7 +147,7 @@ void position_average(uint8_t n_points, Point in_points[], Point *point_average)
     }
 }
 
-void trilaterate(uint8_t EDs[], Point *position_out){
+void trilaterate(uint8_t EDs[], Point *position_estimate, Point *position_out){
     int i;
     int32_t two_beacon_distances[N_BEACONS];
     Intersects beacon_intersects[N_BEACONS];
@@ -169,7 +169,7 @@ void trilaterate(uint8_t EDs[], Point *position_out){
         calculate_intersects(two_beacon_locations, two_two_beacon_distances, &beacon_intersects[THIS_INDEX]);
     }
 
-#define TRI_DEBUG_PRINT
+//#define TRI_DEBUG_PRINT
 #ifdef TRI_DEBUG_PRINT
     char txt_buffer[256];
     for(i=0;i<N_BEACONS;i++) {
@@ -184,11 +184,10 @@ void trilaterate(uint8_t EDs[], Point *position_out){
      *  position estimate.
      */
     for(i=0;i<N_BEACONS;i++){
-        Point position_estimate = {5000,7000};
         if((beacon_intersects[i].I1.x == beacon_intersects[i].I2.x &&
             beacon_intersects[i].I1.y == beacon_intersects[i].I2.y) ||
-            euclidean_distance(&beacon_intersects[i].I1, &position_estimate) <
-            euclidean_distance(&beacon_intersects[i].I2, &position_estimate))
+            euclidean_distance(&beacon_intersects[i].I1, position_estimate) <
+            euclidean_distance(&beacon_intersects[i].I2, position_estimate))
         {
             closest_points[i] = beacon_intersects[i].I1;
         } else {
