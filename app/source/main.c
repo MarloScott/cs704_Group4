@@ -38,7 +38,7 @@
 
 //#define BEACON_MODE
 #define USB_SERIAL
-#define BaseSerial
+//#define BaseSerial
 //MODES OF OPERATION
 //#define BECON_STRENGTHS
 #define ACCEL_RAW
@@ -234,11 +234,18 @@ int main(void)
       #endif
 
       #ifdef ACCEL_RAW
-        IMU_POLL_DATA_RDY(&mpu9250);
-        recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
-        recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x1,&y1,&z1);
-        sprintf(txt_buffer, "GYRO : X: %d Y: %d Z: %d ACCEl : X: %d Y: %d Z: %d \n", x,y,z,x1, y1, z1);
-        USB_print(txt_buffer);
+      struct IMU_DEVICE_POSE test;
+      //IMU_DEVICE_INIT(&test, mpu9250);
+      while(1)
+      {
+        //IMU_UPDATE(&test);
+        sprintf(txt_buffer, "test: \n");
+      }
+        //IMU_POLL_DATA_RDY(&mpu9250);
+        //recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
+        //recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x1,&y1,&z1);
+        //sprintf(txt_buffer, "GYRO : X: %d Y: %d Z: %d ACCEl : X: %d Y: %d Z: %d \n", x,y,z,x1, y1, z1);
+        //USB_print(txt_buffer);
       #endif
 
       #ifdef SEND_MSG

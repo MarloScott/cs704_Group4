@@ -33,6 +33,32 @@
 #define IMU_GYRO_ZOUT_H 71
 #define IMU_GYRO_ZOUT_L 72
 
+struct VECTOR{
+  float X;
+  float Y;
+  float Z;
+};
+
+struct MATRIX{
+  struct VECTOR row1;
+  struct VECTOR row2;
+  struct VECTOR row3;
+};
+
+struct IMU_DEVICE_POSE{
+  struct MATRIX rotation;
+  struct VECTOR angle;
+  struct VECTOR accelOffset;
+  struct VECTOR gyroOffset;
+  struct mpu9250_s device;
+};
+
+struct IMU_SAMPLE{
+  struct VECTOR accel;
+  struct VECTOR gyro;
+};
+
+
 // TODO: write IMU gyro calibrating function
 //int IMU_GYRO_CALIBRATE(struct mpu9250_s *device);
 
@@ -40,8 +66,13 @@
 // TODO: Should be replaced with interrupt.
 void IMU_POLL_DATA_RDY(struct mpu9250_s *device);
 
-// Returns both gyro and accel data
-//void IMU_GET_SENSOR_RAW_DATA(struct mpu9250_s *device, );
+void IMU_DEVICE_INIT(struct IMU_DEVICE_POSE *devicePose, struct mpu9250_s device);
+
+void IMU_CALIBRATE(struct IMU_DEVICE_POSE *devicePose);
+
+void IMU_READ(struct IMU_SAMPLE *sample, struct mpu9250_s device);
+
+struct VECTOR GET_COLOMN(struct MATRIX *mA, int i);
 
 
 
