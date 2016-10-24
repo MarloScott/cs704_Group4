@@ -2,11 +2,14 @@
 
 // ED to millimeters
 int32_t calculate_beacon_distance(uint8_t ED){
-    // Calculate Receiver Input Power
+    /*  Calculate Receiver Input Power
+     *  Method abandoned in favour of experimental
+     */
     // P(RF)[dBm] = RSSI_BASE_VAL + 1.03 ⋅ED_LEVEL
     //uint32_t P_RF = RSSI_BASE_VAL + 1.03*ED;
 
-    return (int32_t)(50-ED)*500;
+    // Linear approximation constants based on experimental values
+    return (int32_t)(MAX(50-ED,1)*500);
 }
 
 /*  Find the intersects of the beacon radii, or a suitable substitute if
@@ -64,15 +67,15 @@ void calculate_intersects(Point* two_beacon_locations[2], int32_t two_beacon_dis
         point_partway(two_beacon_locations[0], two_beacon_locations[1], p, &P);
         int32_t h = SquareRoot( two_beacon_distances[0]*two_beacon_distances[0] - a * a );
 
-        // Kill me
+        // Calculating the two intersects' x and y values
         out_intersects->I1.x = P.x + h*(two_beacon_locations[1]->y-two_beacon_locations[0]->y)/beacon_to_beacon_distance;
         out_intersects->I2.x = P.x - h*(two_beacon_locations[1]->y-two_beacon_locations[0]->y)/beacon_to_beacon_distance;
         out_intersects->I1.y = P.y - h*(two_beacon_locations[1]->x-two_beacon_locations[0]->x)/beacon_to_beacon_distance;
         out_intersects->I2.y = P.y + h*(two_beacon_locations[1]->x-two_beacon_locations[0]->x)/beacon_to_beacon_distance;
 
     } else {
-        // Single / no intersect, so make one up!
-        /*  p is the proportion of the distance from the first to second
+        /*  Single / no intersect, so pretend there is one between them.
+         *  - p is the proportion of the distance from the first to second
          *  beacon that the imaginary intersect should be placed at
          */
 
@@ -104,6 +107,7 @@ void trilaterate(uint8_t EDs[], Point *position_estimate, Point *position_out){
         two_beacon_distances[i] = calculate_beacon_distance(EDs[i]);
     }
 
+    // Find the intersects of the beacon distances
     for(i=0;i<N_BEACONS;i++){
         #define THIS_INDEX (i)
         #define NEXT_INDEX ((i+1)%N_BEACONS)

@@ -9,6 +9,6 @@ typedef struct{
     int32_t std; // Standard deviation
 } Guassian2d;
 
-void kalman2d(Guassian2d* prediction, Guassian2d* measurement, int32_t kal_const, Guassian2d* fused);
+void kalman2d(Guassian2d* prediction, Guassian2d* measurement, float kal_const, Guassian2d* fused);
 
 #endif // KALMAN_H

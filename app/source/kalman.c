@@ -1,6 +1,6 @@
 #include "kalman.h"
 
-void kalman2d(Guassian2d* prediction, Guassian2d* measurement, int32_t kal_const, Guassian2d* fused){
+void kalman2d(Guassian2d* prediction, Guassian2d* measurement, float kal_const, Guassian2d* fused){
     /*  Calculate mean in both x and y
      */
 

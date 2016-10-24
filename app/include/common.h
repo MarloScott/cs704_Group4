@@ -4,8 +4,10 @@
 #include <stdint.h>
 
 #define SQUARE(x) (x*x)
+
 #define MIN(x,y) ((x>y)?y:x)
-#define MAX(x,y) ((x>y)?x:y)
+#define MAX(x,y) ((x<y)?y:x)
+#define COERCE(min,x,max) ((x<min)?(min):((x>max)?max:x))
 
 typedef struct {
     int32_t x;

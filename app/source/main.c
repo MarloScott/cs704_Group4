@@ -28,6 +28,7 @@
 
 #include "imu.h"
 #include "trilaterate.h"
+#include "kalman.h"
 
 #define GROUP_N       4
 
@@ -233,16 +234,17 @@ int main(void)
 #endif
 
 #ifdef TRI_TEST
-    Point P_est = {5000,7000}, P_out;
-    uint8_t EDs[4] = { 79,67,92,71};
+    Point P_est = {5000,7000};
+    uint8_t EDs[4] = { 10,12,5,15};
     do {
-        trilaterate(EDs, &P_est, &P_out);
-        sprintf(txt_buffer, "(%ld,%ld)\n",P_out.x,P_out.y);
+        trilaterate(EDs, &P_est, &P_est);
+        sprintf(txt_buffer, "(%ld,%ld)\n",P_est.x,P_est.y);
         USB_print(txt_buffer);
         delay_ms(1000);
     } while(1);
 #endif
     Point P_out = {5000,5000};
+    Point P_est = {5000,5000};
     uint8_t str_av[4];
     uint8_t strength[4][5] = {25};
     uint8_t str_count[4] = {0};
@@ -272,9 +274,24 @@ int main(void)
             str_av[i] = total[i]/5;
         }
 
-        trilaterate(str_av, &P_out, &P_out);
+        trilaterate(str_av, &P_est, &P_out);
 
-        sprintf(txt_buffer, "\rB1:[%.2d], B2:[%.2d], B3:[%.2d], B4:[%.2d] => (%ld,%ld)    ", str_av[0],  str_av[1], str_av[2], str_av[3],P_out.x,P_out.y );
+        Guassian2d prediction;
+        prediction.mean = P_est;
+        prediction.std = 1000;
+
+        Guassian2d measurement;
+        measurement.mean = P_out;
+        measurement.std = 2000;
+
+        Guassian2d fused;
+
+        kalman2d(&prediction, &measurement, 1, &fused);
+
+        //P_est = fused.mean;
+        P_est = P_out;
+
+        sprintf(txt_buffer, "\rB1:[%.2d], B2:[%.2d], B3:[%.2d], B4:[%.2d] => (%ld,%ld)    ", str_av[0],  str_av[1], str_av[2], str_av[3],P_est.x,P_est.y );
         USB_print(txt_buffer);
 
     #endif

@@ -622,7 +622,7 @@ ADC_SoftwareStartInjectedConv	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_
 ADC_StructInit	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_StructInit(ADC_InitTypeDef* ADC_InitStruct)                            $/;"	f
 ADC_TempSensorVrefintCmd	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_TempSensorVrefintCmd(FunctionalState NewState)                $/;"	f
 ADC_TypeDef	stm32l1/include/stm32l1xx.h	/^} ADC_TypeDef;$/;"	t	typeref:struct:__anon53
-ADDRESS	app/source/main.c	36;"	d	file:
+ADDRESS	app/source/main.c	37;"	d	file:
 ADDRESSED	stm32l1/include/usb/usb_pwr.h	/^  ADDRESSED,$/;"	e	enum:_DEVICE_STATE
 ADR	stm32l1/include/CMSIS/core_cm3.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon139
 ADR	stm32l1/include/CMSIS/core_cm4.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon120
@@ -1077,7 +1077,7 @@ BAT_V_ADC_PIN	app/include/board.h	19;"	d
 BAT_V_ADC_PORT	app/include/board.h	20;"	d
 BEACON_H	app/include/beacon.h	3;"	d
 BEACON_TIME_MS	app/source/beacon.c	15;"	d	file:
-BECON_STRENGTHS	app/source/main.c	46;"	d	file:
+BECON_STRENGTHS	app/source/main.c	47;"	d	file:
 BFAR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon139
 BFAR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon120
 BFAR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon91
@@ -1193,7 +1193,7 @@ CFR_W_MASK	stm32l1/source/drivers/stm32l1xx_wwdg.c	113;"	d	file:
 CFSR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon139
 CFSR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon120
 CFSR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon91
-CHANNEL	app/source/main.c	37;"	d	file:
+CHANNEL	app/source/main.c	38;"	d	file:
 CICR1	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR1;     \/*!< RI Channel identification for capture register 1,    Address offset: 0x28 *\/$/;"	m	struct:__anon75
 CICR2	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR2;     \/*!< RI Channel identification for capture register 2,    Address offset: 0x34 *\/$/;"	m	struct:__anon75
 CICR3	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR3;     \/*!< RI Channel identification for capture register3 ,    Address offset: 0x40 *\/$/;"	m	struct:__anon75
@@ -1271,6 +1271,7 @@ CNTR_RESUME	stm32l1/include/usb/usb_regs.h	141;"	d
 CNTR_SOFM	stm32l1/include/usb/usb_regs.h	137;"	d
 CNTR_SUSPM	stm32l1/include/usb/usb_regs.h	135;"	d
 CNTR_WKUPM	stm32l1/include/usb/usb_regs.h	134;"	d
+COERCE	app/include/common.h	10;"	d
 COMMON_H	app/include/common.h	2;"	d
 COMP	stm32l1/include/stm32l1xx.h	1024;"	d
 COMP0	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t COMP0;                   \/*!< Offset: 0x020 (R\/W)  Comparator Register 0                     *\/$/;"	m	struct:__anon144
@@ -3954,7 +3955,7 @@ GPIO_read	app/source/gpio.c	/^int GPIO_read(GPIO_TypeDef *port, uint32_t pin)$/;
 GPIO_set_input	app/source/gpio.c	/^void GPIO_set_input(GPIO_TypeDef *port, uint32_t pin)$/;"	f
 GPIO_set_output	app/source/gpio.c	/^void GPIO_set_output(GPIO_TypeDef *port, uint32_t pin)$/;"	f
 GPIO_write	app/source/gpio.c	/^void GPIO_write(GPIO_TypeDef *port, uint32_t pin, uint8_t val)$/;"	f
-GROUP_N	app/source/main.c	32;"	d	file:
+GROUP_N	app/source/main.c	33;"	d	file:
 GTPR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t GTPR;       \/*!< USART Guard time and prescaler register, Address offset: 0x18 *\/$/;"	m	struct:__anon80
 GYRO_RESOLUTION_BITS	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	36;"	d
 GYRO_SCALE_BASE	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	37;"	d
@@ -5227,9 +5228,9 @@ MASK3	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t MASK3;                 
 MASK3	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t MASK3;                   \/*!< Offset: 0x054 (R\/W)  Mask Register 3                           *\/$/;"	m	struct:__anon96
 MASS_MEMORY_START	stm32l1/include/usb/hw_config.h	43;"	d
 MATCHER_P2	modules/libmpu9250/test/source/mpu9250test.cpp	/^MATCHER_P2(MaskedCompare, value, mask, "")$/;"	f
-MAX	app/include/common.h	8;"	d
+MAX	app/include/common.h	9;"	d
 MEMRMP	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t MEMRMP;       \/*!< SYSCFG memory remap register,                      Address offset: 0x00      *\/$/;"	m	struct:__anon69
-MIN	app/include/common.h	7;"	d
+MIN	app/include/common.h	8;"	d
 MMFAR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t MMFAR;                   \/*!< Offset: 0x034 (R\/W)  MemManage Fault Address Register                      *\/$/;"	m	struct:__anon139
 MMFAR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t MMFAR;                   \/*!< Offset: 0x034 (R\/W)  MemManage Fault Address Register                      *\/$/;"	m	struct:__anon120
 MMFAR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t MMFAR;                   \/*!< Offset: 0x034 (R\/W)  MemManage Fault Address Register                      *\/$/;"	m	struct:__anon91
@@ -5705,7 +5706,7 @@ N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        
 N	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon164::__anon165
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon82::__anon83
 N	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t N:1;                        \/*!< bit:     31  Negative condition code flag       *\/$/;"	m	struct:__anon86::__anon87
-NEXT_INDEX	app/source/trilaterate.c	109;"	d	file:
+NEXT_INDEX	app/source/trilaterate.c	113;"	d	file:
 NIEN_BitNumber	stm32l1/source/drivers/stm32l1xx_sdio.c	167;"	d	file:
 NM	Makefile	/^NM  = ${TOOLCHAIN}-nm$/;"	m
 NMI_Handler	app/source/stm32l1xx_it.c	/^void NMI_Handler(void)$/;"	f
@@ -6236,7 +6237,7 @@ OTYPER	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t OTYPER;       \/*!< GPIO po
 OUT_DATA	stm32l1/include/usb/usb_core.h	/^  OUT_DATA,         \/* 3 *\/$/;"	e	enum:_CONTROL_STATE
 OneDescriptor	stm32l1/include/usb/usb_core.h	/^typedef struct OneDescriptor$/;"	s
 Out0_Process	stm32l1/source/usb/usb_core.c	/^uint8_t Out0_Process(void)$/;"	f
-PAN_ID	app/source/main.c	35;"	d	file:
+PAN_ID	app/source/main.c	36;"	d	file:
 PAUSE	stm32l1/include/usb/usb_core.h	/^  PAUSE             \/* 10 *\/$/;"	e	enum:_CONTROL_STATE
 PCLK1_Frequency	stm32l1/include/drivers/stm32l1xx_rcc.h	/^  uint32_t PCLK1_Frequency;$/;"	m	struct:__anon14
 PCLK2_Frequency	stm32l1/include/drivers/stm32l1xx_rcc.h	/^  uint32_t PCLK2_Frequency;$/;"	m	struct:__anon14
@@ -9857,7 +9858,7 @@ TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test
 TEST_F	modules/libat86rf212/test/source/at86rf212test.cpp	/^TEST_F(At86rf212Test, SetState)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, FakeTest)$/;"	f
 TEST_F	modules/libmpu9250/test/source/mpu9250test.cpp	/^TEST_F(Mpu9250Test, SetGyroRate)$/;"	f
-THIS_INDEX	app/source/trilaterate.c	108;"	d	file:
+THIS_INDEX	app/source/trilaterate.c	112;"	d	file:
 TI1_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI2_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
 TI3_Config	stm32l1/source/drivers/stm32l1xx_tim.c	/^static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,$/;"	f	file:
@@ -11197,7 +11198,7 @@ USB_Istr	stm32l1/source/usb/usb_istr.c	/^void USB_Istr(void)$/;"	f
 USB_LP_IRQHandler	app/source/stm32l1xx_it.c	/^void USB_LP_IRQHandler(void)$/;"	f
 USB_LP_IRQn	stm32l1/include/stm32l1xx.h	/^  USB_LP_IRQn                 = 20,     \/*!< USB Low Priority Interrupt                              *\/$/;"	e	enum:IRQn
 USB_NOT_READY	stm32l1/include/usb/usb_core.h	/^  USB_NOT_READY       \/* The process has not been finished, endpoint will be$/;"	e	enum:_RESULT
-USB_SERIAL	app/source/main.c	43;"	d	file:
+USB_SERIAL	app/source/main.c	44;"	d	file:
 USB_SIL_Init	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Init(void)$/;"	f
 USB_SIL_Read	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Read(uint8_t bEpAddr, uint8_t* pBufferPointer)$/;"	f
 USB_SIL_Write	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Write(uint8_t bEpAddr, uint8_t* pBufferPointer, uint32_t wBufferSize)$/;"	f
@@ -12301,7 +12302,7 @@ init	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    int init(SpiDriverInterfac
 init	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    int init(struct mpu9250_driver_s *driver, void *driver_ctx) {$/;"	f	class:MPU9250::Mpu9250
 int_handler	modules/libat86rf212/util/source/main.cpp	/^void int_handler(int dummy)$/;"	f
 int_handler	modules/libmpu9250/util/source/main.cpp	/^void int_handler(int dummy)$/;"	f
-kalman2d	app/source/kalman.c	/^void kalman2d(Guassian2d* prediction, Guassian2d* measurement, int32_t kal_const, Guassian2d* fused){$/;"	f
+kalman2d	app/source/kalman.c	/^void kalman2d(Guassian2d* prediction, Guassian2d* measurement, float kal_const, Guassian2d* fused){$/;"	f
 linecoding	stm32l1/source/usb/usb_prop.c	/^LINE_CODING linecoding =$/;"	v
 main	app/source/main.c	/^int main(void)$/;"	f
 main	modules/libat86rf212/test/source/main.cpp	/^int main(int argc, char **argv) {$/;"	f
