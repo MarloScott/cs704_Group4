@@ -6,7 +6,7 @@ int32_t calculate_beacon_distance(uint8_t ED){
     // P(RF)[dBm] = RSSI_BASE_VAL + 1.03 ⋅ED_LEVEL
     //uint32_t P_RF = RSSI_BASE_VAL + 1.03*ED;
 
-    return (int32_t)(100-ED)*100;
+    return (int32_t)(50-ED)*500;
 }
 
 /*  Find the intersects of the beacon radii, or a suitable substitute if

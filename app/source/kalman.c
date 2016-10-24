@@ -4,14 +4,14 @@ void kalman2d(Guassian2d* prediction, Guassian2d* measurement, int32_t kal_const
     /*  Calculate mean in both x and y
      */
 
-    out->mean.y =
-        prediction->y +
+    fused->mean.x =
+        prediction->mean.x +
         ((kal_const * prediction->std) /
         (SQUARE(kal_const) * prediction->std + measurement->std)) *
-        (measurement->mean.y - kal_const * prediction->mean.y);
+        (measurement->mean.x - kal_const * prediction->mean.x);
 
-    out->mean.y =
-        prediction->y +
+    fused->mean.y =
+        prediction->mean.y +
         ((kal_const * prediction->std) /
         (SQUARE(kal_const) * prediction->std + measurement->std)) *
         (measurement->mean.y - kal_const * prediction->mean.y);
@@ -20,7 +20,7 @@ void kalman2d(Guassian2d* prediction, Guassian2d* measurement, int32_t kal_const
      *  standard deviations, which probably remain constant.
      */
 
-    out->std =
+    fused->std =
         prediction->std -
         ((kal_const * prediction->std) /
         (SQUARE(kal_const) * prediction->std + measurement->std)) *

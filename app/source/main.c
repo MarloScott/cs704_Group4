@@ -208,11 +208,10 @@ int main(void)
     sprintf(txt_buffer, "Prog START NOW\n");
     USB_print(txt_buffer);
 
-    int i;
+    int i,j;
 
     uint8_t length;
     uint8_t data[18];
-    uint8_t strength[4]={0};
     res = at86rf212_start_rx(&radio);
     if (res < 0) {
         error_flash(1, -res);
@@ -243,28 +242,42 @@ int main(void)
         delay_ms(1000);
     } while(1);
 #endif
-    Point P_out = {5300,7500};
+    Point P_out = {5000,5000};
+    uint8_t str_av[4];
+    uint8_t strength[4][5] = {25};
+    uint8_t str_count[4] = {0};
+
     while(1) {
 
-      #ifdef BECON_STRENGTHS
-
-        while(at86rf212_check_rx(&radio)<1){
-            delay_ms(10);
+    #ifdef BECON_STRENGTHS
+        for(i=0;i<20;i++){
+            while(at86rf212_check_rx(&radio)<1){
+                delay_ms(10);
+            }
+            at86rf212_get_rx(&radio, &length, data);
+            if(data[7]>0&&data[7]<5){
+                strength[data[7]-1][str_count[data[7]-1]] = data[16];
+                str_count[data[7]-1] = (str_count[data[7]-1]+1)%5;
+            }else{
+                sprintf(txt_buffer, "ERROR1\n");
+                USB_print(txt_buffer);
+            }
         }
-        at86rf212_get_rx(&radio, &length, data);
-        if(data[7]>0&&data[7]<5){
-            strength[data[7]-1] = data[16];
-        }else{
-            sprintf(txt_buffer, "ERROR1\n");
-            USB_print(txt_buffer);
+        uint32_t total[4];
+        for(i=0;i<4;i++){
+            total[i] = 0;
+            for(j=0;j<5;j++){
+                total[i] += strength[i][j];
+            }
+            str_av[i] = total[i]/5;
         }
 
-        trilaterate(strength, &P_out, &P_out);
+        trilaterate(str_av, &P_out, &P_out);
 
-        sprintf(txt_buffer, "\rB1:[%.2d], B2:[%.2d], B3:[%.2d], B4:[%.2d] => (%ld,%ld)    ", strength[0],  strength[1], strength[2], strength[3],P_out.x,P_out.y );
+        sprintf(txt_buffer, "\rB1:[%.2d], B2:[%.2d], B3:[%.2d], B4:[%.2d] => (%ld,%ld)    ", str_av[0],  str_av[1], str_av[2], str_av[3],P_out.x,P_out.y );
         USB_print(txt_buffer);
 
-      #endif
+    #endif
 
       #ifdef ACCEL_RAW
         recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x,&y,&z);

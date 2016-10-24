@@ -4,6 +4,8 @@
 #include <stdint.h>
 
 #define SQUARE(x) (x*x)
+#define MIN(x,y) ((x>y)?y:x)
+#define MAX(x,y) ((x>y)?x:y)
 
 typedef struct {
     int32_t x;

@@ -33,7 +33,8 @@ int32_t euclidean_distance(Point *p1, Point *p2){
     diff.x = p2->x - p1->x;
     diff.y = p2->y - p1->y;
 
-    return SquareRoot(diff.x*diff.x + diff.y*diff.y);
+    // Pythagoras
+    return SquareRoot(SQUARE(diff.x) + SQUARE(diff.y));
 }
 
 // Calculates point that is proportion p of the distance from p1 to p2
