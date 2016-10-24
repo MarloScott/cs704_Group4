@@ -11363,8 +11363,13 @@ WWDG_SetPrescaler	stm32l1/source/drivers/stm32l1xx_wwdg.c	/^void WWDG_SetPrescal
 WWDG_SetWindowValue	stm32l1/source/drivers/stm32l1xx_wwdg.c	/^void WWDG_SetWindowValue(uint8_t WindowValue)$/;"	f
 WWDG_TypeDef	stm32l1/include/stm32l1xx.h	/^} WWDG_TypeDef;$/;"	t	typeref:struct:__anon81
 WaitForLastOperation	stm32l1/source/drivers/stm32l1xx_flash_ramfunc.c	/^static __RAM_FUNC  WaitForLastOperation(uint32_t Timeout)$/;"	f	file:
+X	py/surface3d_demo.py	/^X = np.arange(-5, 15, 0.5)$/;"	v
 X_S	app/include/trilaterate.h	22;"	d
+X_S	py/gen.py	/^X_S = 0;$/;"	v
+Y	py/surface3d_demo.py	/^Y = np.arange(-5, 15, 0.5)$/;"	v
 Y_S	app/include/trilaterate.h	23;"	d
+Y_S	py/gen.py	/^Y_S = 0;$/;"	v
+Z	py/surface3d_demo.py	/^Z = accumulate()$/;"	v
 Z	stm32l1/include/CMSIS/core_cm0.h	/^    uint32_t Z:1;                        \/*!< bit:     30  Zero condition code flag           *\/$/;"	m	struct:__anon100::__anon101
 Z	stm32l1/include/CMSIS/core_cm0.h	/^    uint32_t Z:1;                        \/*!< bit:     30  Zero condition code flag           *\/$/;"	m	struct:__anon104::__anon105
 Z	stm32l1/include/CMSIS/core_cm0plus.h	/^    uint32_t Z:1;                        \/*!< bit:     30  Zero condition code flag           *\/$/;"	m	struct:__anon148::__anon149
@@ -11997,7 +12002,9 @@ _reserved1	stm32l1/include/CMSIS/core_cm4.h	/^    uint32_t _reserved1:4;        
 _reserved1	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t _reserved1:4;               \/*!< bit: 20..23  Reserved                           *\/$/;"	m	struct:__anon164::__anon165
 _reserved1	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t _reserved1:4;               \/*!< bit: 20..23  Reserved                           *\/$/;"	m	struct:__anon86::__anon87
 _write_r	app/source/main.c	/^int _write_r(struct _reent *r, int fd, const void *data, unsigned int count)$/;"	f
+a	py/surface3d_demo.py	/^a=np.argmax(Z)$/;"	v
 accel_scale	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	/^    float accel_scale;$/;"	m	struct:mpu9250_s
+accumulate	py/surface3d_demo.py	/^def accumulate():$/;"	f
 add_data	modules/libat86rf212/util/source/main.cpp	/^int add_data(int len, uint8_t* data_in, uint8_t* packet)$/;"	f
 address	modules/libat86rf212/util/source/main.cpp	/^    uint16_t address;$/;"	m	struct:config_s	file:
 args	modules/libat86rf212/version.py	/^args = parser.parse_args();$/;"	v
@@ -12141,6 +12148,7 @@ at86rf212_update_reg	modules/libat86rf212/lib/source/at86rf212.c	/^int at86rf212
 at86rf212_write_frame	modules/libat86rf212/lib/source/at86rf212.c	/^static int at86rf212_write_frame(struct at86rf212_s *device, uint8_t length, uint8_t* data)$/;"	f	file:
 at86rf212_write_reg	modules/libat86rf212/lib/source/at86rf212.c	/^int at86rf212_write_reg(struct at86rf212_s *device, uint8_t reg, uint8_t val)$/;"	f
 at86rf212_write_subreg	modules/libat86rf212/lib/source/at86rf212.c	/^int at86rf212_write_subreg(struct at86rf212_s *device, uint8_t reg, uint8_t mask, uint8_t shift, uint8_t val)$/;"	f
+ax	py/surface3d_demo.py	/^ax = fig.gca(projection='3d')$/;"	v
 b	stm32l1/include/CMSIS/core_cm0.h	/^  } b;                                   \/*!< Structure used for bit  access                  *\/$/;"	m	union:__anon100	typeref:struct:__anon100::__anon101
 b	stm32l1/include/CMSIS/core_cm0.h	/^  } b;                                   \/*!< Structure used for bit  access                  *\/$/;"	m	union:__anon102	typeref:struct:__anon102::__anon103
 b	stm32l1/include/CMSIS/core_cm0.h	/^  } b;                                   \/*!< Structure used for bit  access                  *\/$/;"	m	union:__anon104	typeref:struct:__anon104::__anon105
@@ -12170,7 +12178,10 @@ bESOFcnt	stm32l1/source/usb/usb_pwr.c	/^  __IO uint8_t bESOFcnt;$/;"	m	struct:__
 bIntPackSOF	stm32l1/source/usb/usb_istr.c	/^__IO uint8_t bIntPackSOF = 0;  \/* SOFs received between 2 consecutive packets *\/$/;"	v
 bb0	stm32l1/include/usb/usb_core.h	/^    uint8_t bb0;$/;"	m	struct:__anon10::BW
 bb1	stm32l1/include/usb/usb_core.h	/^    uint8_t bb1;$/;"	m	struct:__anon10::BW
+beacon_distances	py/surface3d_demo.py	/^beacon_distances = [6.5, 8, 5.5, 10]$/;"	v
 beacon_locations	app/include/trilaterate.h	/^static Point beacon_locations[N_BEACONS] =$/;"	v
+beacon_locations	py/gen.py	/^beacon_locations =[$/;"	v
+beacon_locations	py/surface3d_demo.py	/^beacon_locations = [[10,0],[0,0],[0,10],[10,10]]$/;"	v
 bitRevFactor	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t bitRevFactor;             \/**< bit reversal modifier that supports different size FFTs with the same bit reversal table. *\/$/;"	m	struct:__anon196
 bitRevFactor	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t bitRevFactor;             \/**< bit reversal modifier that supports different size FFTs with the same bit reversal table. *\/$/;"	m	struct:__anon197
 bitRevFactor	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t bitRevFactor;           \/**< bit reversal modifier that supports different size FFTs with the same bit reversal table. *\/$/;"	m	struct:__anon192
@@ -12205,6 +12216,7 @@ close	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    int close() {$/;"	f	class
 config_s	modules/libat86rf212/util/source/main.cpp	/^struct config_s {$/;"	s	file:
 cs_pin	app/include/spi.h	/^    uint32_t cs_pin;$/;"	m	struct:spi_ctx_s
 cs_port	app/include/spi.h	/^    GPIO_TypeDef* cs_port;$/;"	m	struct:spi_ctx_s
+d	py/gen.py	/^d = []$/;"	v
 datatype	stm32l1/include/usb/usb_prop.h	/^  uint8_t datatype;$/;"	m	struct:__anon11
 delay_ms	app/source/main.c	/^void delay_ms(uint32_t ms)$/;"	f
 delay_us	app/source/main.c	/^void delay_us(uint32_t us)$/;"	f
@@ -12248,6 +12260,7 @@ fftLenReal	stm32l1/include/CMSIS/arm_math.h	/^    uint32_t fftLenReal;          
 fftLenReal	stm32l1/include/CMSIS/arm_math.h	/^    uint32_t fftLenReal;                        \/**< length of the real FFT. *\/$/;"	m	struct:__anon201
 fftLenReal	stm32l1/include/CMSIS/arm_math.h	/^    uint32_t fftLenReal;                      \/**< length of the real FFT. *\/$/;"	m	struct:__anon199
 fifteen_four_header_s	app/include/fifteenfour.h	/^struct fifteen_four_header_s {$/;"	s
+fig	py/surface3d_demo.py	/^fig = plt.figure()$/;"	v
 fileString	modules/libat86rf212/version.py	/^    fileString = "";$/;"	v
 fileString	modules/libat86rf212/version.py	/^    fileString = f.read();$/;"	v
 fileString	modules/libmpu9250/version.py	/^    fileString = "";$/;"	v
@@ -12269,6 +12282,7 @@ get_rx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int get_rx(uint8_t
 get_state	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int get_state(uint8_t *state)$/;"	f	class:AT86RF212::At86rf212
 gpio_get_f	modules/libat86rf212/lib/at86rf212/at86rf212.h	/^typedef int (*gpio_get_f)(void* context, uint8_t *val);$/;"	t
 gpio_set_f	modules/libat86rf212/lib/at86rf212/at86rf212.h	/^typedef int (*gpio_set_f)(void* context, uint8_t val);$/;"	t
+guassian	py/surface3d_demo.py	/^def guassian(origin, mean, std=2):$/;"	f
 gyro_scale	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	/^    float gyro_scale;$/;"	m	struct:mpu9250_s
 help	modules/libat86rf212/util/source/main.cpp	/^    int help;$/;"	m	struct:config_s	file:
 ifftFlag	stm32l1/include/CMSIS/arm_math.h	/^    uint8_t ifftFlag;                  \/**< flag that selects forward (ifftFlag=0) or inverse (ifftFlag=1) transform. *\/$/;"	m	struct:__anon196
@@ -12636,6 +12650,7 @@ stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon228
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon229
 std	app/include/kalman.h	/^    int32_t std; \/\/ Standard deviation$/;"	m	struct:__anon2
+surf	py/surface3d_demo.py	/^surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.coolwarm,$/;"	v
 systick_count	app/source/main.c	/^__IO uint32_t systick_count = 0;$/;"	v
 trilaterate	app/source/trilaterate.c	/^void trilaterate(uint8_t EDs[], Point *position_estimate, Point *position_out){$/;"	f
 twidCoefModifier	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t twidCoefModifier;         \/**< twiddle coefficient modifier that supports different size FFTs with the same twiddle factor table. *\/$/;"	m	struct:__anon196
@@ -12697,6 +12712,7 @@ wInterrupt_Mask	stm32l1/source/usb/usb_init.c	/^uint16_t  wInterrupt_Mask;$/;"	v
 wIstr	stm32l1/source/usb/usb_istr.c	/^__IO uint16_t wIstr;  \/* ISTR register last read value *\/$/;"	v
 write_reg	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int write_reg(uint8_t reg, uint8_t val)$/;"	f	class:AT86RF212::At86rf212
 x	app/include/common.h	/^    int32_t x;$/;"	m	struct:__anon3
+x	py/gen.py	/^x = input("x: ")$/;"	v
 x0	stm32l1/include/CMSIS/arm_math.h	/^    float32_t x0;        \/**< saves previous input sample. *\/$/;"	m	struct:__anon223
 x0	stm32l1/include/CMSIS/arm_math.h	/^    q15_t x0;            \/**< saves previous input sample. *\/$/;"	m	struct:__anon225
 x0	stm32l1/include/CMSIS/arm_math.h	/^    q31_t x0;             \/**< saves previous input sample. *\/$/;"	m	struct:__anon224
@@ -12709,3 +12725,4 @@ xPSR_Type	stm32l1/include/CMSIS/core_sc000.h	/^} xPSR_Type;$/;"	t	typeref:union:
 xPSR_Type	stm32l1/include/CMSIS/core_sc300.h	/^} xPSR_Type;$/;"	t	typeref:union:__anon86
 xSpacing	stm32l1/include/CMSIS/arm_math.h	/^    float32_t xSpacing;         \/**< xSpacing *\/$/;"	m	struct:__anon187
 y	app/include/common.h	/^    int32_t y;$/;"	m	struct:__anon3
+y	py/gen.py	/^y = input("y: ")$/;"	v

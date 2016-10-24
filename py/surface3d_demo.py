@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 import math
 from math import exp
 from numpy import sqrt
@@ -19,7 +21,7 @@ X, Y = np.meshgrid(X, Y)
 beacon_locations = [[10,0],[0,0],[0,10],[10,10]]
 beacon_distances = [6.5, 8, 5.5, 10]
 
-def guassian(origin, mean, std=5):
+def guassian(origin, mean, std=2):
     R = np.sqrt((X-origin[0])**2 + (Y-origin[1])**2)
     return np.exp(-(R-mean)**2/(2*std**2))/(sqrt(2*pi)*std)
 
