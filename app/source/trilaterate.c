@@ -1,32 +1,6 @@
 #include "trilaterate.h"
 
-/*  Integer Square root Function taken from from:
- *  http://stackoverflow.com/a/1101217
- *  Based on this algorithm:
- *  https://web.archive.org/web/20120306040058/http://medialab.freaknet.org/martin/src/sqrt/sqrt.c
- */
-uint32_t SquareRoot(uint32_t a_nInput)
-{
-    uint32_t op  = a_nInput;
-    uint32_t res = 0;
-    uint32_t one = 1uL << 30; // The second-to-top bit is set: use 1u << 14 for uint16_t type; use 1uL<<30 for uint32_t type
-
-    // "one" starts at the highest power of four <= than the argument.
-    while (one > op) {
-        one >>= 2;
-    }
-
-    while (one != 0) {
-        if (op >= res + one) {
-            op = op - (res + one);
-            res = res +  2 * one;
-        }
-        res >>= 1;
-        one >>= 2;
-    }
-    return res;
-}
-
+// ED to millimeters
 int32_t calculate_beacon_distance(uint8_t ED){
     // Calculate Receiver Input Power
     // P(RF)[dBm] = RSSI_BASE_VAL + 1.03 ⋅ED_LEVEL
@@ -35,27 +9,9 @@ int32_t calculate_beacon_distance(uint8_t ED){
     return (int32_t)(100-ED)*100;
 }
 
-int32_t euclidean_distance(Point *p1, Point *p2){
-    Point diff;
-
-    diff.x = p2->x - p1->x;
-    diff.y = p2->y - p1->y;
-
-    return SquareRoot(diff.x*diff.x + diff.y*diff.y);
-}
-
-void point_partway(Point *p1, Point *p2, float p, Point *midp){
-    // Calculates point that is proportion p of the distance from p1 to p2
-
-    Point diff;
-
-    diff.x = p2->x - p1->x;
-    diff.y = p2->y - p1->y;
-
-    midp->x = p1->x + (int32_t)(diff.x * p);
-    midp->y = p1->y + (int32_t)(diff.y * p);
-}
-
+/*  Find the intersects of the beacon radii, or a suitable substitute if
+ *  no intersects exist.
+ */
 void calculate_intersects(Point* two_beacon_locations[2], int32_t two_beacon_distances[2], Intersects *out_intersects){
     // Temp variables
     Point P;
@@ -64,10 +20,6 @@ void calculate_intersects(Point* two_beacon_locations[2], int32_t two_beacon_dis
     int32_t beacon_to_beacon_distance =
         euclidean_distance(two_beacon_locations[0], two_beacon_locations[1]);
     int32_t measured_distance_sum = two_beacon_distances[0] + two_beacon_distances[1];
-
-    /*  Find the intersects of the beacon radii, or a suitable substitute if
-     *  no intersects exist.
-     */
 
     /*  First two cases for when the radius of one beacon is contained within
      *  the radius of another.

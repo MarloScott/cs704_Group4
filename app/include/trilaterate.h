@@ -2,9 +2,7 @@
 #define TRILATERATE_H
 
 #include <stdint.h>
-#include "math.h"
-
-#define SQUARE(x) (x*x)
+#include "common.h"
 
 //PHY Modes
 #define BPSK300 -100
@@ -14,11 +12,6 @@
 #define OQPSK1000Cos -97
 
 #define RSSI_BASE_VAL BPSK300
-
-typedef struct {
-    int32_t x;
-    int32_t y;
-} Point;
 
 typedef struct {
     Point I1;
@@ -40,8 +33,6 @@ static Point beacon_locations[N_BEACONS] =
 
 // Function Prototypes
 int32_t calculate_beacon_distance(uint8_t ED);
-int32_t euclidean_distance(Point *p1, Point *p2);
-void point_partway(Point *p1, Point *p2, float p, Point *midp);
 void calculate_intersects(Point* two_beacon_locations[2], int32_t two_beacon_distances[2], Intersects *out_intersects);
 void position_average(uint8_t n_points, Point in_points[], Point *point_average);
 void trilaterate(uint8_t EDs[], Point *position_estimate, Point *position_out);
