@@ -38,12 +38,11 @@
 
 //#define BEACON_MODE
 #define USB_SERIAL
-#define BaseSerial
+//#define BaseSerial
 //MODES OF OPERATION
 //#define BECON_STRENGTHS
-#define ACCEL_RAW
-//#define SEND_MSG
-//#define RECV_MSG
+////#define SEND_MSG
+#define RECV_MSG
 
 // ISR globals
 __IO uint32_t systick_count = 0;
@@ -248,35 +247,34 @@ int main(void)
       #endif
 
       #ifdef RECV_MSG
+      int xPos;
+      int yPos;
         at86rf212_set_channel(&radio, CHANNEL);
         while(at86rf212_check_rx(&radio)<1){
             delay_ms(10);
         }
+        xPos= data[10]*256+data[9];
+        yPos=data[12]*256+data[11];
+
         at86rf212_get_rx(&radio, &length, data);
-        i = 0;
-        for(i;i<length;i++){
-          sprintf(txt_buffer, " %.2x ",data[i]);
-          USB_print(txt_buffer);
-        }
-        sprintf(txt_buffer, "\n",data[i]);
+        sprintf(txt_buffer, "*%.5d",xPos);
+        USB_print(txt_buffer);
+        sprintf(txt_buffer, "%.5d",yPos);
         USB_print(txt_buffer);
       #endif
-
+      int message[2];
       #ifdef BaseSerial
-      int message[4];
-        message[0]=1;
-        message[1]=2;
-        message[2]=3;
-        int i=0;
-        while(1){
-          sprintf(txt_buffer, "%d \n ",message[i]);
-          USB_print(txt_buffer);
-          i++;
-          if(i==4){
-            i=0;
-          }
-      }
+      message[0]=10123;
+      message[1]=11999;
 
+      int i=0;
+      while(1){
+        sprintf(txt_buffer, "*%.5d",message[0]);
+        USB_print(txt_buffer);
+        sprintf(txt_buffer, "%.5d",message[1]);
+        USB_print(txt_buffer);
+
+      }
       #endif
 
 

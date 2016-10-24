@@ -14,7 +14,6 @@ A1	stm32l1/include/CMSIS/arm_math.h	/^    q31_t A1;           \/**< The derived 
 A2	stm32l1/include/CMSIS/arm_math.h	/^    float32_t A2;          \/**< The derived gain, A2 = Kd . *\/$/;"	m	struct:__anon41
 A2	stm32l1/include/CMSIS/arm_math.h	/^    q15_t A2;$/;"	m	struct:__anon39
 A2	stm32l1/include/CMSIS/arm_math.h	/^    q31_t A2;            \/**< The derived gain, A2 = Kd . *\/$/;"	m	struct:__anon40
-ACCEL_RAW	app/source/main.c	44;"	d	file:
 ACCEL_RESOLUTION_BITS	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	67;"	d
 ACCEL_SCALE_BASE	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	68;"	d
 ACPR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t ACPR;                    \/*!< Offset: 0x010 (R\/W)  Asynchronous Clock Prescaler Register *\/$/;"	m	struct:__anon112
@@ -1131,7 +1130,6 @@ BUILD_DIR	Makefile	/^BUILD_DIR = build$/;"	m
 BULK_MAX_PACKET_SIZE	stm32l1/include/usb/hw_config.h	44;"	d
 BW	stm32l1/include/usb/usb_core.h	/^  struct BW$/;"	s	union:__anon3
 BWTR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t BWTR[7];      \/*!< NOR\/PSRAM write timing registers, Address offset: 0x104-0x11C *\/$/;"	m	struct:__anon207
-BaseSerial	app/source/main.c	41;"	d	file:
 BitAction	stm32l1/include/drivers/stm32l1xx_gpio.h	/^}BitAction;$/;"	t	typeref:enum:__anon167
 Bit_RESET	stm32l1/include/drivers/stm32l1xx_gpio.h	/^{ Bit_RESET = 0,$/;"	e	enum:__anon167
 Bit_SET	stm32l1/include/drivers/stm32l1xx_gpio.h	/^  Bit_SET$/;"	e	enum:__anon167
@@ -6914,6 +6912,7 @@ READ_REG	stm32l1/include/stm32l1xx.h	6655;"	d
 RECALPF_TIMEOUT	stm32l1/source/drivers/stm32l1xx_rtc.c	254;"	d	file:
 RECIPIENT	stm32l1/include/usb/usb_def.h	85;"	d
 RECIPIENT_TYPE	stm32l1/include/usb/usb_def.h	/^} RECIPIENT_TYPE;$/;"	t	typeref:enum:_RECIPIENT_TYPE
+RECV_MSG	app/source/main.c	45;"	d	file:
 REQUEST_TYPE	stm32l1/include/usb/usb_def.h	80;"	d
 RESERVED	stm32l1/include/stm32l1xx.h	/^  uint32_t   RESERVED[23];    \/*!< Reserved,                                    0x24                 *\/$/;"	m	struct:__anon203
 RESERVED	stm32l1/include/stm32l1xx.h	/^  uint32_t RESERVED;       \/*!< Reserved,                          Address offset: 0x10 *\/$/;"	m	struct:__anon212
