@@ -36,12 +36,13 @@
 // Network configuration
 #define PAN_ID        (0x0010|GROUP_N)  //!< PAN ID for beacon network
 #define ADDRESS       0x0001            //!< Master address is 0x0001, other beacons must increment this
-#define CHANNEL       (2+GROUP_N)       //!< Channel for beacon use
+#define CHANNEL       (10+GROUP_N)      //!< Channel for beacon use
 
 //#define INTER_TEST
 //#define TRI_TEST
 
 //#define BEACON_MODE
+
 #define USB_SERIAL
 //#define BaseSerial
 //MODES OF OPERATION
@@ -49,6 +50,10 @@
 //#define ACCEL_RAW
 #define SEND_MSG
 //#define RECV_MSG
+
+// IMU functs
+#define IMU_INIT_ON
+#define IMU_TEST_ON
 
 // ISR globals
 __IO uint32_t systick_count = 0;
@@ -195,6 +200,7 @@ int main(void)
 
 
 
+#ifdef IMU_INIT_ON
     // Initialising MPU9250
     struct mpu9250_s mpu9250;
     struct mpu9250_driver_s mpu9250_driver;

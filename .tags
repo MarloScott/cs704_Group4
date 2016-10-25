@@ -1077,7 +1077,7 @@ BAT_V_ADC_PIN	app/include/board.h	19;"	d
 BAT_V_ADC_PORT	app/include/board.h	20;"	d
 BEACON_H	app/include/beacon.h	3;"	d
 BEACON_TIME_MS	app/source/beacon.c	15;"	d	file:
-BECON_STRENGTHS	app/source/main.c	48;"	d	file:
+BECON_STRENGTHS	app/source/main.c	49;"	d	file:
 BFAR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon139
 BFAR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon120
 BFAR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon91
@@ -4333,6 +4333,7 @@ IMU_GYRO_ZOUT_H	app/include/imu.h	36;"	d
 IMU_GYRO_ZOUT_L	app/include/imu.h	37;"	d
 IMU_H	app/include/imu.h	2;"	d
 IMU_Handler	app/source/imu.c	/^void IMU_Handler()$/;"	f
+IMU_INIT_ON	app/source/main.c	55;"	d	file:
 IMU_INT_EN	app/include/imu.h	17;"	d
 IMU_INT_PIN	app/include/board.h	80;"	d
 IMU_INT_PORT	app/include/board.h	81;"	d
@@ -4358,6 +4359,7 @@ IMU_SPI_RW_BIT	app/include/imu.h	12;"	d
 IMU_SPI_WRITE	app/include/imu.h	14;"	d
 IMU_SYNC_PIN	app/include/board.h	78;"	d
 IMU_SYNC_PORT	app/include/board.h	79;"	d
+IMU_TEST_ON	app/source/main.c	56;"	d	file:
 IMU_UPDATE	app/source/imu.c	/^void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)$/;"	f
 INDEX_MASK	stm32l1/include/CMSIS/arm_math.h	299;"	d
 INITMODE_TIMEOUT	stm32l1/source/drivers/stm32l1xx_rtc.c	252;"	d	file:
@@ -5219,6 +5221,7 @@ LSUCNT	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t LSUCNT;               
 LSUCNT	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t LSUCNT;                  \/*!< Offset: 0x014 (R\/W)  LSU Count Register                        *\/$/;"	m	struct:__anon96
 LTR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t LTR;          \/*!< ADC watchdog lower threshold register,       Address offset: 0x2C *\/$/;"	m	struct:__anon53
 Leave_LowPowerMode	stm32l1/source/usb/hw_config.c	/^void Leave_LowPowerMode(void)$/;"	f
+Localization	visualisation/Localization.java	/^public class Localization {$/;"	c
 LoopCopyDataInit	stm32l1/source/startup_stm32l1xx_mdp.S	/^LoopCopyDataInit:$/;"	l
 LoopFillZerobss	stm32l1/source/startup_stm32l1xx_mdp.S	/^LoopFillZerobss:$/;"	l
 M	stm32l1/include/CMSIS/arm_math.h	/^    uint8_t M;                          \/**< decimation factor. *\/$/;"	m	struct:__anon208
@@ -9199,7 +9202,7 @@ SD_SPI_CLK	app/include/board.h	109;"	d
 SD_SPI_DEFAULT	app/include/board.h	112;"	d
 SEND_BREAK	stm32l1/include/usb/usb_prop.h	65;"	d
 SEND_ENCAPSULATED_COMMAND	stm32l1/include/usb/usb_prop.h	57;"	d
-SEND_MSG	app/source/main.c	50;"	d	file:
+SEND_MSG	app/source/main.c	51;"	d	file:
 SEND_TIMEOUT_S	modules/libat86rf212/test/source/at86rf212test.cpp	159;"	d	file:
 SET	stm32l1/include/stm32l1xx.h	/^typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;$/;"	e	enum:__anon50
 SETTING_UP	stm32l1/include/usb/usb_core.h	/^  SETTING_UP,       \/* 1 *\/$/;"	e	enum:_CONTROL_STATE
@@ -11214,7 +11217,7 @@ USB_Istr	stm32l1/source/usb/usb_istr.c	/^void USB_Istr(void)$/;"	f
 USB_LP_IRQHandler	app/source/stm32l1xx_it.c	/^void USB_LP_IRQHandler(void)$/;"	f
 USB_LP_IRQn	stm32l1/include/stm32l1xx.h	/^  USB_LP_IRQn                 = 20,     \/*!< USB Low Priority Interrupt                              *\/$/;"	e	enum:IRQn
 USB_NOT_READY	stm32l1/include/usb/usb_core.h	/^  USB_NOT_READY       \/* The process has not been finished, endpoint will be$/;"	e	enum:_RESULT
-USB_SERIAL	app/source/main.c	45;"	d	file:
+USB_SERIAL	app/source/main.c	46;"	d	file:
 USB_SIL_Init	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Init(void)$/;"	f
 USB_SIL_Read	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Read(uint8_t bEpAddr, uint8_t* pBufferPointer)$/;"	f
 USB_SIL_Write	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Write(uint8_t bEpAddr, uint8_t* pBufferPointer, uint32_t wBufferSize)$/;"	f
@@ -12239,6 +12242,7 @@ clip_q63_to_q15	stm32l1/include/CMSIS/arm_math.h	/^  static __INLINE q15_t clip_
 clip_q63_to_q31	stm32l1/include/CMSIS/arm_math.h	/^  static __INLINE q31_t clip_q63_to_q31($/;"	f
 close	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int close()$/;"	f	class:AT86RF212::At86rf212
 close	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    int close() {$/;"	f	class:MPU9250::Mpu9250
+compsys704	visualisation/Localization.java	/^package compsys704;$/;"	p
 config_s	modules/libat86rf212/util/source/main.cpp	/^struct config_s {$/;"	s	file:
 cs_pin	app/include/spi.h	/^    uint32_t cs_pin;$/;"	m	struct:spi_ctx_s
 cs_port	app/include/spi.h	/^    GPIO_TypeDef* cs_port;$/;"	m	struct:spi_ctx_s
@@ -12251,6 +12255,7 @@ device	app/include/imu.h	/^  struct mpu9250_s device;$/;"	m	struct:IMU_DEVICE_PO
 device	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    struct at86rf212_s device;$/;"	m	class:AT86RF212::At86rf212	typeref:struct:AT86RF212::At86rf212::at86rf212_s
 device	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    struct mpu9250_s device;$/;"	m	class:MPU9250::Mpu9250	typeref:struct:MPU9250::Mpu9250::mpu9250_s
 distance	app/include/imu.h	/^  struct VECTOR distance;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
+drawFinal	visualisation/Localization.java	/^	public static void drawFinal() {$/;"	m	class:Localization
 driver	modules/libat86rf212/lib/at86rf212/at86rf212_defs.h	/^    struct at86rf212_driver_s* driver;  \/\/!< Driver function object$/;"	m	struct:at86rf212_s	typeref:struct:at86rf212_s::at86rf212_driver_s
 driver	modules/libat86rf212/lib/at86rf212/at86rf212_if.hpp	/^    static struct at86rf212_driver_s driver;$/;"	m	class:AT86RF212::DriverWrapper	typeref:struct:AT86RF212::DriverWrapper::at86rf212_driver_s
 driver	modules/libat86rf212/lib/at86rf212/at86rf212_if.hpp	/^struct at86rf212_driver_s DriverWrapper::driver = {$/;"	m	class:AT86RF212::DriverWrapper	typeref:struct:AT86RF212::DriverWrapper::
@@ -12324,6 +12329,7 @@ ifftFlag	stm32l1/include/CMSIS/arm_math.h	/^    uint8_t ifftFlag;               
 ifftFlagR	stm32l1/include/CMSIS/arm_math.h	/^    uint8_t ifftFlagR;                          \/**< flag that selects forward (ifftFlagR=0) or inverse (ifftFlagR=1) transform. *\/$/;"	m	struct:__anon200
 ifftFlagR	stm32l1/include/CMSIS/arm_math.h	/^    uint8_t ifftFlagR;                          \/**< flag that selects forward (ifftFlagR=0) or inverse (ifftFlagR=1) transform. *\/$/;"	m	struct:__anon201
 ifftFlagR	stm32l1/include/CMSIS/arm_math.h	/^    uint8_t ifftFlagR;                        \/**< flag that selects forward (ifftFlagR=0) or inverse (ifftFlagR=1) transform. *\/$/;"	m	struct:__anon199
+image	visualisation/Localization.java	/^	static BufferedImage image;$/;"	f	class:Localization
 imu_spi_transfer	app/source/imu_adaptor.c	/^int imu_spi_transfer(void* ctx, int len, uint8_t* data_out, uint8_t* data_in)$/;"	f
 init	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int init(AT86RF212::DriverInterface* driver_ctx)$/;"	f	class:AT86RF212::At86rf212
 init	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int init(struct at86rf212_driver_s *driver, void *driver_ctx)$/;"	f	class:AT86RF212::At86rf212
@@ -12331,7 +12337,9 @@ init	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    int init(SpiDriverInterfac
 init	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    int init(struct mpu9250_driver_s *driver, void *driver_ctx) {$/;"	f	class:MPU9250::Mpu9250
 int_handler	modules/libat86rf212/util/source/main.cpp	/^void int_handler(int dummy)$/;"	f
 int_handler	modules/libmpu9250/util/source/main.cpp	/^void int_handler(int dummy)$/;"	f
+is	visualisation/Localization.java	/^	static InputStream is;$/;"	f	class:Localization
 kalman2d	app/source/kalman.c	/^void kalman2d(Guassian2d* prediction, Guassian2d* measurement, float kal_const, Guassian2d* fused){$/;"	f
+label	visualisation/Localization.java	/^	static JLabel label;$/;"	f	class:Localization
 linecoding	stm32l1/source/usb/usb_prop.c	/^LINE_CODING linecoding =$/;"	v
 main	app/source/main.c	/^int main(void)$/;"	f
 main	modules/libat86rf212/test/source/main.cpp	/^int main(int argc, char **argv) {$/;"	f
@@ -12339,6 +12347,7 @@ main	modules/libat86rf212/util/source/main.cpp	/^int main(int argc, char** argv)
 main	modules/libmpu9250/test/source/main.cpp	/^int main(int argc, char **argv) {$/;"	f
 main	modules/libmpu9250/util/source/main.cpp	/^int main(int argc, char** argv)$/;"	f
 main	testbench/trilaterate_test.c	/^int main(void){$/;"	f
+main	visualisation/Localization.java	/^	public static void main(String[] args) {$/;"	m	class:Localization
 major	modules/libat86rf212/version.py	/^major = regex.group(1);$/;"	v
 major	modules/libmpu9250/version.py	/^major = regex.group(1);$/;"	v
 major	version.py	/^major = regex.group(1);$/;"	v
@@ -12347,6 +12356,9 @@ maxDelay	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t maxDelay;            \/
 maxDelay	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t maxDelay;            \/**< maximum offset specified by the pTapDelay array. *\/$/;"	m	struct:__anon228
 maxDelay	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t maxDelay;            \/**< maximum offset specified by the pTapDelay array. *\/$/;"	m	struct:__anon229
 mean	app/include/kalman.h	/^    Point mean;$/;"	m	struct:__anon2
+meterToPixels	visualisation/Localization.java	/^	public static double meterToPixels(double m, char type) {$/;"	m	class:Localization
+meterX	visualisation/Localization.java	/^	static double meterX=5;$/;"	f	class:Localization
+meterY	visualisation/Localization.java	/^	static double meterY=5;$/;"	f	class:Localization
 minor	modules/libat86rf212/version.py	/^minor = regex.group(2);$/;"	v
 minor	modules/libmpu9250/version.py	/^minor = regex.group(2);$/;"	v
 minor	version.py	/^minor = regex.group(2);$/;"	v
@@ -12354,6 +12366,7 @@ miso_pin	app/include/spi.h	/^    uint32_t miso_pin;$/;"	m	struct:spi_ctx_s
 miso_port	app/include/spi.h	/^    GPIO_TypeDef* miso_port;$/;"	m	struct:spi_ctx_s
 mockSpi	modules/libmpu9250/test/source/mpu9250test.cpp	/^  MockSpi mockSpi;$/;"	m	class:Mpu9250Test	file:
 mode	modules/libat86rf212/util/source/main.cpp	/^    int mode;$/;"	m	struct:config_s	file:
+mode	visualisation/Localization.java	/^	static String mode = "y";$/;"	f	class:Localization
 mode_e	modules/libat86rf212/util/source/main.cpp	/^enum mode_e {$/;"	g	file:
 module	modules/libat86rf212/version.py	/^module = args.module;$/;"	v
 module	modules/libmpu9250/version.py	/^module = args.module;$/;"	v
@@ -12470,6 +12483,7 @@ open	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	/^    int open;              
 output	modules/libat86rf212/version.py	/^output = args.output;$/;"	v
 output	modules/libmpu9250/version.py	/^output = args.output;$/;"	v
 output	version.py	/^output = args.output;$/;"	v
+overlay1	visualisation/Localization.java	/^	static BufferedImage overlay1;$/;"	f	class:Localization
 p	modules/libat86rf212/version.py	/^p = subprocess.Popen('git describe --dirty', stdout=subprocess.PIPE, shell=True)$/;"	v
 p	modules/libmpu9250/version.py	/^p = subprocess.Popen('git describe --dirty', stdout=subprocess.PIPE, shell=True)$/;"	v
 p	version.py	/^p = subprocess.Popen('git describe --dirty', stdout=subprocess.PIPE, shell=True)$/;"	v
@@ -12655,6 +12669,8 @@ sck_port	app/include/spi.h	/^    GPIO_TypeDef* sck_port;$/;"	m	struct:spi_ctx_s
 send_beacon	app/source/beacon.c	/^void send_beacon(struct at86rf212_s *radio, uint16_t pan, uint16_t from, uint16_t to, uint8_t seq)$/;"	f
 send_message	app/source/main.c	/^void send_message(struct at86rf212_s *radio, uint8_t *data)$/;"	f
 seq	app/include/fifteenfour.h	/^    uint8_t seq;            \/\/!< Sequence number$/;"	m	struct:fifteen_four_header_s
+serial	visualisation/Localization.java	/^	public static void serial() {$/;"	m	class:Localization
+serial	visualisation/Localization.java	/^	static SerialPort serial;$/;"	f	class:Localization
 set_accel_scale	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    int set_accel_scale(mpu9250_accel_scale_e scale) {$/;"	f	class:MPU9250::Mpu9250
 set_channel	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int set_channel(uint8_t channel)$/;"	f	class:AT86RF212::At86rf212
 set_gyro_scale	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    int set_gyro_scale(mpu9250_gyro_scale_e scale) {$/;"	f	class:MPU9250::Mpu9250
@@ -12675,6 +12691,7 @@ spi_transfer	modules/libmpu9250/util/source/main.cpp	/^int spi_transfer(void* co
 spi_transfer_f	modules/libat86rf212/lib/at86rf212/at86rf212.h	/^typedef int (*spi_transfer_f)(void* context, int len, uint8_t *data_out, uint8_t* data_in);$/;"	t
 spi_transfer_f	modules/libmpu9250/lib/mpu9250/mpu9250.h	/^typedef int (*spi_transfer_f)(void* context, int len, uint8_t *data_out, uint8_t* data_in);$/;"	t
 src	app/include/fifteenfour.h	/^    uint16_t src;           \/\/!< Source address$/;"	m	struct:fifteen_four_header_s
+startSerial	visualisation/Localization.java	/^	public static void startSerial() {$/;"	m	class:Localization
 start_rx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int start_rx()$/;"	f	class:AT86RF212::At86rf212
 start_tx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int start_tx(uint8_t length, uint8_t* data)$/;"	f	class:AT86RF212::At86rf212
 state	stm32l1/include/CMSIS/arm_math.h	/^    float32_t state[3];    \/**< The state array of length 3. *\/$/;"	m	struct:__anon186
@@ -12747,9 +12764,11 @@ w	stm32l1/include/usb/usb_core.h	/^  uint16_t w;$/;"	m	union:__anon10
 wCNTR	stm32l1/source/usb/usb_istr.c	/^__IO uint32_t wCNTR=0;$/;"	v
 wInterrupt_Mask	stm32l1/source/usb/usb_init.c	/^uint16_t  wInterrupt_Mask;$/;"	v
 wIstr	stm32l1/source/usb/usb_istr.c	/^__IO uint16_t wIstr;  \/* ISTR register last read value *\/$/;"	v
+writeToFile	visualisation/Localization.java	/^	public static void writeToFile() {$/;"	m	class:Localization
 write_reg	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int write_reg(uint8_t reg, uint8_t val)$/;"	f	class:AT86RF212::At86rf212
 x	app/include/common.h	/^    int32_t x;$/;"	m	struct:__anon3
 x	py/gen.py	/^x = input("x: ")$/;"	v
+x	visualisation/Localization.java	/^	static int x = 0;$/;"	f	class:Localization
 x0	stm32l1/include/CMSIS/arm_math.h	/^    float32_t x0;        \/**< saves previous input sample. *\/$/;"	m	struct:__anon223
 x0	stm32l1/include/CMSIS/arm_math.h	/^    q15_t x0;            \/**< saves previous input sample. *\/$/;"	m	struct:__anon225
 x0	stm32l1/include/CMSIS/arm_math.h	/^    q31_t x0;             \/**< saves previous input sample. *\/$/;"	m	struct:__anon224
@@ -12763,3 +12782,4 @@ xPSR_Type	stm32l1/include/CMSIS/core_sc300.h	/^} xPSR_Type;$/;"	t	typeref:union:
 xSpacing	stm32l1/include/CMSIS/arm_math.h	/^    float32_t xSpacing;         \/**< xSpacing *\/$/;"	m	struct:__anon187
 y	app/include/common.h	/^    int32_t y;$/;"	m	struct:__anon3
 y	py/gen.py	/^y = input("y: ")$/;"	v
+y	visualisation/Localization.java	/^	static int y = 0;$/;"	f	class:Localization
