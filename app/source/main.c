@@ -224,6 +224,7 @@ int main(void)
     if (res < 0) {
         error_flash(1, -res);
     }
+#endif
 
 #ifdef INTER_TEST
     Point B[2] = {
