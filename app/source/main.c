@@ -369,13 +369,15 @@ int main(void)
           //USB_print(txt_buffer);
             delay_ms(10);
         }
-        xPos= data[10]*256+data[9];
-        yPos=data[12]*256+data[11];
+
 
         at86rf212_get_rx(&radio, &length, data);
-        sprintf(txt_buffer, "*%.5d",xPos);
+
+        xPos= data[10]*256+data[9];
+        yPos=data[12]*256+data[11];
+        sprintf(txt_buffer, "*%.5ld",xPos);
         USB_print(txt_buffer);
-        sprintf(txt_buffer, "%.5d",yPos);
+        sprintf(txt_buffer, "%.5ld",yPos);
         USB_print(txt_buffer);
 
       #endif
