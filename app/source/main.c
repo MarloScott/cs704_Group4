@@ -46,10 +46,10 @@
 #define USB_SERIAL
 //#define BaseSerial
 //MODES OF OPERATION
-//#define BECON_STRENGTHS
+#define BECON_STRENGTHS
 //#define ACCEL_RAW
-//#define SEND_MSG
-#define RECV_MSG
+#define SEND_MSG
+//#define RECV_MSG
 
 // IMU functs
 //#define IMU_INIT_ON
@@ -202,6 +202,7 @@ int main(void)
     uint8_t length;
     uint8_t data[18];
     char txt_buffer[256];
+    int i,j;
 #ifdef IMU_INIT_ON
     // Initialising MPU9250
     struct mpu9250_s mpu9250;
@@ -217,7 +218,6 @@ int main(void)
     sprintf(txt_buffer, "Prog START NOW\n");
     USB_print(txt_buffer);
 
-    int i,j;
 
 
     res = at86rf212_start_rx(&radio);
