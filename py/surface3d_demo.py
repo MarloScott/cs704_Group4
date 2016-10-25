@@ -1,4 +1,6 @@
 #!/usr/bin/env python2
+# Author: Ellot Sayes
+# Outputs a simulation of accumulative guassian localisation method
 
 import math
 from math import exp

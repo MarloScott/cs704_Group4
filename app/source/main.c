@@ -1,3 +1,4 @@
+//#define BASE_STATION
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -47,10 +48,15 @@
 #define USB_SERIAL
 //#define BaseSerial
 //MODES OF OPERATION
-#define BECON_STRENGTHS
 //#define ACCEL_RAW
-#define SEND_MSG
 //#define RECV_MSG
+
+#ifdef BASE_STATION
+#define RECV_MSG
+#else
+#define SEND_MSG
+#define BECON_STRENGTHS
+#endif
 
 // IMU functs
 //#define IMU_INIT_ON

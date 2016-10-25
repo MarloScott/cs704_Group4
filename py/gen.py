@@ -1,4 +1,6 @@
 #!/usr/bin/env python2
+# Author: Elliot Sayes
+# Generates distance to beacons from a given position
 
 import math
 
