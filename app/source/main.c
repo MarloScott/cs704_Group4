@@ -46,14 +46,14 @@
 #define USB_SERIAL
 //#define BaseSerial
 //MODES OF OPERATION
-#define BECON_STRENGTHS
+//#define BECON_STRENGTHS
 //#define ACCEL_RAW
-#define SEND_MSG
-//#define RECV_MSG
+//#define SEND_MSG
+#define RECV_MSG
 
 // IMU functs
-#define IMU_INIT_ON
-#define IMU_TEST_ON
+//#define IMU_INIT_ON
+//#define IMU_TEST_ON
 
 // ISR globals
 __IO uint32_t systick_count = 0;
@@ -199,7 +199,9 @@ int main(void)
     //at86rf212_set_channel(&radio, CHANNEL);
 
 
-
+    uint8_t length;
+    uint8_t data[18];
+    char txt_buffer[256];
 #ifdef IMU_INIT_ON
     // Initialising MPU9250
     struct mpu9250_s mpu9250;
@@ -211,15 +213,13 @@ int main(void)
     int16_t x1, y1, z1;
     float testf = 10.2;
     int recieved_mpu_value;
-    char txt_buffer[256];
     delay_ms(2000);
     sprintf(txt_buffer, "Prog START NOW\n");
     USB_print(txt_buffer);
 
     int i,j;
 
-    uint8_t length;
-    uint8_t data[18];
+
     res = at86rf212_start_rx(&radio);
     if (res < 0) {
         error_flash(1, -res);
@@ -257,8 +257,6 @@ int main(void)
     uint8_t strength[4][5] = {25};
     uint8_t str_count[4] = {0};
     int16_t test_data[2] = {1234,-2678};
-    struct IMU_DEVICE_POSE imuInfo;
-    IMU_DEVICE_INIT(&imuInfo, mpu9250);
 
     while(1) {
 
@@ -268,7 +266,6 @@ int main(void)
         for(i=0;i<20;i++){
             while(at86rf212_check_rx(&radio)<1){
                 delay_ms(1);
-                IMU_UPDATE(&imuInfo);
             }
             at86rf212_get_rx(&radio, &length, data);
             if(data[7]>0&&data[7]<5){
@@ -298,9 +295,6 @@ int main(void)
         //(int)((imuInfo.rotation.row3.X)*100),(int)((imuInfo.rotation.row3.Y)*100),(int)((imuInfo.rotation.row3.Z)*100));
 
         USB_print(txt_buffer);
-
-        imuInfo.distance.X = 0;
-        imuInfo.distance.Y = 0;
         //IMU_RESET(imuInfo);
 
         Guassian2d prediction;
@@ -368,8 +362,11 @@ int main(void)
       #ifdef RECV_MSG
       int xPos;
       int yPos;
-        at86rf212_set_channel(&radio, CHANNEL);
+        at86rf212_set_channel(&radio,CHANNEL);
+        at86rf212_start_rx(&radio);
         while(at86rf212_check_rx(&radio)<1){
+          //sprintf(txt_buffer, "waiting");
+          //USB_print(txt_buffer);
             delay_ms(10);
         }
         xPos= data[10]*256+data[9];
@@ -380,6 +377,7 @@ int main(void)
         USB_print(txt_buffer);
         sprintf(txt_buffer, "%.5d",yPos);
         USB_print(txt_buffer);
+
       #endif
       int message[2];
       #ifdef BaseSerial

@@ -1077,7 +1077,6 @@ BAT_V_ADC_PIN	app/include/board.h	19;"	d
 BAT_V_ADC_PORT	app/include/board.h	20;"	d
 BEACON_H	app/include/beacon.h	3;"	d
 BEACON_TIME_MS	app/source/beacon.c	15;"	d	file:
-BECON_STRENGTHS	app/source/main.c	49;"	d	file:
 BFAR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon106
 BFAR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon124
 BFAR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon143
@@ -4333,7 +4332,6 @@ IMU_GYRO_ZOUT_H	app/include/imu.h	36;"	d
 IMU_GYRO_ZOUT_L	app/include/imu.h	37;"	d
 IMU_H	app/include/imu.h	2;"	d
 IMU_Handler	app/source/imu.c	/^void IMU_Handler()$/;"	f
-IMU_INIT_ON	app/source/main.c	55;"	d	file:
 IMU_INT_EN	app/include/imu.h	17;"	d
 IMU_INT_PIN	app/include/board.h	80;"	d
 IMU_INT_PORT	app/include/board.h	81;"	d
@@ -4359,7 +4357,6 @@ IMU_SPI_RW_BIT	app/include/imu.h	12;"	d
 IMU_SPI_WRITE	app/include/imu.h	14;"	d
 IMU_SYNC_PIN	app/include/board.h	78;"	d
 IMU_SYNC_PORT	app/include/board.h	79;"	d
-IMU_TEST_ON	app/source/main.c	56;"	d	file:
 IMU_UPDATE	app/source/imu.c	/^void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)$/;"	f
 INDEX_MASK	stm32l1/include/CMSIS/arm_math.h	299;"	d
 INITMODE_TIMEOUT	stm32l1/source/drivers/stm32l1xx_rtc.c	252;"	d	file:
@@ -6947,6 +6944,7 @@ READ_REG	stm32l1/include/stm32l1xx.h	6655;"	d
 RECALPF_TIMEOUT	stm32l1/source/drivers/stm32l1xx_rtc.c	254;"	d	file:
 RECIPIENT	stm32l1/include/usb/usb_def.h	85;"	d
 RECIPIENT_TYPE	stm32l1/include/usb/usb_def.h	/^} RECIPIENT_TYPE;$/;"	t	typeref:enum:_RECIPIENT_TYPE
+RECV_MSG	app/source/main.c	52;"	d	file:
 REQUEST_TYPE	stm32l1/include/usb/usb_def.h	80;"	d
 RESERVED	stm32l1/include/stm32l1xx.h	/^  uint32_t   RESERVED[23];    \/*!< Reserved,                                    0x24                 *\/$/;"	m	struct:__anon203
 RESERVED	stm32l1/include/stm32l1xx.h	/^  uint32_t RESERVED;       \/*!< Reserved,                          Address offset: 0x10 *\/$/;"	m	struct:__anon212
@@ -9202,7 +9200,6 @@ SD_SPI_CLK	app/include/board.h	109;"	d
 SD_SPI_DEFAULT	app/include/board.h	112;"	d
 SEND_BREAK	stm32l1/include/usb/usb_prop.h	65;"	d
 SEND_ENCAPSULATED_COMMAND	stm32l1/include/usb/usb_prop.h	57;"	d
-SEND_MSG	app/source/main.c	51;"	d	file:
 SEND_TIMEOUT_S	modules/libat86rf212/test/source/at86rf212test.cpp	159;"	d	file:
 SET	stm32l1/include/stm32l1xx.h	/^typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;$/;"	e	enum:__anon190
 SETTING_UP	stm32l1/include/usb/usb_core.h	/^  SETTING_UP,       \/* 1 *\/$/;"	e	enum:_CONTROL_STATE
