@@ -98,7 +98,7 @@ version: dir
 
 ${TARGET_ELF}: ${APP_OBJ} ${STM32_LIB} ${MPU9250_LIB} ${AT86RF212_LIB}
 	@echo "Linking Application"
-	@${CC} ${CFLAGS} ${LDFLAGS} -o ${BUILD_DIR}/${TARGET}.elf $^ -lc -lgcc -lnosys
+	@${CC} ${CFLAGS} ${LDFLAGS} -o ${BUILD_DIR}/${TARGET}.elf $^ -lm -lc -lgcc -lnosys
 
 size: ${TARGET_ELF}
 	${OBJSIZE} $<

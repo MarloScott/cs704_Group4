@@ -9681,7 +9681,6 @@ Sint	stm32l1/include/CMSIS/arm_math.h	/^    arm_cfft_instance_f32 Sint;      \/*
 SpiDriverInterface	modules/libmpu9250/lib/mpu9250/mpu9250_if.hpp	/^class SpiDriverInterface {$/;"	c	namespace:MPU9250
 SpiDriverWrapper	modules/libmpu9250/lib/mpu9250/mpu9250_if.hpp	/^class SpiDriverWrapper {$/;"	c	namespace:MPU9250
 SquareRoot	app/source/common.c	/^uint32_t SquareRoot(uint32_t a_nInput)$/;"	f
-SquareRoot	app/source/imu.c	/^uint32_t SquareRoot(uint32_t a_nInput)$/;"	f
 Standard_ClearFeature	stm32l1/source/usb/usb_core.c	/^RESULT Standard_ClearFeature(void)$/;"	f
 Standard_GetConfiguration	stm32l1/source/usb/usb_core.c	/^uint8_t *Standard_GetConfiguration(uint16_t Length)$/;"	f
 Standard_GetDescriptorData	stm32l1/source/usb/usb_core.c	/^uint8_t *Standard_GetDescriptorData(uint16_t Length, ONE_DESCRIPTOR *pDesc)$/;"	f
