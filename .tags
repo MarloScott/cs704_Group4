@@ -9185,6 +9185,7 @@ SD_SPI_CLK	app/include/board.h	109;"	d
 SD_SPI_DEFAULT	app/include/board.h	112;"	d
 SEND_BREAK	stm32l1/include/usb/usb_prop.h	65;"	d
 SEND_ENCAPSULATED_COMMAND	stm32l1/include/usb/usb_prop.h	57;"	d
+SEND_MSG	app/source/main.c	49;"	d	file:
 SEND_TIMEOUT_S	modules/libat86rf212/test/source/at86rf212test.cpp	159;"	d	file:
 SET	stm32l1/include/stm32l1xx.h	/^typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;$/;"	e	enum:__anon50
 SETTING_UP	stm32l1/include/usb/usb_core.h	/^  SETTING_UP,       \/* 1 *\/$/;"	e	enum:_CONTROL_STATE
@@ -12179,7 +12180,7 @@ bESOFcnt	stm32l1/source/usb/usb_pwr.c	/^  __IO uint8_t bESOFcnt;$/;"	m	struct:__
 bIntPackSOF	stm32l1/source/usb/usb_istr.c	/^__IO uint8_t bIntPackSOF = 0;  \/* SOFs received between 2 consecutive packets *\/$/;"	v
 bb0	stm32l1/include/usb/usb_core.h	/^    uint8_t bb0;$/;"	m	struct:__anon10::BW
 bb1	stm32l1/include/usb/usb_core.h	/^    uint8_t bb1;$/;"	m	struct:__anon10::BW
-beacon_distances	py/surface3d_demo.py	/^beacon_distances = [6.5, 8, 5.5, 10]$/;"	v
+beacon_distances	py/surface3d_demo.py	/^beacon_distances = [6, 7.5, 5, 9.5]$/;"	v
 beacon_locations	app/include/trilaterate.h	/^static Point beacon_locations[N_BEACONS] =$/;"	v
 beacon_locations	py/gen.py	/^beacon_locations =[$/;"	v
 beacon_locations	py/surface3d_demo.py	/^beacon_locations = [[10,0],[0,0],[0,10],[10,10]]$/;"	v
@@ -12283,7 +12284,7 @@ get_rx	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int get_rx(uint8_t
 get_state	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int get_state(uint8_t *state)$/;"	f	class:AT86RF212::At86rf212
 gpio_get_f	modules/libat86rf212/lib/at86rf212/at86rf212.h	/^typedef int (*gpio_get_f)(void* context, uint8_t *val);$/;"	t
 gpio_set_f	modules/libat86rf212/lib/at86rf212/at86rf212.h	/^typedef int (*gpio_set_f)(void* context, uint8_t val);$/;"	t
-guassian	py/surface3d_demo.py	/^def guassian(origin, mean, std=2):$/;"	f
+guassian	py/surface3d_demo.py	/^def guassian(origin, mean, std=0.5):$/;"	f
 gyro_scale	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	/^    float gyro_scale;$/;"	m	struct:mpu9250_s
 help	modules/libat86rf212/util/source/main.cpp	/^    int help;$/;"	m	struct:config_s	file:
 ifftFlag	stm32l1/include/CMSIS/arm_math.h	/^    uint8_t ifftFlag;                  \/**< flag that selects forward (ifftFlag=0) or inverse (ifftFlag=1) transform. *\/$/;"	m	struct:__anon196

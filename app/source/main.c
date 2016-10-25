@@ -46,7 +46,7 @@
 //MODES OF OPERATION
 #define BECON_STRENGTHS
 //#define ACCEL_RAW
-//#define SEND_MSG
+#define SEND_MSG
 //#define RECV_MSG
 
 // ISR globals
@@ -248,13 +248,16 @@ int main(void)
     uint8_t str_av[4];
     uint8_t strength[4][5] = {25};
     uint8_t str_count[4] = {0};
+    int16_t test_data[2] = {1234,-2678};
 
     while(1) {
 
     #ifdef BECON_STRENGTHS
+        at86rf212_set_channel(&radio, 1);
+        at86rf212_start_rx(&radio);
         for(i=0;i<20;i++){
             while(at86rf212_check_rx(&radio)<1){
-                delay_ms(10);
+                delay_ms(1);
             }
             at86rf212_get_rx(&radio, &length, data);
             if(data[7]>0&&data[7]<5){
@@ -278,21 +281,25 @@ int main(void)
 
         Guassian2d prediction;
         prediction.mean = P_est;
-        prediction.std = 1000;
+        prediction.std = 1500;
 
         Guassian2d measurement;
         measurement.mean = P_out;
-        measurement.std = 2000;
+        measurement.std = 2500;
 
         Guassian2d fused;
 
         kalman2d(&prediction, &measurement, 1, &fused);
 
-        //P_est = fused.mean;
-        P_est = P_out;
+        P_est = fused.mean;
+        //P_est = P_out;
 
-        sprintf(txt_buffer, "\rB1:[%.2d], B2:[%.2d], B3:[%.2d], B4:[%.2d] => (%ld,%ld)    ", str_av[0],  str_av[1], str_av[2], str_av[3],P_est.x,P_est.y );
+        sprintf(txt_buffer, "\rB1[%.2d] B2[%.2d] B3[%.2d] B4[%.2d] => (%ld,%ld)@%ld    ",
+                            str_av[0],  str_av[1], str_av[2], str_av[3],P_est.x,P_est.y,fused.std);
         USB_print(txt_buffer);
+
+        test_data[0] = P_est.x;
+        test_data[1] = P_est.y;
 
     #endif
 
@@ -304,8 +311,7 @@ int main(void)
 
       #ifdef SEND_MSG
         at86rf212_set_channel(&radio, CHANNEL);
-        uint8_t test_data[] = {0xdd, 0xcc, 0xbb, 0xaa};
-        send_message(&radio,test_data);
+        send_message(&radio,(uint8_t *)test_data);
       #endif
 
       #ifdef RECV_MSG
