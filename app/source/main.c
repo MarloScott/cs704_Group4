@@ -234,36 +234,38 @@ int main(void)
       #endif
 
       #ifdef ACCEL_RAW
-      struct IMU_DEVICE_POSE test;
-      IMU_DEVICE_INIT(&test, mpu9250);
-      int val = 0;
+        struct IMU_DEVICE_POSE test;
+        IMU_DEVICE_INIT(&test, mpu9250);
+        int val = 0;
 
-      struct VECTOR sample,skew;
-      SKEW_VECTOR(&skew, &sample);
-      while(1)
-      {
-        val = (val+1)%100;
-        if(val==0){
-          IMU_RESET(&test);
+        struct VECTOR sample,skew;
+        SKEW_VECTOR(&skew, &sample);
+        while(1)
+        {
+          val = (val+1)%100;
+          if(val==0){
+            //IMU_RESET(&test);
+          }
+          IMU_UPDATE(&test);
+          //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.distance.X)*100),(int)((test.distance.Y)*100),(int)((test.distance.Z)*100));
+
+          //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.acceleration.X)*100),(int)((test.acceleration.Y)*100),(int)((test.acceleration.Z)*100));
+
+          //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.velocity.X)*100),(int)((test.velocity.Y)*100),(int)((test.velocity.Z)*100));
+
+          //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.angle.X)*100),(int)((test.angle.Y)*100),(int)((test.angle.Z)*100));
+
+          sprintf(txt_buffer, "X: %d Y: %d Z: %dX: %d Y: %d Z: %dX: %d Y: %d Z: %d\n",(int)((test.acceleration.X)*100),(int)((test.acceleration.Y)*100),(int)((test.acceleration.Z)*100),
+          (int)((test.velocity.X)*100),(int)((test.velocity.Y)*100),(int)((test.velocity.Z)*100),
+          (int)((test.distance.X)*100),(int)((test.distance.Y)*100),(int)((test.distance.Z)*100));
+
+          USB_print(txt_buffer);
         }
-        IMU_UPDATE(&test);
-        sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.distance.X)*100),(int)((test.distance.Y)*100),(int)((test.distance.Z)*100));
-
-        //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.acceleration.X)*100),(int)((test.acceleration.Y)*100),(int)((test.acceleration.Z)*100));
-
-        //sprintf(txt_buffer, "X: %d Y: %d Z: %d\n",(int)((test.velocity.X)*100),(int)((test.velocity.Y)*100),(int)((test.velocity.Z)*100));
-
-        // sprintf(txt_buffer, "X: %d Y: %d Z: %dX: %d Y: %d Z: %dX: %d Y: %d Z: %d\n",(int)((test.rotation.row1.X)*100),(int)((test.rotation.row1.Y)*100),(int)((test.rotation.row1.Z)*100),
-        // (int)((test.rotation.row2.X)*100),(int)((test.rotation.row2.Y)*100),(int)((test.rotation.row2.Z)*100),
-        // (int)((test.rotation.row3.X)*100),(int)((test.rotation.row3.Y)*100),(int)((test.rotation.row3.Z)*100));
-
-        USB_print(txt_buffer);
-      }
-        //IMU_POLL_DATA_RDY(&mpu9250);
-        //recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
-        //recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x1,&y1,&z1);
-        //sprintf(txt_buffer, "GYRO : X: %d Y: %d Z: %d ACCEl : X: %d Y: %d Z: %d \n", x,y,z,x1, y1, z1);
-        //USB_print(txt_buffer);
+          //IMU_POLL_DATA_RDY(&mpu9250);
+          //recieved_mpu_value = mpu9250_read_gyro_raw(&mpu9250, &x,&y,&z);
+          //recieved_mpu_value = mpu9250_read_accel_raw(&mpu9250, &x1,&y1,&z1);
+          //sprintf(txt_buffer, "GYRO : X: %d Y: %d Z: %d ACCEl : X: %d Y: %d Z: %d \n", x,y,z,x1, y1, z1);
+          //USB_print(txt_buffer);
       #endif
 
       #ifdef SEND_MSG
