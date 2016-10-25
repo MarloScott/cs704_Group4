@@ -622,7 +622,7 @@ ADC_SoftwareStartInjectedConv	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_
 ADC_StructInit	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_StructInit(ADC_InitTypeDef* ADC_InitStruct)                            $/;"	f
 ADC_TempSensorVrefintCmd	stm32l1/source/drivers/stm32l1xx_adc.c	/^void ADC_TempSensorVrefintCmd(FunctionalState NewState)                $/;"	f
 ADC_TypeDef	stm32l1/include/stm32l1xx.h	/^} ADC_TypeDef;$/;"	t	typeref:struct:__anon53
-ADDRESS	app/source/main.c	37;"	d	file:
+ADDRESS	app/source/main.c	38;"	d	file:
 ADDRESSED	stm32l1/include/usb/usb_pwr.h	/^  ADDRESSED,$/;"	e	enum:_DEVICE_STATE
 ADR	stm32l1/include/CMSIS/core_cm3.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon139
 ADR	stm32l1/include/CMSIS/core_cm4.h	/^  __I  uint32_t ADR;                     \/*!< Offset: 0x04C (R\/ )  Auxiliary Feature Register                            *\/$/;"	m	struct:__anon120
@@ -1077,7 +1077,7 @@ BAT_V_ADC_PIN	app/include/board.h	19;"	d
 BAT_V_ADC_PORT	app/include/board.h	20;"	d
 BEACON_H	app/include/beacon.h	3;"	d
 BEACON_TIME_MS	app/source/beacon.c	15;"	d	file:
-BECON_STRENGTHS	app/source/main.c	47;"	d	file:
+BECON_STRENGTHS	app/source/main.c	48;"	d	file:
 BFAR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon139
 BFAR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon120
 BFAR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t BFAR;                    \/*!< Offset: 0x038 (R\/W)  BusFault Address Register                             *\/$/;"	m	struct:__anon91
@@ -1193,7 +1193,7 @@ CFR_W_MASK	stm32l1/source/drivers/stm32l1xx_wwdg.c	113;"	d	file:
 CFSR	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon139
 CFSR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon120
 CFSR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t CFSR;                    \/*!< Offset: 0x028 (R\/W)  Configurable Fault Status Register                    *\/$/;"	m	struct:__anon91
-CHANNEL	app/source/main.c	38;"	d	file:
+CHANNEL	app/source/main.c	39;"	d	file:
 CICR1	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR1;     \/*!< RI Channel identification for capture register 1,    Address offset: 0x28 *\/$/;"	m	struct:__anon75
 CICR2	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR2;     \/*!< RI Channel identification for capture register 2,    Address offset: 0x34 *\/$/;"	m	struct:__anon75
 CICR3	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t CICR3;     \/*!< RI Channel identification for capture register3 ,    Address offset: 0x40 *\/$/;"	m	struct:__anon75
@@ -1417,6 +1417,7 @@ CRC_IDR_IDR	stm32l1/include/stm32l1xx.h	1795;"	d
 CRC_ResetDR	stm32l1/source/drivers/stm32l1xx_crc.c	/^void CRC_ResetDR(void)$/;"	f
 CRC_SetIDRegister	stm32l1/source/drivers/stm32l1xx_crc.c	/^void CRC_SetIDRegister(uint8_t IDValue)$/;"	f
 CRC_TypeDef	stm32l1/include/stm32l1xx.h	/^} CRC_TypeDef;$/;"	t	typeref:struct:__anon57
+CROSS_PRODUCT	app/source/imu.c	/^void CROSS_PRODUCT(struct VECTOR *mA, struct VECTOR *mB, struct VECTOR *mOutput)$/;"	f
 CR_BYTE3_ADDRESS	stm32l1/source/drivers/stm32l1xx_rcc.c	120;"	d	file:
 CR_CLEAR_MASK	stm32l1/source/drivers/stm32l1xx_adc.c	151;"	d	file:
 CR_CLEAR_MASK	stm32l1/source/drivers/stm32l1xx_aes.c	87;"	d	file:
@@ -2351,6 +2352,7 @@ DMA_TypeDef	stm32l1/include/stm32l1xx.h	/^} DMA_TypeDef;$/;"	t	typeref:struct:__
 DOR1	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t DOR1;         \/*!< DAC channel1 data output register,                        Address offset: 0x2C *\/$/;"	m	struct:__anon58
 DOR2	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t DOR2;         \/*!< DAC channel2 data output register,                        Address offset: 0x30 *\/$/;"	m	struct:__anon58
 DOR_OFFSET	stm32l1/source/drivers/stm32l1xx_dac.c	131;"	d	file:
+DOT_PRODUCT	app/source/imu.c	/^void DOT_PRODUCT(struct VECTOR mA, struct VECTOR mB, float *mOutput)$/;"	f
 DOUTR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t DOUTR;        \/*!< AES data output register,                    Address offset: 0x0C *\/$/;"	m	struct:__anon55
 DR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t DR;           \/*!< I2C Data register,                           Address offset: 0x10 *\/$/;"	m	struct:__anon70
 DR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t DR;         \/*!< SPI data register,                                  Address offset: 0x0C *\/$/;"	m	struct:__anon78
@@ -2679,6 +2681,7 @@ EP_T_FIELD	stm32l1/include/usb/usb_regs.h	168;"	d
 EP_T_MASK	stm32l1/include/usb/usb_regs.h	184;"	d
 EPindex	stm32l1/source/usb/usb_init.c	/^ uint8_t	EPindex;$/;"	v
 ERROR	stm32l1/include/stm32l1xx.h	/^typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;$/;"	e	enum:__anon52
+ERROR_CORRECT	app/source/imu.c	/^void ERROR_CORRECT(struct MATRIX *mA, struct MATRIX *mOutput)$/;"	f
 EWI_BitNumber	stm32l1/source/drivers/stm32l1xx_wwdg.c	106;"	d	file:
 EWUP_BitNumber	stm32l1/source/drivers/stm32l1xx_pwr.c	78;"	d	file:
 EXCCNT	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t EXCCNT;                  \/*!< Offset: 0x00C (R\/W)  Exception Overhead Count Register         *\/$/;"	m	struct:__anon144
@@ -3536,6 +3539,7 @@ GE	stm32l1/include/CMSIS/core_cm3.h	/^    uint32_t GE:4;                       \
 GE	stm32l1/include/CMSIS/core_cm4.h	/^    uint32_t GE:4;                       \/*!< bit: 16..19  Greater than or Equal flags        *\/$/;"	m	struct:__anon115::__anon116
 GE	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t GE:4;                       \/*!< bit: 16..19  Greater than or Equal flags        *\/$/;"	m	struct:__anon164::__anon165
 GE	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t GE:4;                       \/*!< bit: 16..19  Greater than or Equal flags        *\/$/;"	m	struct:__anon86::__anon87
+GET_COLOMN	app/source/imu.c	/^struct VECTOR GET_COLOMN(struct MATRIX *mA, int i)$/;"	f
 GET_COMM_FEATURE	stm32l1/include/usb/usb_prop.h	60;"	d
 GET_CONFIGURATION	stm32l1/include/usb/usb_def.h	/^  GET_CONFIGURATION,$/;"	e	enum:_STANDARD_REQUESTS
 GET_DESCRIPTOR	stm32l1/include/usb/usb_def.h	/^  GET_DESCRIPTOR,$/;"	e	enum:_STANDARD_REQUESTS
@@ -3955,7 +3959,7 @@ GPIO_read	app/source/gpio.c	/^int GPIO_read(GPIO_TypeDef *port, uint32_t pin)$/;
 GPIO_set_input	app/source/gpio.c	/^void GPIO_set_input(GPIO_TypeDef *port, uint32_t pin)$/;"	f
 GPIO_set_output	app/source/gpio.c	/^void GPIO_set_output(GPIO_TypeDef *port, uint32_t pin)$/;"	f
 GPIO_write	app/source/gpio.c	/^void GPIO_write(GPIO_TypeDef *port, uint32_t pin, uint8_t val)$/;"	f
-GROUP_N	app/source/main.c	33;"	d	file:
+GROUP_N	app/source/main.c	34;"	d	file:
 GTPR	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t GTPR;       \/*!< USART Guard time and prescaler register, Address offset: 0x18 *\/$/;"	m	struct:__anon80
 GYRO_RESOLUTION_BITS	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	36;"	d
 GYRO_SCALE_BASE	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	37;"	d
@@ -4305,49 +4309,56 @@ IMCR	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t IMCR;                   
 IMCR	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t IMCR;                    \/*!< Offset: 0xF00 (R\/W)  ITM Integration Mode Control Register     *\/$/;"	m	struct:__anon94
 IMR	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t IMR;          \/*!< EXTI interrupt mask register,                 Address offset: 0x00 *\/$/;"	m	struct:__anon62
 IMR_MSK	stm32l1/include/usb/usb_conf.h	72;"	d
-IMU_ACCEL_XOUT_H	app/include/imu.h	21;"	d
-IMU_ACCEL_XOUT_L	app/include/imu.h	22;"	d
-IMU_ACCEL_YOUT_H	app/include/imu.h	23;"	d
-IMU_ACCEL_YOUT_L	app/include/imu.h	24;"	d
-IMU_ACCEL_ZOUT_H	app/include/imu.h	25;"	d
-IMU_ACCEL_ZOUT_L	app/include/imu.h	26;"	d
+IMU_ACCEL_XOUT_H	app/include/imu.h	24;"	d
+IMU_ACCEL_XOUT_L	app/include/imu.h	25;"	d
+IMU_ACCEL_YOUT_H	app/include/imu.h	26;"	d
+IMU_ACCEL_YOUT_L	app/include/imu.h	27;"	d
+IMU_ACCEL_ZOUT_H	app/include/imu.h	28;"	d
+IMU_ACCEL_ZOUT_L	app/include/imu.h	29;"	d
 IMU_ADAPTOR_DEFAULT	app/include/imu_adaptor.h	7;"	d
 IMU_ADAPTOR_H	app/include/imu_adaptor.h	3;"	d
+IMU_CALIBRATE	app/source/imu.c	/^void IMU_CALIBRATE(struct IMU_DEVICE_POSE *devicePose)$/;"	f
 IMU_CLK_PIN	app/include/board.h	68;"	d
 IMU_CLK_PINSRC	app/include/board.h	70;"	d
 IMU_CLK_PORT	app/include/board.h	69;"	d
 IMU_CS_PIN	app/include/board.h	66;"	d
 IMU_CS_PORT	app/include/board.h	67;"	d
-IMU_GYRO_XOUT_H	app/include/imu.h	29;"	d
-IMU_GYRO_XOUT_L	app/include/imu.h	30;"	d
-IMU_GYRO_YOUT_H	app/include/imu.h	31;"	d
-IMU_GYRO_YOUT_L	app/include/imu.h	32;"	d
-IMU_GYRO_ZOUT_H	app/include/imu.h	33;"	d
-IMU_GYRO_ZOUT_L	app/include/imu.h	34;"	d
+IMU_DEVICE_INIT	app/source/imu.c	/^void IMU_DEVICE_INIT(struct IMU_DEVICE_POSE *devicePose, struct mpu9250_s device)$/;"	f
+IMU_DEVICE_POSE	app/include/imu.h	/^struct IMU_DEVICE_POSE{$/;"	s
+IMU_GYRO_XOUT_H	app/include/imu.h	32;"	d
+IMU_GYRO_XOUT_L	app/include/imu.h	33;"	d
+IMU_GYRO_YOUT_H	app/include/imu.h	34;"	d
+IMU_GYRO_YOUT_L	app/include/imu.h	35;"	d
+IMU_GYRO_ZOUT_H	app/include/imu.h	36;"	d
+IMU_GYRO_ZOUT_L	app/include/imu.h	37;"	d
 IMU_H	app/include/imu.h	2;"	d
-IMU_INT_EN	app/include/imu.h	14;"	d
+IMU_Handler	app/source/imu.c	/^void IMU_Handler()$/;"	f
+IMU_INT_EN	app/include/imu.h	17;"	d
 IMU_INT_PIN	app/include/board.h	80;"	d
 IMU_INT_PORT	app/include/board.h	81;"	d
-IMU_INT_SET	app/include/imu.h	13;"	d
-IMU_INT_STATUS	app/include/imu.h	16;"	d
+IMU_INT_SET	app/include/imu.h	16;"	d
+IMU_INT_STATUS	app/include/imu.h	19;"	d
 IMU_MISO_PIN	app/include/board.h	71;"	d
 IMU_MISO_PINSRC	app/include/board.h	73;"	d
 IMU_MISO_PORT	app/include/board.h	72;"	d
 IMU_MOSI_PIN	app/include/board.h	74;"	d
 IMU_MOSI_PINSRC	app/include/board.h	76;"	d
 IMU_MOSI_PORT	app/include/board.h	75;"	d
-IMU_RAW_DATA_RDY_INT	app/include/imu.h	17;"	d
-IMU_RAW_RDY_EN	app/include/imu.h	15;"	d
+IMU_POLL_DATA_RDY	app/source/imu.c	/^void IMU_POLL_DATA_RDY(struct mpu9250_s *device)$/;"	f
+IMU_RAW_DATA_RDY_INT	app/include/imu.h	20;"	d
+IMU_RAW_RDY_EN	app/include/imu.h	18;"	d
+IMU_READ	app/source/imu.c	/^void IMU_READ(struct IMU_SAMPLE *sample, struct mpu9250_s device)$/;"	f
+IMU_RESET	app/source/imu.c	/^void IMU_RESET(struct IMU_DEVICE_POSE *devicePose)$/;"	f
+IMU_SAMPLE	app/include/imu.h	/^struct IMU_SAMPLE{$/;"	s
 IMU_SPI	app/include/board.h	84;"	d
 IMU_SPI_CLK	app/include/board.h	83;"	d
 IMU_SPI_DEFAULT	app/include/board.h	86;"	d
-IMU_SPI_READ	app/include/imu.h	10;"	d
-IMU_SPI_RW_BIT	app/include/imu.h	9;"	d
-IMU_SPI_WRITE	app/include/imu.h	11;"	d
+IMU_SPI_READ	app/include/imu.h	13;"	d
+IMU_SPI_RW_BIT	app/include/imu.h	12;"	d
+IMU_SPI_WRITE	app/include/imu.h	14;"	d
 IMU_SYNC_PIN	app/include/board.h	78;"	d
 IMU_SYNC_PORT	app/include/board.h	79;"	d
-IMU_get_readings	app/source/imu.c	/^void IMU_get_readings(void* ctx, uint8_t* save_data){$/;"	f
-IMU_init	app/source/imu.c	/^int8_t IMU_init(void* ctx){$/;"	f
+IMU_UPDATE	app/source/imu.c	/^void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)$/;"	f
 INDEX_MASK	stm32l1/include/CMSIS/arm_math.h	299;"	d
 INITMODE_TIMEOUT	stm32l1/source/drivers/stm32l1xx_rtc.c	252;"	d	file:
 INPUT_SPACING	stm32l1/include/CMSIS/arm_math.h	317;"	d
@@ -5228,6 +5239,8 @@ MASK3	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t MASK3;                 
 MASK3	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t MASK3;                   \/*!< Offset: 0x054 (R\/W)  Mask Register 3                           *\/$/;"	m	struct:__anon96
 MASS_MEMORY_START	stm32l1/include/usb/hw_config.h	43;"	d
 MATCHER_P2	modules/libmpu9250/test/source/mpu9250test.cpp	/^MATCHER_P2(MaskedCompare, value, mask, "")$/;"	f
+MATRIX	app/include/imu.h	/^struct MATRIX{$/;"	s
+MATRIX_MULTIPLY	app/source/imu.c	/^void MATRIX_MULTIPLY(struct MATRIX *mA, struct MATRIX *mB, struct MATRIX *mOutput)$/;"	f
 MAX	app/include/common.h	9;"	d
 MEMRMP	stm32l1/include/stm32l1xx.h	/^  __IO uint32_t MEMRMP;       \/*!< SYSCFG memory remap register,                      Address offset: 0x00      *\/$/;"	m	struct:__anon69
 MIN	app/include/common.h	8;"	d
@@ -5711,6 +5724,7 @@ NIEN_BitNumber	stm32l1/source/drivers/stm32l1xx_sdio.c	167;"	d	file:
 NM	Makefile	/^NM  = ${TOOLCHAIN}-nm$/;"	m
 NMI_Handler	app/source/stm32l1xx_it.c	/^void NMI_Handler(void)$/;"	f
 NOP_Process	stm32l1/source/usb/usb_core.c	/^void NOP_Process(void)$/;"	f
+NORMALIZE_MATRIX	app/source/imu.c	/^void NORMALIZE_MATRIX(struct MATRIX *mA, struct MATRIX *mOutput)$/;"	f
 NULL	stm32l1/include/usb/usb_type.h	39;"	d
 NVIC	stm32l1/include/CMSIS/core_cm0.h	476;"	d
 NVIC	stm32l1/include/CMSIS/core_cm0plus.h	583;"	d
@@ -6237,7 +6251,7 @@ OTYPER	stm32l1/include/stm32l1xx.h	/^  __IO uint16_t OTYPER;       \/*!< GPIO po
 OUT_DATA	stm32l1/include/usb/usb_core.h	/^  OUT_DATA,         \/* 3 *\/$/;"	e	enum:_CONTROL_STATE
 OneDescriptor	stm32l1/include/usb/usb_core.h	/^typedef struct OneDescriptor$/;"	s
 Out0_Process	stm32l1/source/usb/usb_core.c	/^uint8_t Out0_Process(void)$/;"	f
-PAN_ID	app/source/main.c	36;"	d	file:
+PAN_ID	app/source/main.c	37;"	d	file:
 PAUSE	stm32l1/include/usb/usb_core.h	/^  PAUSE             \/* 10 *\/$/;"	e	enum:_CONTROL_STATE
 PCLK1_Frequency	stm32l1/include/drivers/stm32l1xx_rcc.h	/^  uint32_t PCLK1_Frequency;$/;"	m	struct:__anon14
 PCLK2_Frequency	stm32l1/include/drivers/stm32l1xx_rcc.h	/^  uint32_t PCLK2_Frequency;$/;"	m	struct:__anon14
@@ -9185,7 +9199,7 @@ SD_SPI_CLK	app/include/board.h	109;"	d
 SD_SPI_DEFAULT	app/include/board.h	112;"	d
 SEND_BREAK	stm32l1/include/usb/usb_prop.h	65;"	d
 SEND_ENCAPSULATED_COMMAND	stm32l1/include/usb/usb_prop.h	57;"	d
-SEND_MSG	app/source/main.c	49;"	d	file:
+SEND_MSG	app/source/main.c	50;"	d	file:
 SEND_TIMEOUT_S	modules/libat86rf212/test/source/at86rf212test.cpp	159;"	d	file:
 SET	stm32l1/include/stm32l1xx.h	/^typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;$/;"	e	enum:__anon50
 SETTING_UP	stm32l1/include/usb/usb_core.h	/^  SETTING_UP,       \/* 1 *\/$/;"	e	enum:_CONTROL_STATE
@@ -9213,6 +9227,7 @@ SHP	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint8_t  SHP[12];                 
 SHP	stm32l1/include/CMSIS/core_sc000.h	/^  __IO uint32_t SHP[2];                  \/*!< Offset: 0x01C (R\/W)  System Handlers Priority Registers. [0] is RESERVED   *\/$/;"	m	struct:__anon169
 SHP	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint8_t  SHP[12];                 \/*!< Offset: 0x018 (R\/W)  System Handlers Priority Registers (4-7, 8-11, 12-15) *\/$/;"	m	struct:__anon91
 SHPF_TIMEOUT	stm32l1/source/drivers/stm32l1xx_rtc.c	255;"	d	file:
+SKEW_VECTOR	app/source/imu.c	/^void SKEW_VECTOR(struct MATRIX *skew, struct VECTOR *vector)$/;"	f
 SLEEPCNT	stm32l1/include/CMSIS/core_cm3.h	/^  __IO uint32_t SLEEPCNT;                \/*!< Offset: 0x010 (R\/W)  Sleep Count Register                      *\/$/;"	m	struct:__anon144
 SLEEPCNT	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t SLEEPCNT;                \/*!< Offset: 0x010 (R\/W)  Sleep Count Register                      *\/$/;"	m	struct:__anon125
 SLEEPCNT	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t SLEEPCNT;                \/*!< Offset: 0x010 (R\/W)  Sleep Count Register                      *\/$/;"	m	struct:__anon96
@@ -9666,6 +9681,7 @@ Sint	stm32l1/include/CMSIS/arm_math.h	/^    arm_cfft_instance_f32 Sint;      \/*
 SpiDriverInterface	modules/libmpu9250/lib/mpu9250/mpu9250_if.hpp	/^class SpiDriverInterface {$/;"	c	namespace:MPU9250
 SpiDriverWrapper	modules/libmpu9250/lib/mpu9250/mpu9250_if.hpp	/^class SpiDriverWrapper {$/;"	c	namespace:MPU9250
 SquareRoot	app/source/common.c	/^uint32_t SquareRoot(uint32_t a_nInput)$/;"	f
+SquareRoot	app/source/imu.c	/^uint32_t SquareRoot(uint32_t a_nInput)$/;"	f
 Standard_ClearFeature	stm32l1/source/usb/usb_core.c	/^RESULT Standard_ClearFeature(void)$/;"	f
 Standard_GetConfiguration	stm32l1/source/usb/usb_core.c	/^uint8_t *Standard_GetConfiguration(uint16_t Length)$/;"	f
 Standard_GetDescriptorData	stm32l1/source/usb/usb_core.c	/^uint8_t *Standard_GetDescriptorData(uint16_t Length, ONE_DESCRIPTOR *pDesc)$/;"	f
@@ -11199,7 +11215,7 @@ USB_Istr	stm32l1/source/usb/usb_istr.c	/^void USB_Istr(void)$/;"	f
 USB_LP_IRQHandler	app/source/stm32l1xx_it.c	/^void USB_LP_IRQHandler(void)$/;"	f
 USB_LP_IRQn	stm32l1/include/stm32l1xx.h	/^  USB_LP_IRQn                 = 20,     \/*!< USB Low Priority Interrupt                              *\/$/;"	e	enum:IRQn
 USB_NOT_READY	stm32l1/include/usb/usb_core.h	/^  USB_NOT_READY       \/* The process has not been finished, endpoint will be$/;"	e	enum:_RESULT
-USB_SERIAL	app/source/main.c	44;"	d	file:
+USB_SERIAL	app/source/main.c	45;"	d	file:
 USB_SIL_Init	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Init(void)$/;"	f
 USB_SIL_Read	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Read(uint8_t bEpAddr, uint8_t* pBufferPointer)$/;"	f
 USB_SIL_Write	stm32l1/source/usb/usb_sil.c	/^uint32_t USB_SIL_Write(uint8_t bEpAddr, uint8_t* pBufferPointer, uint32_t wBufferSize)$/;"	f
@@ -11261,6 +11277,8 @@ VAL	stm32l1/include/CMSIS/core_cm4.h	/^  __IO uint32_t VAL;                     
 VAL	stm32l1/include/CMSIS/core_sc000.h	/^  __IO uint32_t VAL;                     \/*!< Offset: 0x008 (R\/W)  SysTick Current Value Register      *\/$/;"	m	struct:__anon171
 VAL	stm32l1/include/CMSIS/core_sc300.h	/^  __IO uint32_t VAL;                     \/*!< Offset: 0x008 (R\/W)  SysTick Current Value Register      *\/$/;"	m	struct:__anon93
 VCOMPORT_IN_FRAME_INTERVAL	stm32l1/source/usb/usb_endp.c	41;"	d	file:
+VECTOR	app/include/imu.h	/^struct VECTOR{$/;"	s
+VECTOR_MULTIPLY	app/source/imu.c	/^void VECTOR_MULTIPLY(struct MATRIX *mA, struct VECTOR *mB, struct VECTOR *mOutput)$/;"	f
 VECT_TAB_OFFSET	stm32l1/source/system_stm32l1xx.c	125;"	d	file:
 VENDOR_REQUEST	stm32l1/include/usb/usb_def.h	83;"	d
 VIRTUAL_COM_PORT_DATA_SIZE	stm32l1/include/usb/usb_desc.h	44;"	d
@@ -11365,12 +11383,15 @@ WWDG_SetPrescaler	stm32l1/source/drivers/stm32l1xx_wwdg.c	/^void WWDG_SetPrescal
 WWDG_SetWindowValue	stm32l1/source/drivers/stm32l1xx_wwdg.c	/^void WWDG_SetWindowValue(uint8_t WindowValue)$/;"	f
 WWDG_TypeDef	stm32l1/include/stm32l1xx.h	/^} WWDG_TypeDef;$/;"	t	typeref:struct:__anon81
 WaitForLastOperation	stm32l1/source/drivers/stm32l1xx_flash_ramfunc.c	/^static __RAM_FUNC  WaitForLastOperation(uint32_t Timeout)$/;"	f	file:
+X	app/include/imu.h	/^  float X;$/;"	m	struct:VECTOR
 X	py/surface3d_demo.py	/^X = np.arange(-5, 15, 0.5)$/;"	v
 X_S	app/include/trilaterate.h	22;"	d
 X_S	py/gen.py	/^X_S = 0;$/;"	v
+Y	app/include/imu.h	/^  float Y;$/;"	m	struct:VECTOR
 Y	py/surface3d_demo.py	/^Y = np.arange(-5, 15, 0.5)$/;"	v
 Y_S	app/include/trilaterate.h	23;"	d
 Y_S	py/gen.py	/^Y_S = 0;$/;"	v
+Z	app/include/imu.h	/^  float Z;$/;"	m	struct:VECTOR
 Z	py/surface3d_demo.py	/^Z = accumulate()$/;"	v
 Z	stm32l1/include/CMSIS/core_cm0.h	/^    uint32_t Z:1;                        \/*!< bit:     30  Zero condition code flag           *\/$/;"	m	struct:__anon100::__anon101
 Z	stm32l1/include/CMSIS/core_cm0.h	/^    uint32_t Z:1;                        \/*!< bit:     30  Zero condition code flag           *\/$/;"	m	struct:__anon104::__anon105
@@ -12005,10 +12026,14 @@ _reserved1	stm32l1/include/CMSIS/core_sc000.h	/^    uint32_t _reserved1:4;      
 _reserved1	stm32l1/include/CMSIS/core_sc300.h	/^    uint32_t _reserved1:4;               \/*!< bit: 20..23  Reserved                           *\/$/;"	m	struct:__anon86::__anon87
 _write_r	app/source/main.c	/^int _write_r(struct _reent *r, int fd, const void *data, unsigned int count)$/;"	f
 a	py/surface3d_demo.py	/^a=np.argmax(Z)$/;"	v
+accel	app/include/imu.h	/^  struct VECTOR accel;$/;"	m	struct:IMU_SAMPLE	typeref:struct:IMU_SAMPLE::VECTOR
+accelOffset	app/include/imu.h	/^  struct VECTOR accelOffset;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 accel_scale	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	/^    float accel_scale;$/;"	m	struct:mpu9250_s
+acceleration	app/include/imu.h	/^  struct VECTOR acceleration;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 accumulate	py/surface3d_demo.py	/^def accumulate():$/;"	f
 add_data	modules/libat86rf212/util/source/main.cpp	/^int add_data(int len, uint8_t* data_in, uint8_t* packet)$/;"	f
 address	modules/libat86rf212/util/source/main.cpp	/^    uint16_t address;$/;"	m	struct:config_s	file:
+angle	app/include/imu.h	/^  struct VECTOR angle;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 args	modules/libat86rf212/version.py	/^args = parser.parse_args();$/;"	v
 args	modules/libmpu9250/version.py	/^args = parser.parse_args();$/;"	v
 args	version.py	/^args = parser.parse_args();$/;"	v
@@ -12223,8 +12248,10 @@ datatype	stm32l1/include/usb/usb_prop.h	/^  uint8_t datatype;$/;"	m	struct:__ano
 delay_ms	app/source/main.c	/^void delay_ms(uint32_t ms)$/;"	f
 delay_us	app/source/main.c	/^void delay_us(uint32_t us)$/;"	f
 dest	app/include/fifteenfour.h	/^    uint16_t dest;          \/\/!< Destination address$/;"	m	struct:fifteen_four_header_s
+device	app/include/imu.h	/^  struct mpu9250_s device;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::mpu9250_s
 device	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    struct at86rf212_s device;$/;"	m	class:AT86RF212::At86rf212	typeref:struct:AT86RF212::At86rf212::at86rf212_s
 device	modules/libmpu9250/lib/mpu9250/mpu9250.hpp	/^    struct mpu9250_s device;$/;"	m	class:MPU9250::Mpu9250	typeref:struct:MPU9250::Mpu9250::mpu9250_s
+distance	app/include/imu.h	/^  struct VECTOR distance;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 driver	modules/libat86rf212/lib/at86rf212/at86rf212_defs.h	/^    struct at86rf212_driver_s* driver;  \/\/!< Driver function object$/;"	m	struct:at86rf212_s	typeref:struct:at86rf212_s::at86rf212_driver_s
 driver	modules/libat86rf212/lib/at86rf212/at86rf212_if.hpp	/^    static struct at86rf212_driver_s driver;$/;"	m	class:AT86RF212::DriverWrapper	typeref:struct:AT86RF212::DriverWrapper::at86rf212_driver_s
 driver	modules/libat86rf212/lib/at86rf212/at86rf212_if.hpp	/^struct at86rf212_driver_s DriverWrapper::driver = {$/;"	m	class:AT86RF212::DriverWrapper	typeref:struct:AT86RF212::DriverWrapper::
@@ -12285,6 +12312,8 @@ get_state	modules/libat86rf212/lib/at86rf212/at86rf212.hpp	/^    int get_state(u
 gpio_get_f	modules/libat86rf212/lib/at86rf212/at86rf212.h	/^typedef int (*gpio_get_f)(void* context, uint8_t *val);$/;"	t
 gpio_set_f	modules/libat86rf212/lib/at86rf212/at86rf212.h	/^typedef int (*gpio_set_f)(void* context, uint8_t val);$/;"	t
 guassian	py/surface3d_demo.py	/^def guassian(origin, mean, std=0.5):$/;"	f
+gyro	app/include/imu.h	/^  struct VECTOR gyro;$/;"	m	struct:IMU_SAMPLE	typeref:struct:IMU_SAMPLE::VECTOR
+gyroOffset	app/include/imu.h	/^  struct VECTOR gyroOffset;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 gyro_scale	modules/libmpu9250/lib/mpu9250/mpu9250_defs.h	/^    float gyro_scale;$/;"	m	struct:mpu9250_s
 help	modules/libat86rf212/util/source/main.cpp	/^    int help;$/;"	m	struct:config_s	file:
 ifftFlag	stm32l1/include/CMSIS/arm_math.h	/^    uint8_t ifftFlag;                  \/**< flag that selects forward (ifftFlag=0) or inverse (ifftFlag=1) transform. *\/$/;"	m	struct:__anon196
@@ -12350,6 +12379,7 @@ mpu9250_read_compass_reg	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_r
 mpu9250_read_compass_regs	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_read_compass_regs(struct mpu9250_s *device, uint8_t reg, uint8_t len, uint8_t *vals)$/;"	f
 mpu9250_read_gyro	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_read_gyro(struct mpu9250_s *device, float *x, float *y, float *z)$/;"	f
 mpu9250_read_gyro_raw	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_read_gyro_raw(struct mpu9250_s *device, int16_t *x, int16_t *y, int16_t *z)$/;"	f
+mpu9250_read_reg	app/source/imu.c	/^static int mpu9250_read_reg(struct mpu9250_s *device, uint8_t reg, uint8_t* val)$/;"	f	file:
 mpu9250_read_reg	modules/libmpu9250/lib/source/mpu9250.c	/^static int mpu9250_read_reg(struct mpu9250_s *device, uint8_t reg, uint8_t* val)$/;"	f	file:
 mpu9250_read_regs	modules/libmpu9250/lib/source/mpu9250.c	/^static int mpu9250_read_regs(struct mpu9250_s *device, uint8_t start, uint8_t length, uint8_t* data)$/;"	f	file:
 mpu9250_read_temp	modules/libmpu9250/lib/source/mpu9250.c	/^int mpu9250_read_temp(struct mpu9250_s *device, float* temp)$/;"	f
@@ -12611,6 +12641,10 @@ regex	modules/libat86rf212/version.py	/^regex = re.match('v([0-9]+).([0-9]+).([0
 regex	modules/libmpu9250/version.py	/^regex = re.match('v([0-9]+).([0-9]+).([0-9]+)', versionString);$/;"	v
 regex	version.py	/^regex = re.match('v([0-9]+).([0-9]+).([0-9]+)', versionString);$/;"	v
 remotewakeupon	stm32l1/source/usb/usb_pwr.c	/^__IO uint32_t remotewakeupon=0;$/;"	v
+rotation	app/include/imu.h	/^  struct MATRIX rotation;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::MATRIX
+row1	app/include/imu.h	/^  struct VECTOR row1;$/;"	m	struct:MATRIX	typeref:struct:MATRIX::VECTOR
+row2	app/include/imu.h	/^  struct VECTOR row2;$/;"	m	struct:MATRIX	typeref:struct:MATRIX::VECTOR
+row3	app/include/imu.h	/^  struct VECTOR row3;$/;"	m	struct:MATRIX	typeref:struct:MATRIX::VECTOR
 run_master	app/source/beacon.c	/^void run_master(struct at86rf212_s *radio, uint16_t pan, uint16_t address)$/;"	f
 run_rx	modules/libat86rf212/util/source/main.cpp	/^void run_rx(AT86RF212::At86rf212* radio)$/;"	f
 run_slave	app/source/beacon.c	/^void run_slave(struct at86rf212_s *radio, uint16_t pan, uint16_t address)$/;"	f
@@ -12651,6 +12685,7 @@ stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon227
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon228
 stateIndex	stm32l1/include/CMSIS/arm_math.h	/^    uint16_t stateIndex;          \/**< state buffer index.  Points to the oldest sample in the state buffer. *\/$/;"	m	struct:__anon229
+status_data	app/source/main.c	/^uint8_t status_data;$/;"	v
 std	app/include/kalman.h	/^    int32_t std; \/\/ Standard deviation$/;"	m	struct:__anon2
 surf	py/surface3d_demo.py	/^surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.coolwarm,$/;"	v
 systick_count	app/source/main.c	/^__IO uint32_t systick_count = 0;$/;"	v
@@ -12678,6 +12713,7 @@ uint16_t_uint8_t	stm32l1/include/usb/usb_core.h	/^} uint16_t_uint8_t;$/;"	t	type
 usbthing	modules/libat86rf212/test/source/at86rf212test.cpp	/^  usbthing_t usbthing;$/;"	m	class:At86rf212Test	file:
 vSetEPRxStatus	stm32l1/source/usb/usb_core.c	40;"	d	file:
 vSetEPTxStatus	stm32l1/source/usb/usb_core.c	41;"	d	file:
+velocity	app/include/imu.h	/^  struct VECTOR velocity;$/;"	m	struct:IMU_DEVICE_POSE	typeref:struct:IMU_DEVICE_POSE::VECTOR
 version	modules/libat86rf212/version.py	/^version = p.communicate()[0]$/;"	v
 version	modules/libmpu9250/version.py	/^version = p.communicate()[0]$/;"	v
 version	version.py	/^version = p.communicate()[0]$/;"	v

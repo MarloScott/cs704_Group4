@@ -54,7 +54,8 @@ int mpu9250_read_gyro(struct mpu9250_s *device, float *x, float *y, float *z);
 int mpu9250_read_accel(struct mpu9250_s *device, float *x, float *y, float *z);
 int mpu9250_read_temp(struct mpu9250_s *device, float* temp);
 
-
+static int mpu9250_read_regs(struct mpu9250_s *device, uint8_t start, uint8_t length, uint8_t* data);
+static int mpu9250_read_reg(struct mpu9250_s *device, uint8_t reg, uint8_t* val);
 
 #ifdef __cplusplus
 }
