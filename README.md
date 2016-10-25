@@ -25,8 +25,9 @@ Compile and execute "Localization.java". The application loads images and the fi
 origin.png -loaded on line 67. room.gif -loaded on line 65.
 robot.png  -loaded on line 66. node.png   -loaded on line 68.
 
-The created image is stored to a file specified on "line 113" and is loaded for display on line 42. 
-The positions are logged into the history.txt file, location specified on line 237
+The created image is stored to a file specified on "line 113" and is loaded for display on "line 42". 
+The positions are logged into the history.txt file, location specified on "line 237"
+
 Sorry about having to specify all the paths but I've run out of time to simplify it -James
 
 ## Testing guide
