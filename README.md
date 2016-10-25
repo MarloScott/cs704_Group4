@@ -8,6 +8,7 @@ Application components are located in [app](/app), processor support is in [stm3
 Modules and drivers are included as git submodules in [modules](/modules).
 
 Files authored by us include:
+
  - trilaterate.(c/h)
  - imu.(c/h)
  - kalman.(c/h)
@@ -20,11 +21,13 @@ Visualisation program in [visualisation](/visualisation) folder.
 ## Testing guide
 
 Testing hardware requirements:
+
  - Base station
  - Mobile node
  - Active beacons
 
 Testing Proceedure:
+
 1. Connect antennae to both base station and mobile node.
 2. In the `main.c` file, ensure the `BASE_STATION` defiition macro is commented on the first line
 3. Make the project using `make`
@@ -34,6 +37,7 @@ Testing Proceedure:
 7. Repeat steps 3-5 for the Base Station board
 8. Load up the Java visualisation
 9. Hit the reset button on both boards
+10. Observe output of Java visualisation
 
 ## Build Requirements
 
