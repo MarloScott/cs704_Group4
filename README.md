@@ -21,10 +21,9 @@ Visualisation program in [visualisation](/visualisation) folder.
 ##Running the Visualisation
 The visualisation application can be run in eclipse. (windows)
 Compile and execute "Localization.java". The application loads images and the file paths will need to be updated in "Localization.java" to run on a new PC.
-1.origin.png -loaded on line 67.
-2.room.gif   -loaded on line 65.
-3.robot.png  -loaded on line 66.
-4.node.png   -loaded on line 68.
+
+origin.png -loaded on line 67. room.gif -loaded on line 65.
+robot.png  -loaded on line 66. node.png   -loaded on line 68.
 
 The created image is stored to a file specified on "line 113" and is loaded for display on line 42. 
 Sorry about having to specify all the paths but I've run out of time to simplify it -James
