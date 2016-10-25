@@ -250,6 +250,8 @@ int main(void)
     uint8_t strength[4][5] = {25};
     uint8_t str_count[4] = {0};
     int16_t test_data[2] = {1234,-2678};
+    struct IMU_DEVICE_POSE imuInfo;
+    IMU_DEVICE_INIT(&imuInfo, mpu9250);
 
     while(1) {
 
@@ -259,6 +261,7 @@ int main(void)
         for(i=0;i<20;i++){
             while(at86rf212_check_rx(&radio)<1){
                 delay_ms(1);
+                IMU_UPDATE(&imuInfo);
             }
             at86rf212_get_rx(&radio, &length, data);
             if(data[7]>0&&data[7]<5){
@@ -279,6 +282,19 @@ int main(void)
         }
 
         trilaterate(str_av, &P_est, &P_out);
+
+        //P_est.x += imuInfo.distance.X;
+        //P_est.y += imuInfo.distance.Y;
+
+        //sprintf(txt_buffer, "X: %d Y: %d Z: %dX: %d Y: %d Z: %dX: %d Y: %d Z: %d\n",(int)((imuInfo.distance.X)*100),(int)((imuInfo.distance.Y)*100),(int)((imuInfo.distance.Z)*100),
+        //(int)((imuInfo.rotation.row2.X)*100),(int)((imuInfo.rotation.row2.Y)*100),(int)((imuInfo.rotation.row2.Z)*100),
+        //(int)((imuInfo.rotation.row3.X)*100),(int)((imuInfo.rotation.row3.Y)*100),(int)((imuInfo.rotation.row3.Z)*100));
+
+        USB_print(txt_buffer);
+
+        imuInfo.distance.X = 0;
+        imuInfo.distance.Y = 0;
+        //IMU_RESET(imuInfo);
 
         Guassian2d prediction;
         prediction.mean = P_est;

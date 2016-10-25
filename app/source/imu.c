@@ -8,6 +8,8 @@
 #include "../../modules/libmpu9250/lib/mpu9250/mpu9250.h"
 #include "imu_adaptor.h"
 
+
+
 void IMU_DEVICE_INIT(struct IMU_DEVICE_POSE *devicePose, struct mpu9250_s device)
 {
   devicePose->device = device;
@@ -46,9 +48,9 @@ void IMU_DEVICE_INIT(struct IMU_DEVICE_POSE *devicePose, struct mpu9250_s device
 
 void IMU_RESET(struct IMU_DEVICE_POSE *devicePose)
 {
-  devicePose->velocity.X = 0;
-  devicePose->velocity.Y = 0;
-  devicePose->velocity.Z = 0;
+  // devicePose->velocity.X = 0;
+  // devicePose->velocity.Y = 0;
+  // devicePose->velocity.Z = 0;
 
   // devicePose->rotation.row1.X =1;
   // devicePose->rotation.row1.Y =0;
@@ -68,53 +70,112 @@ void IMU_RESET(struct IMU_DEVICE_POSE *devicePose)
   //devicePose->accelOffset.X = devicePose->acceleration.X + devicePose->accelOffset.X;
   //devicePose->accelOffset.Y = devicePose->acceleration.Y + devicePose->accelOffset.Y;
   //devicePose->accelOffset.Z = devicePose->acceleration.Z + devicePose->accelOffset.Z;
+
+  devicePose->distance.X = 0.0;
+  devicePose->distance.Y = 0.0;
+  devicePose->distance.Z = 0.0;
 }
 
 void IMU_UPDATE(struct IMU_DEVICE_POSE *devicePose)
 {
   struct IMU_SAMPLE sample;
   struct MATRIX skew, new, errorCorrect, norm;
-  struct VECTOR correctedAccel;
+  struct VECTOR correctedAccel, test;
   IMU_READ(&sample, devicePose->device);
+  float period = 0.1;
+  float decay = 0.995;
+  float clip = 0.6;
 
-  //TODO: implement accel angle correction to remove drift
-  //double accRx = atan(devicePose->acceleration.X/sqrt((double)(pow(devicePose->acceleration.Y,2) + pow(devicePose->acceleration.Y,2))))*(180/3.14);
-
-  sample.gyro.X = (sample.gyro.X - devicePose->gyroOffset.X)*0.01;
-  sample.gyro.Y = (sample.gyro.Y - devicePose->gyroOffset.Y)*0.01;
-  sample.gyro.Z = (sample.gyro.Z - devicePose->gyroOffset.Z)*0.01;
-
-  devicePose->angle.X += sample.gyro.X;
-  devicePose->angle.Y += sample.gyro.Y;
-  devicePose->angle.Z += sample.gyro.Z;
+  //devicePose->angle.X += sample.gyro.X;
+  //devicePose->angle.Y += sample.gyro.Y;
+  //devicePose->angle.Z += sample.gyro.Z;
 
   devicePose->acceleration.X = sample.accel.X;
   devicePose->acceleration.Y = sample.accel.Y;
   devicePose->acceleration.Z = sample.accel.Z;
 
+  // float x,y;
+  // x = devicePose->acceleration.X - devicePose->accelOffset.X;
+  // y = devicePose->acceleration.Y - devicePose->accelOffset.Y;
 
-  SKEW_VECTOR(&skew, &(sample.gyro));
-  ERROR_CORRECT(&skew, &errorCorrect);
-  NORMALIZE_MATRIX(&errorCorrect, &norm);
-  MATRIX_MULTIPLY(&(devicePose->rotation),&norm,&new);
-  ERROR_CORRECT(&new, &errorCorrect);
-  NORMALIZE_MATRIX(&errorCorrect, &norm);
-  devicePose->rotation = norm;
+  //TODO: implement accel angle correction to remove drift
+  //double AccRx = atan(x/sqrt((double)(pow(y,2) + pow(devicePose->acceleration.Z,2))));//*(180/3.14);
+  //double AccRy = atan(y/sqrt((double)(pow(x,2) + pow(devicePose->acceleration.Z,2))));//*(180/3.14);
 
-  VECTOR_MULTIPLY(&norm, &(devicePose->acceleration), &correctedAccel);
+  //devicePose->angle.X = (0.95*(((sample.gyro.X - devicePose->gyroOffset.X)*period)+devicePose->angle.X))+(0.05*(AccRy));
+  //devicePose->angle.Y = (0.95*(((sample.gyro.Y - devicePose->gyroOffset.Y)*period)+devicePose->angle.Y))+(0.05*(-1*AccRx));
+  //devicePose->angle.Z = (((sample.gyro.Z - devicePose->gyroOffset.Z)*period)+devicePose->angle.Z);
+
+  // sample.gyro.X = (sample.gyro.X - devicePose->gyroOffset.X)*period;
+  // sample.gyro.Y = (sample.gyro.Y - devicePose->gyroOffset.Y)*period;
+  // sample.gyro.X = 0;
+  // sample.gyro.Y = 0;
+  // sample.gyro.Z = (sample.gyro.Z - devicePose->gyroOffset.Z)*period;
+  //
+  // SKEW_VECTOR(&skew, &(sample.gyro));
+  // ERROR_CORRECT(&skew, &errorCorrect);
+  // NORMALIZE_MATRIX(&errorCorrect, &norm);
+  // MATRIX_MULTIPLY(&(devicePose->rotation),&norm,&new);
+  // ERROR_CORRECT(&new, &errorCorrect);
+  // NORMALIZE_MATRIX(&errorCorrect, &norm);
+  // devicePose->rotation = norm;
+  //
+  // VECTOR_MULTIPLY(&norm, &(devicePose->acceleration), &correctedAccel);
 
 
-  devicePose->acceleration.X = correctedAccel.X - devicePose->accelOffset.X;
-  devicePose->acceleration.Y = correctedAccel.Y - devicePose->accelOffset.Y;
-  devicePose->acceleration.Z = correctedAccel.Z - devicePose->accelOffset.Z;
+  // devicePose->acceleration.X = correctedAccel.X - devicePose->accelOffset.X;
+  // devicePose->acceleration.Y = correctedAccel.Y - devicePose->accelOffset.Y;
+  // devicePose->acceleration.Z = correctedAccel.Z - devicePose->accelOffset.Z;
 
-  devicePose->velocity.X += devicePose->acceleration.X*0.01;
-  devicePose->velocity.Y += devicePose->acceleration.Y*0.01;
-  devicePose->velocity.Z += devicePose->acceleration.Z*0.01;
+  devicePose->acceleration.X -= devicePose->accelOffset.X;
+  if(devicePose->acceleration.X<0.05&&devicePose->acceleration.X>-0.05){
+    devicePose->acceleration.X = 0;
+  }
+  devicePose->acceleration.Y -= devicePose->accelOffset.Y;
+  if(devicePose->acceleration.Y<0.05&&devicePose->acceleration.Y>-0.05){
+    devicePose->acceleration.Y = 0;
+  }
+  devicePose->acceleration.Z -= devicePose->accelOffset.Z;
+  if(devicePose->acceleration.Z<0.05&&devicePose->acceleration.Z>-0.05){
+    devicePose->acceleration.Z = 0;
+  }
 
-  devicePose->distance.X += devicePose->velocity.X*0.01;
-  devicePose->distance.Y += devicePose->velocity.Y*0.01;
-  devicePose->distance.Z += devicePose->velocity.Z*0.01;
+
+  if(devicePose->acceleration.X>clip){
+    devicePose->acceleration.X = clip;
+  }else if(devicePose->acceleration.X<-clip){
+    devicePose->acceleration.X = -clip;
+  }
+
+
+  if(devicePose->acceleration.Y>clip){
+    devicePose->acceleration.Y = clip;
+  }else if(devicePose->acceleration.Y<-clip){
+    devicePose->acceleration.Y = -clip;
+  }
+
+  if(devicePose->acceleration.Z>clip){
+    devicePose->acceleration.Z = clip;
+  }else if(devicePose->acceleration.Z<-clip){
+    devicePose->acceleration.Z = -clip;
+  }
+
+  devicePose->velocity.X = (decay*(devicePose->velocity.X + devicePose->acceleration.X*period));
+  devicePose->velocity.Y = (decay*(devicePose->velocity.Y + devicePose->acceleration.Y*period));
+  devicePose->velocity.Z = (decay*(devicePose->velocity.Z + devicePose->acceleration.Z*period));
+
+  // devicePose->distance.X += devicePose->velocity.X*period;
+  // devicePose->distance.Y += devicePose->velocity.Y*period;
+  // devicePose->distance.Z += devicePose->velocity.Z*period;
+
+  devicePose->angle.X = (0.995*(((devicePose->angle.X)))+(0.005*(devicePose->velocity.X)));
+  devicePose->angle.Y = (0.995*(((devicePose->angle.Y)))+(0.005*(devicePose->velocity.Y)));
+  devicePose->angle.Z = (0.995*(((devicePose->angle.Z)))+(0.005*(devicePose->velocity.Z)));
+
+  devicePose->distance.X += devicePose->angle.X*period;
+  devicePose->distance.Y += devicePose->angle.Y*period;
+  devicePose->distance.Z += devicePose->angle.Z*period;
+
 
 }
 

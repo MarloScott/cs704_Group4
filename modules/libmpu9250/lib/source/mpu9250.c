@@ -292,7 +292,7 @@ int8_t mpu9250_init(struct mpu9250_s *device, struct mpu9250_driver_s *driver, v
     // Sets Sample Rate to 100Hz
     mpu9250_update_reg(device,
                               MPU9250_REG_SMPLRT_DIV,
-                              0x09,
+                              0x63, // 100
                               0xFF);
     // Set RAW_RDY_EN bit to enable interrupt on data rdy
     mpu9250_update_reg(device,
